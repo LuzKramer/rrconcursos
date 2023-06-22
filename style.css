@@ -1,0 +1,152 @@
+body{
+    width: 100%;
+    padding: 25px;
+    min-width: 200px;
+    max-width: 1200px;
+    margin: auto;
+}
+.header{
+    background-color: #E0E6F8;
+    color: black;
+    padding: 10px;
+    justify-content: space-between;
+    height: 130px;
+    width: 98,5%;
+    border-top: 3px solid #2931ef;
+   
+}
+.dv1{
+    display: flex;
+    justify-content: space-between;
+}
+.l1e{
+    height: 20px;
+    display: flex;
+}
+
+.bluep{
+    width: 5px;
+    align-items: flex-start;
+    height: 5px;
+}
+.ul1{
+    display: flex;
+}
+.ul2{
+    display: flex;
+}
+
+.l2{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+li{
+    color: black;
+    list-style-type: none;
+    padding-left: 2rem;
+}
+
+.principal{
+    display: flex;
+    border-top: 1px solid #000;
+    margin: auto;
+    width: 100%;
+   
+    height: 1200px;
+
+}
+.aside{
+    height: 1200px;
+    background: #E0E6F8;
+    width: 15%;
+}
+main{
+    height: 1140px;
+    width: 70%;
+    background: #0c5869;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+   
+    
+}
+
+
+.qmain{
+   
+    width: 500px;
+    height: 263px;
+    background:#924747; 
+    margin: 15px;
+    border-radius: 10px;
+    padding: 8px;
+
+}
+.q2m{ 
+   
+    width: 500px;
+    height: 263px;
+    background:#ffffff; 
+    border-radius: 10px;
+    margin: 15px;
+    padding: 8px;
+}
+
+.propagand{
+    height: 1140px;
+    width: 15% ;
+    background: #abeaf8;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+   
+    
+}
+
+.prop1{
+    border: radius 90px;
+    margin: 10px;
+}
+
+
+.prop2{
+    
+    
+   
+    
+   
+  
+    margin: 10px;
+
+   
+
+}
+
+
+footer{
+    display: flex;
+    background: #04123b;
+    height: 150px ;
+    width: 98,5%;
+    border-bottom: 1px solid #E0E6F8;
+    justify-content: space-between;
+    padding: 8px;
+}
+.ulf{
+    color: rgb(29, 218, 12);
+}
+.bluep2{
+    color: #60fda7;
+    background: #0a9922;
+    width: 140px;
+    align-items: flex-end;
+    height: 30px;
+    border: 8px;
+    padding: 8px;
+    
+}
