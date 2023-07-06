@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>rrCONCURSOS</title>
+        <title>rrCONCURSOS/home</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -40,110 +39,27 @@
             </div>
 
         </header>
-        <section class="principal">
+        <main class="MainIn">
 
-            <aside class="aside">
+            <div class="planos">
+                <h1> Faça login para ver questões</h1>
+                <a href="login.php">clique aqui </a>
+
+            </div>
+
+            <div class="planos">
+                <h1>Plano pago</h1>
                 <ul>
-                    <li><a href="caderno.html">CADERNOS</a></li>
-                    <li><a href="configs.html">CONFIGS</a></li>
-                    <li><a href="filtros.html">FILTROS</a></li>
+                    <li>Sem propagandas</li>
+                    <li>acesso offline</li>
+                    <li>salvar questões</li>
                 </ul>
 
-            </aside>
-            <main>
-                <div class="qmain">
-                
-                    banca:desconheida<br>
-                    instituição:desconhecida<br>
-                    ano:2023<br>
-                    
-                    <form method="post">
-                    
-                        <p>Quanto e 12*12+3 ?</p>
-                        <input type="radio" name="respostai" value="a"> a) 147<br>
-                        <input type="radio" name="respostai" value="b"> b) 246<br>
-                        <input type="radio" name="respostai" value="c"> c) 784<br>
-                        <input type="radio" name="respostai" value="d"> d) 146<br>
-                        <input type="submit"  name="verifica" value="verificar">
-                    </form>
-                    <br>
+            </div>
 
-                    
-                   <div id="resultadoi">
-                        <?php
-    
-                            if(isset($_POST['verifica'])) {
-                                $respos = $_POST["respostai"];
-                      
-     
-                                if ($respos == "d") {
-                                    echo "Resposta correta!";
-                                    echo '<style>#resultadoi { background-color: green; }</style>';
-           
-                                } 
-                                else {
-                                    echo "Resposta incorreta!";
-                                    echo '<style>#resultadoi { background-color: red; }</style>';
-          
-                               }
-                            }
-                        ?>
-                      
 
-                    </div>
-                </div>
-
-                <div class="q2m">
-                    <form method="post">
-                        
-                    banca:desconheida<br>
-                    instituição:desconhecida<br>
-                    ano:2023<br>
-                        <p>Qual é a capital do Brasil?</p>
-                        <input type="radio" name="resposta" value="a"> a) Brasília<br>
-                        <input type="radio" name="resposta" value="b"> b) São Paulo<br>
-                        <input type="radio" name="resposta" value="c"> c) Rio de Janeiro<br>
-                        <input type="radio" name="resposta" value="d"> d) Belo Horizonte<br>
-                        <input type="submit"  name="verificar" value="verificar">
-                    </form>
-                    <br>
-
-                    
-                    <div id="resultado">
-                    <?php
-                        
-                        if (isset($_POST['verificar'])) {
-                           
-                            $resposta = $_POST["resposta"];
-
-                         
-                            if ($resposta == "a") {
-                                echo "Resposta correta!";
-                                echo '<style>#resultado { background-color: green; }</style>';
-                               
-                            } 
-                            else {
-                                echo "Resposta incorreta!";
-                                echo '<style>#resultado { background-color: red; }</style>';
-                              
-                            }
-                        }
-                    ?>
-                   
-                    </div>
-                </div>
-
-            </main>
-            <aside class="propagand">
-               <div class="prop1">
-               <img src="img/prop.jpg" height="250px" width="175px"  >
-               </div>
-               <div class="prop2">
-               <img src="img/rrcurs.jpg" height=250px width="175px" >
-               </div>
-            </aside>
-        </section>
-
+        </main>
+        
         <footer>
             <ul>
                 <li class="ulf">RR CONCURSOS</li>

@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>rrCONCURSOS</title>
+        <title>rrCONCURSOS/questoes</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -50,7 +50,7 @@
                 </ul>
 
             </aside>
-            <main>
+            <main class="main1">
                 <div class="qmain">
                 
                     banca:desconheida<br>
@@ -70,7 +70,24 @@
 
                     
                    <div id="resultadoi">
-                        
+                        <?php
+    
+                            if(isset($_POST['verifica'])) {
+                                $respos = $_POST["respostai"];
+                      
+     
+                                if ($respos == "d") {
+                                    echo "Resposta correta!";
+                                    echo '<style>#resultadoi { background-color: green; }</style>';
+           
+                                } 
+                                else {
+                                    echo "Resposta incorreta!";
+                                    echo '<style>#resultadoi { background-color: red; }</style>';
+          
+                               }
+                            }
+                        ?>
                       
 
                     </div>
@@ -93,7 +110,25 @@
 
                     
                     <div id="resultado">
-                  
+                    <?php
+                        
+                        if (isset($_POST['verificar'])) {
+                           
+                            $resposta = $_POST["resposta"];
+
+                         
+                            if ($resposta == "a") {
+                                echo "Resposta correta!";
+                                echo '<style>#resultado { background-color: green; }</style>';
+                               
+                            } 
+                            else {
+                                echo "Resposta incorreta!";
+                                echo '<style>#resultado { background-color: red; }</style>';
+                              
+                            }
+                        }
+                    ?>
                    
                     </div>
                 </div>
