@@ -28,7 +28,7 @@
                     <li><a href="index.php">INICIO</a></li>
                     <li><a href="vestibular.html">VESTIBULAR</a></li>
                     <li><a href="aulas.html">AULAS</a></li>
-                    <li><a href="questoes.html">QUESTÕES</a></li>
+                    <li><a href="questoes.php">QUESTÕES</a></li>
                
 
                
