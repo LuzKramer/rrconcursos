@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +39,7 @@
 <body>
 
 <div class="login-box">
-    <img src="img/rr.jpeg" alt="" width="72" height="57">
+    <img src="../view/img/rr.jpeg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Login</h1>
 
     <form method="post" id="meuFormulario" onsubmit="return verificarFormulario()">
@@ -92,3 +95,25 @@
 
 </body>
 </html>
+
+
+<?php
+/* 
+   session_start();
+
+
+   if(isset($_POST['login'])) {
+   
+    $nome = $_POST["floatingName"];
+    
+    
+   
+    $_SESSION["floatingName"] = $nome;
+   
+    
+    
+    header("Location: index.php");
+    
+}
+*/
+?>

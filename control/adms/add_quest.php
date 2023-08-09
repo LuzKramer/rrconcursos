@@ -95,6 +95,9 @@ if (mysqli_connect_errno()) {
         </ul>
     </header>
     <form method="post">
+        <label for="imagem">Imagem (opcional):</label>
+        <input type="file" name="imagem" id="imagem">
+
         <label for="pergunta">Pergunta:</label>
         <textarea name="pergunta" id="pergunta" rows="4" cols="50" required></textarea>
 
@@ -176,7 +179,9 @@ if (mysqli_connect_errno()) {
 
 </html>
 
+
 <?php
+ 
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Obtain the form data
@@ -192,9 +197,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $opcao5 = $_POST["opcao5"];
     $resposta_correta = $_POST["resposta_correta"];
 
+    // Check if an image was uploaded
+    if(isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+        $image_data = file_get_contents($_FILES['imagem']['tmp_name']);
+        $image_base64 = base64_encode($image_data);
+    } else {
+        // If no image was uploaded, set it to NULL
+        $image_base64 = NULL;
+    }
+
     // Prepare and execute the SQL query to insert the question into the "questoes" table
-    $sql = "INSERT INTO questoes (id_disciplina, id_instituicao, ano, enunciado) 
-            VALUES ('$materia', '$instituicao', '$ano', '$pergunta')";
+    $sql = "INSERT INTO questoes (id_disciplina, id_instituicao, ano, enunciado, imagem) 
+            VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$image_base64')";
 
     if (mysqli_query($conexao, $sql)) {
         // Retrieve the ID of the newly inserted question

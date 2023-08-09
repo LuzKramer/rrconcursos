@@ -30,6 +30,12 @@ CREATE TABLE IF NOT EXISTS questoes (
   FOREIGN KEY (id_disciplina) REFERENCES disciplinas(id_disciplina) ON DELETE CASCADE,
   FOREIGN KEY (id_instituicao) REFERENCES instituicao(id_instituicao) ON DELETE CASCADE
 );
+
+ALTER TABLE questoes ADD COLUMN imagem_blob LONGBLOB;
+
+
+
+
  CREATE TABLE IF NOT EXISTS alternativas (
   id_alternativa INT AUTO_INCREMENT PRIMARY KEY,
   id_questao INT NOT NULL,
