@@ -20,7 +20,7 @@
 <body>
 <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
-            <li class="nav-item"><a href="index.php" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="../index.php" class="nav-link active" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="adms/add_quest.php" class="nav-link">Adicionar Questão</a></li>
             <li class="nav-item"><a href="adms/addbank.php" class="nav-link">Adicionar Banca</a></li>
             <li class="nav-item"><a href="adms/add_institui.php" class="nav-link">Adicionar Instituição</a></li>
