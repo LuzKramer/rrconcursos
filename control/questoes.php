@@ -1,41 +1,43 @@
-
+<?php
+include('protect.php');
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>rrCONCURSOS/questoes</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../view/style.css">
     </head>
     <body>
         <header class="header">
             <div class="dv1">
                 <div class="l1e">
-                   <div class="bluep"><img src="img/rr.jpeg" height="35px"></div>
+                   <div class="bluep"><img src="../view/img/rr.jpeg" height="35px"></div>
                     <ul class="ul1">
-                        <li><a href="index.php">menu</a></li>
+                        <li><a href="../index.php">menu</a></li>
                     </ul>
                 </div>
                 <h1>rr CONCURSOS</h1>
                <ul class="ul2">
-                   <li><a href="ajuda.html">ajuda</a></li>
-                   <li><a href="assinar.html">assinar</a></li>
-                   <li><a href="login.php">entrar</a></li>
+                   <li><a href="../control/ajuda.php">ajuda</a></li>
+                   <li><a href="../control/assinar.php">assinar</a></li>
+                   <li><a href="../control/inout.php">entrar</a></li>
                </ul>
             </div>
             
 
            <div class="l2">
                
-                    <li><a href="index.php">INICIO</a></li>
-                    <li><a href="vestibular.html">VESTIBULAR</a></li>
-                    <li><a href="aulas.html">AULAS</a></li>
-                    <li><a href="questoes.html">QUESTÕES</a></li>
+                    <li><a href="../index.php">INICIO</a></li>
+                    <li><a href="../control/estibular.php">VESTIBULAR</a></li>
+                    <li><a href="../control/aulas.php">AULAS</a></li>
+                    <li><a href="../control/questoes.php">QUESTÕES</a></li>
                
 
                
-                    <li><a href="outroscads.html">OUTROS CADERNOS</a></li>
-                    <li><a href="noticias.html">NOTICIAS</a></li>
-                    <li><a href="infos.html">+INFOS</a></li>
+                    <li><a href="../control/outroscads.php">OUTROS CADERNOS</a></li>
+                    <li><a href="../control/noticias.php">NOTICIAS</a></li>
+                    <li><a href="../control/infos.php">+INFOS</a></li>
                
             </div>
 
@@ -44,9 +46,9 @@
 
             <aside class="aside">
                 <ul>
-                    <li><a href="caderno.html">CADERNOS</a></li>
-                    <li><a href="configs.html">CONFIGS</a></li>
-                    <li><a href="filtros.html">FILTROS</a></li>
+                    <li><a href="../control/caderno.php">CADERNOS</a></li>
+                    <li><a href="../control/configs.php">CONFIGS</a></li>
+                    <li><a href="../control/filtros.php">FILTROS</a></li>
                 </ul>
 
             </aside>
@@ -136,10 +138,10 @@
             </main>
             <aside class="propagand">
                <div class="prop1">
-               <img src="img/prop.jpg" height="250px" width="175px"  >
+               <img src="../view/img/prop.jpg" height="250px" width="175px"  >
                </div>
                <div class="prop2">
-               <img src="img/rrcurs.jpg" height=250px width="175px" >
+               <img src="../view/img/rrcurs.jpg" height=250px width="175px" >
                </div>
             </aside>
         </section>

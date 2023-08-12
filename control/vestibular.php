@@ -1,4 +1,6 @@
-
+<?php
+include('protect.php');
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,8 +19,8 @@
                 </div>
                 <h1>rr CONCURSOS</h1>
                <ul class="ul2">
-                   <li><a href="../control/ajuda.html">ajuda</a></li>
-                   <li><a href="../control/assinar.html">assinar</a></li>
+                   <li><a href="../control/ajuda.php">ajuda</a></li>
+                   <li><a href="../control/assinar.php">assinar</a></li>
                    <li><a href="../control/login.php">entrar</a></li>
                </ul>
             </div>
@@ -27,15 +29,15 @@
            <div class="l2">
                
                     <li><a href="../index.php">INICIO</a></li>
-                    <li><a href="../control/vestibular.html">VESTIBULAR</a></li>
-                    <li><a href="../control/aulas.html">AULAS</a></li>
+                    <li><a href="../control/vestibular.php">VESTIBULAR</a></li>
+                    <li><a href="../control/aulas.php">AULAS</a></li>
                     <li><a href="../control/questoes.php">QUESTÕES</a></li>
                
 
                
-                    <li><a href="../control/outroscads.html">OUTROS CADERNOS</a></li>
-                    <li><a href="../control/noticias.html">NOTICIAS</a></li>
-                    <li><a href="../control/infos.html">+INFOS</a></li>
+                    <li><a href="../control/outroscads.php">OUTROS CADERNOS</a></li>
+                    <li><a href="../control/noticias.php">NOTICIAS</a></li>
+                    <li><a href="../control/infos.php">+INFOS</a></li>
                
             </div>
 

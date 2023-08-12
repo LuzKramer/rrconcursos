@@ -47,3 +47,11 @@ ALTER TABLE questoes ADD COLUMN imagem_blob LONGBLOB;
   correta INT NOT NULL,
   FOREIGN KEY (id_questao) REFERENCES questoes(id_questao) ON DELETE CASCADE
 );
+
+
+CREATE TABLE tb_login(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    nome varchar(255) NOT NULL, 
+    email varchar(255) NOT NULL,
+    senha varchar(255)not null
+);

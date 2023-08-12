@@ -1,42 +1,63 @@
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Tela de Login</title>
     <style>
         body {
-            background-color: #0d6efd;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
         }
-        
+
+        .top-bar {
+            text-align: right;
+            padding: 10px;
+        }
+
         .login-box {
-            background-color: white;
-            border-radius: 5px;
-            padding: 30px;
-            text-align: center;
+            background-color: #ffffff;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 100px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .login-box img {
-            margin-bottom: 15px;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
         }
-        
+
         .form-floating {
             margin-bottom: 15px;
         }
-        
+
         .form-check {
-            margin-top: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .text-body-secondary {
+            color: #888;
         }
     </style>
 </head>
 <body>
+
+<div class="top-bar">
+    <a href="../control/cadastro.php">Criar conta</a>
+</div>
 
 <div class="login-box">
     <img src="../view/img/rr.jpeg" alt="" width="72" height="57">
@@ -44,16 +65,12 @@
 
     <form method="post" id="meuFormulario" onsubmit="return verificarFormulario()">
         <div class="form-floating">
-            <label for="floatingName">Nome</label>
-            <input type="text" class="form-control" id="floatingName" placeholder="Nome">
-        </div>
-        <div class="form-floating">
             <label for="floatingInput">Email</label>
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
         </div>
         <div class="form-floating">
             <label for="floatingPassword">Senha</label>
-            <input type="password" class="form-control" id="floatingPassword" placeholder="senha123qwerty">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="senha123qwerty" name="password">
         </div>
 
         <div class="form-check text-start">
@@ -70,14 +87,8 @@
 
 <script>
     function verificarFormulario() {
-        var nome = document.getElementById("floatingName").value;
         var email = document.getElementById("floatingInput").value;
         var senha = document.getElementById("floatingPassword").value;
-
-        if (nome === "") {
-            alert("Por favor, preencha o campo Nome");
-            return false;
-        }
 
         if (email === "") {
             alert("Por favor, preencha o campo Email");
@@ -98,22 +109,36 @@
 
 
 <?php
-/* 
-   session_start();
+
+include('conection.php');
 
 
-   if(isset($_POST['login'])) {
+    $email = $mysqli->real_escape_string($_POST['email']);
+    $password = $mysqli->real_escape_string($_POST['password']);
    
-    $nome = $_POST["floatingName"];
+
+    $sql_code = "SELECT * FROM tb_login WHERE email = '$email' LIMIT 1 ";
+    $sql_exec = $mysqli->query($sql_code) or die("SQL code error: " . $mysqli->error);
+
+    $quantity = $sql_exec->num_rows;
+
+    if ($quantity == 1) {
+        $user = $sql_exec->fetch_assoc();
+
+        if(!isset($_SESSION)){
+            session_start();
+        }
+        $_SESSION['nome'] = $user['nome'];
+
+        if (password_verify($password, $user['senha'])) {
+            echo "usuario logado";
+          
+            header("Location: ../control/filtros.php");
+            exit();
+            
+        } else {
+            echo "Erro ao logar! Email ou senha incorretos.";
+        }
     
-    
-   
-    $_SESSION["floatingName"] = $nome;
-   
-    
-    
-    header("Location: index.php");
-    
-}
-*/
+    }
 ?>
