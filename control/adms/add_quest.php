@@ -23,7 +23,6 @@ if (mysqli_connect_errno()) {
     <title>Inserir Questão</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Administração</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -94,7 +93,7 @@ if (mysqli_connect_errno()) {
             <li class="nav-item"><a href="add_discip.php" class="nav-link">Adicionar Disciplina</a></li>
         </ul>
     </header>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <label for="imagem">Imagem (opcional):</label>
         <input type="file" name="imagem" id="imagem">
 
@@ -179,12 +178,10 @@ if (mysqli_connect_errno()) {
 
 </html>
 
-
 <?php
- 
-// Check if the form was submitted
+// Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Obtain the form data
+    // Obtém os dados do formulário
     $pergunta = $_POST["pergunta"];
     $banca = $_POST["banca"];
     $ano = $_POST["ano"];
@@ -197,24 +194,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $opcao5 = $_POST["opcao5"];
     $resposta_correta = $_POST["resposta_correta"];
 
-    // Check if an image was uploaded
-    if(isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-        $image_data = file_get_contents($_FILES['imagem']['tmp_name']);
-        $image_base64 = base64_encode($image_data);
-    } else {
-        // If no image was uploaded, set it to NULL
-        $image_base64 = NULL;
+    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+        $extension = strtolower(strrchr($_FILES['imagem']['name'], '.' ));
+        $newname = md5(time()) . $extension;
+        $uploadDir = 'view/up/';
+        move_uploaded_file($_FILES['imagem']['tmp_name'], $uploadDir . $newname);
     }
 
-    // Prepare and execute the SQL query to insert the question into the "questoes" table
+    // Prepara e executa a consulta SQL para inserir a pergunta na tabela "questoes"
     $sql = "INSERT INTO questoes (id_disciplina, id_instituicao, ano, enunciado, imagem) 
-            VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$image_base64')";
+            VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$newname')";
 
     if (mysqli_query($conexao, $sql)) {
-        // Retrieve the ID of the newly inserted question
+        // Obtém o ID da pergunta recém-inserida
         $questao_id = mysqli_insert_id($conexao);
 
-        // Prepare and execute the SQL query to insert the options into the "alternativas" table
+        // Prepara e executa a consulta SQL para inserir as opções na tabela "alternativas"
         $sql_alternativas = "INSERT INTO alternativas (id_questao, txt_alt1, txt_alt2, txt_alt3, txt_alt4, txt_alt5, correta) VALUES 
                        ($questao_id, '$opcao1', '$opcao2', '$opcao3', '$opcao4', '$opcao5', '$resposta_correta')";
 
@@ -227,7 +222,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "Erro ao inserir a questão: " . mysqli_error($conexao);
     }
 
-    // Close the database connection
+    // Fecha a conexão com o banco de dados
     mysqli_close($conexao);
 }
 ?>

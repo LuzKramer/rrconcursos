@@ -27,11 +27,12 @@ CREATE TABLE IF NOT EXISTS questoes (
   id_instituicao INT NOT NULL,
   ano INT NOT NULL,
   enunciado TEXT NOT NULL,
+  imagem VARCHAR ,
   FOREIGN KEY (id_disciplina) REFERENCES disciplinas(id_disciplina) ON DELETE CASCADE,
   FOREIGN KEY (id_instituicao) REFERENCES instituicao(id_instituicao) ON DELETE CASCADE
 );
 
-ALTER TABLE questoes ADD COLUMN imagem_blob LONGBLOB;
+
 
 
 
