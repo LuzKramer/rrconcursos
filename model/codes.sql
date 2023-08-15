@@ -1,3 +1,4 @@
+
 - Create the database if it doesn't exist
 CREATE DATABASE IF NOT EXISTS db_rrconcursos;
 USE db_rrconcursos;

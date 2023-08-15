@@ -194,16 +194,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $opcao5 = $_POST["opcao5"];
     $resposta_correta = $_POST["resposta_correta"];
 
-    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-        $extension = strtolower(strrchr($_FILES['imagem']['name'], '.' ));
-        $newname = md5(time()) . $extension;
-        $uploadDir = 'view/up/';
-        move_uploaded_file($_FILES['imagem']['tmp_name'], $uploadDir . $newname);
-    }
 
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["imagem"])) {
+        $uploadDir = "view/up/";
+        $imageName = uniqid() . '_' . $_FILES["imagem"]["name"];
+        $targetFile = $uploadDir . $imageName;
+    
+        if (move_uploaded_file($_FILES["imagem"]["tmp_name"], $targetFile)) {}
+           
+    }
     // Prepara e executa a consulta SQL para inserir a pergunta na tabela "questoes"
     $sql = "INSERT INTO questoes (id_disciplina, id_instituicao, ano, enunciado, imagem) 
-            VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$newname')";
+    VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$targetFile')";
 
     if (mysqli_query($conexao, $sql)) {
         // Obtém o ID da pergunta recém-inserida
