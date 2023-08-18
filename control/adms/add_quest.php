@@ -11,7 +11,7 @@ $dbname = "db_rrconcursos"; // Replace with your database name
 $conexao = mysqli_connect($host, $username, $password, $dbname);
 
 // Check if the connection was successful
-if (mysqli_connect_errno()) {
+if (mysqli_connect_error()) {
     die("Failed to connect to MySQL: " . mysqli_connect_error());
 }
 ?>
@@ -194,18 +194,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $opcao5 = $_POST["opcao5"];
     $resposta_correta = $_POST["resposta_correta"];
 
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["imagem"])) {
-        $uploadDir = "view/up/";
-        $imageName = uniqid() . '_' . $_FILES["imagem"]["name"];
-        $targetFile = $uploadDir . $imageName;
-    
-        if (move_uploaded_file($_FILES["imagem"]["tmp_name"], $targetFile)) {}
+    if(isset($_FILES['imagem'])){
+        $img = $_FILES['imagem'];
+        
+        if($img['error'])
+           die("falha ao salvar imagem");
+        
+        if($img['size'] > 2097152)
+            die("imagem mair que 2MB");
+        
+        $pasta = "../../view/up/";
+        $nomeImg = $img['name'];
+        $newname =  uniqid();
+        $extension = strtolower(pathinfo($nomeImg, PATHINFO_EXTENSION));
+        
+        if($extension != "jpg" &&  $extension != "png" && $extension != "jpeg")
+           die("tipe de arquivo invalido ");
            
+           $path = $pasta . $newname . "." . $extension;
+        
+        $bora = move_uploaded_file($img["tmp_name"], $path);
+        
+        if($bora){
+            echo"img salva";
+        }
     }
+    
+
+
     // Prepara e executa a consulta SQL para inserir a pergunta na tabela "questoes"
     $sql = "INSERT INTO questoes (id_disciplina, id_instituicao, ano, enunciado, imagem) 
-    VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$targetFile')";
+    VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$path')";
 
     if (mysqli_query($conexao, $sql)) {
         // Obtém o ID da pergunta recém-inserida
