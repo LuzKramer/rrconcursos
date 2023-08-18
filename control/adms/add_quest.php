@@ -194,37 +194,40 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $opcao5 = $_POST["opcao5"];
     $resposta_correta = $_POST["resposta_correta"];
 
-    if(isset($_FILES['imagem'])){
+
+    if (isset($_FILES['imagem'])) {
         $img = $_FILES['imagem'];
-        
-        if($img['error'])
-           die("falha ao salvar imagem");
-        
-        if($img['size'] > 2097152)
+
+        if ($img['error'])
+            die("falha ao salvar imagem");
+
+        if ($img['size'] > 2097152)
             die("imagem mair que 2MB");
-        
+
         $pasta = "../../view/up/";
         $nomeImg = $img['name'];
         $newname =  uniqid();
         $extension = strtolower(pathinfo($nomeImg, PATHINFO_EXTENSION));
-        
-        if($extension != "jpg" &&  $extension != "png" && $extension != "jpeg")
-           die("tipe de arquivo invalido ");
-           
-           $path = $pasta . $newname . "." . $extension;
-        
+
+        if ($extension != "jpg" &&  $extension != "png" && $extension != "jpeg")
+            die("tipe de arquivo invalido ");
+
+        $path = $pasta . $newname . "." . $extension;
+
+        $folder = "../view/up/";
+
+        $save = $folder . $newname . "." . $extension;
+
         $bora = move_uploaded_file($img["tmp_name"], $path);
-        
-        if($bora){
-            echo"img salva";
-        }
+
     }
+
     
 
 
     // Prepara e executa a consulta SQL para inserir a pergunta na tabela "questoes"
     $sql = "INSERT INTO questoes (id_disciplina, id_instituicao, ano, enunciado, imagem) 
-    VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$path')";
+    VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$save')";
 
     if (mysqli_query($conexao, $sql)) {
         // Obtém o ID da pergunta recém-inserida
