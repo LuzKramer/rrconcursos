@@ -198,11 +198,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_FILES['imagem'])) {
         $img = $_FILES['imagem'];
 
-        if ($img['error'])
+        if ($img['error']){
             die("falha ao salvar imagem");
+        }
 
-        if ($img['size'] > 2097152)
+        if ($img['size'] > 2097152){
             die("imagem mair que 2MB");
+        }
 
         $pasta = "../../view/up/";
         $nomeImg = $img['name'];

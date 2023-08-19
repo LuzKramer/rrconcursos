@@ -1,5 +1,5 @@
 
-- Create the database if it doesn't exist
+ 
 CREATE DATABASE IF NOT EXISTS db_rrconcursos;
 USE db_rrconcursos;
 
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS questoes (
   id_instituicao INT NOT NULL,
   ano INT NOT NULL,
   enunciado TEXT NOT NULL,
-  imagem VARCHAR ,
+  imagem VARCHAR (255),
   FOREIGN KEY (id_disciplina) REFERENCES disciplinas(id_disciplina) ON DELETE CASCADE,
   FOREIGN KEY (id_instituicao) REFERENCES instituicao(id_instituicao) ON DELETE CASCADE
 );
@@ -56,4 +56,13 @@ CREATE TABLE tb_login(
     nome varchar(255) NOT NULL, 
     email varchar(255) NOT NULL,
     senha varchar(255)not null
+);
+
+
+CREATE TABLE tb_news(
+  id int AUTO_INCREMENT PRIMARY KEY,
+  title varchar(255) NOT NULL,
+  news TEXT NOT NULL,
+  date DATE NOT NULL,
+  img varchar(255)
 );
