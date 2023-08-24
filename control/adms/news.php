@@ -71,3 +71,70 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 // hey mate what u r lookin' ?
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News CRUD</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-danger {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">News CRUD</h1>
+
+        <!-- Create form -->
+        <h2 class="mt-4">Create News</h2>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" name="title" placeholder="Title" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <textarea name="news" placeholder="News" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="file" name="img" class="form-control-file">
+            </div>
+            <button type="submit" name="create" class="btn btn-primary">Create</button>
+        </form>
+
+        <!-- Read data -->
+        <h2 class="mt-4">News List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Move this section outside the POST request block
+                $sql = "SELECT * FROM tb_news";
+                $result = $conn->query($sql);
+
+                while ($row = $result->fetch_assoc()):
+                ?>
+                <tr>
+                    <td><?php echo $row['title']; ?></td>
+                    <td><?php echo $row['date']; ?></td>
+                    <td>
+                        <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-sm">Edit</a>
+                        <a href="?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
