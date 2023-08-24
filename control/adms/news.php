@@ -94,7 +94,7 @@ mysqli_close($conn);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .btn-danger {
-            background-color: red;
+            backgroundcolor: red;
         }
     </style>
 </head>
@@ -139,7 +139,7 @@ mysqli_close($conn);
             <td><?php echo $row['date']; ?></td>
             <td>
                 <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-sm">Edit</a>
-                <a href="?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                <a href="?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this news item?')">Delete</a>
             </td>
         </tr>
         <?php endwhile; ?>
