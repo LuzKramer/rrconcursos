@@ -1,3 +1,21 @@
+
+
+
+<?php
+
+$user = 'root';
+$password = '';
+$db = 'db_rrconcursos';
+$host = 'localhost';
+
+$conn= new mysqli($host, $user, $password, $db);
+
+if($mysqli->error){
+    die("error to conect".$conn->error);
+}
+
+?>
+
 <?php
 
 $user = 'root';
@@ -15,3 +33,4 @@ if($mysqli->error){
 
 
  ?>
+

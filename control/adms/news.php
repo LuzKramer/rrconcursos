@@ -1,14 +1,15 @@
 
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_rrconcursos";
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$user = 'root';
+$password = '';
+$db = 'db_rrconcursos';
+$host = 'localhost';
+
+$conn= new mysqli($host, $user, $password, $db);
+
+if($mysqli->error){
+    die("error to conect".$conn->error);
 }
 
 // Delete
@@ -70,9 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 // hey mate what u r lookin' ?
 
-?>
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html>
 <head>
     <title>News CRUD</title>

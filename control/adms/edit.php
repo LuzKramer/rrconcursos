@@ -1,13 +1,14 @@
 <?php
 // Database connection (same as in your previous code)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_rrconcursos";
+$user = 'root';
+$password = '';
+$db = 'db_rrconcursos';
+$host = 'localhost';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$conn= new mysqli($host, $user, $password, $db);
+
+if($mysqli->error){
+    die("error to conect".$conn->error);
 }
 
 if (isset($_GET['id'])) {
