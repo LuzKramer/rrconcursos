@@ -87,10 +87,7 @@ if (mysqli_connect_error()) {
     <header class="d-flex justify-content-center py-3">
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="../dashboard.php" class="nav-link active" aria-current="page">Dashboard</a></li>
-            <li class="nav-item"><a href="add_quest.php" class="nav-link">Adicionar Questão</a></li>
-            <li class="nav-item"><a href="addbank.php" class="nav-link">Adicionar Banca</a></li>
-            <li class="nav-item"><a href="add_institui.php" class="nav-link">Adicionar Instituição</a></li>
-            <li class="nav-item"><a href="add_discip.php" class="nav-link">Adicionar Disciplina</a></li>
+            <li class="nav-item"><a href="viewquest.php" class="nav-link">Questões</a></li>
         </ul>
     </header>
     <form method="post" enctype="multipart/form-data">
@@ -180,6 +177,7 @@ if (mysqli_connect_error()) {
 
 <?php
 // Verifica se o formulário foi enviado
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Obtém os dados do formulário
     $pergunta = $_POST["pergunta"];
@@ -194,21 +192,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $opcao5 = $_POST["opcao5"];
     $resposta_correta = $_POST["resposta_correta"];
 
+    $save = null; // Inicializa a variável de salvamento de imagem
 
-    if (isset($_FILES['imagem'])) {
+    if (isset($_FILES['imagem']) && $_FILES['imagem']['size'] > 0) {
         $img = $_FILES['imagem'];
 
         if ($img['size'] > 2097152){
-            die("imagem mair que 2MB");
+            die("Imagem maior que 2MB");
         }
 
         $pasta = "../../view/up/";
         $nomeImg = $img['name'];
-        $newname =  uniqid();
+        $newname = uniqid();
         $extension = strtolower(pathinfo($nomeImg, PATHINFO_EXTENSION));
 
-        if ($extension != "jpg" &&  $extension != "png" && $extension != "jpeg")
-            die("tipe de arquivo invalido ");
+        if ($extension != "jpg" && $extension != "png" && $extension != "jpeg") {
+            die("Tipo de arquivo inválido");
+        }
 
         $path = $pasta . $newname . "." . $extension;
 
@@ -217,34 +217,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $save = $folder . $newname . "." . $extension;
 
         $bora = move_uploaded_file($img["tmp_name"], $path);
-
     }
 
-    
-
-
-    // Prepara e executa a consulta SQL para inserir a pergunta na tabela "questoes"
     $sql = "INSERT INTO questoes (id_disciplina, id_instituicao, ano, enunciado, imagem) 
-    VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$save')";
+            VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$save')";
 
     if (mysqli_query($conexao, $sql)) {
-        // Obtém o ID da pergunta recém-inserida
         $questao_id = mysqli_insert_id($conexao);
 
-        // Prepara e executa a consulta SQL para inserir as opções na tabela "alternativas"
         $sql_alternativas = "INSERT INTO alternativas (id_questao, txt_alt1, txt_alt2, txt_alt3, txt_alt4, txt_alt5, correta) VALUES 
-                       ($questao_id, '$opcao1', '$opcao2', '$opcao3', '$opcao4', '$opcao5', '$resposta_correta')";
+                             ($questao_id, '$opcao1', '$opcao2', '$opcao3', '$opcao4', '$opcao5', '$resposta_correta')";
 
         if (mysqli_query($conexao, $sql_alternativas))  {
-            echo "<script>alert('questao adicionada com sucesso!');</script>";
+            echo "<script>alert('Questão adicionada com sucesso!');</script>";
         } else {
-            echo "<script>alert('Erro ao adicionar questao.');</script>";
+            echo "<script>alert('Erro ao adicionar questão.');</script>";
         }
     } else {
         echo "Erro ao inserir a questão: " . mysqli_error($conexao);
     }
 
-    // Fecha a conexão com o banco de dados
     mysqli_close($conexao);
 }
+
 ?>

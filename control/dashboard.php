@@ -21,10 +21,10 @@
 <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
             <li class="nav-item"><a href="../index.php" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="adms/add_quest.php" class="nav-link">Adicionar Questão</a></li>
-            <li class="nav-item"><a href="adms/addbank.php" class="nav-link">Adicionar Banca</a></li>
-            <li class="nav-item"><a href="adms/add_institui.php" class="nav-link">Adicionar Instituição</a></li>
-            <li class="nav-item"><a href="adms/add_discip.php" class="nav-link">Adicionar Disciplina</a></li>
+            <li class="nav-item"><a href="adms/viewquest.php" class="nav-link">questoes</a></li>
+            <li class="nav-item"><a href="adms/bancas.php" class="nav-link"> Bancas</a></li>
+            <li class="nav-item"><a href="adms/institui.php" class="nav-link"> Instituições</a></li>
+            <li class="nav-item"><a href="adms/disciplinas.php" class="nav-link">Disciplinas</a></li>
       </ul>
     </header>
 

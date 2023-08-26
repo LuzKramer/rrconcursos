@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+
+<header class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="../dashboard.php" class="nav-link active" aria-current="page">Dashboard</a></li>
+            <li class="nav-item"><a href="add_quest.php" class="nav-link">Adicionar Questão</a></li>
+           
+        </ul>
+    </header>
     <?php
     // Detalhes de conexão do banco de dados
     $servername = "localhost";
