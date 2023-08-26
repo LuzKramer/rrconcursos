@@ -10,17 +10,42 @@ $conn= new mysqli($host, $user, $password, $db);
 
 if($mysqli->error){
     die("error to conect".$conn->error);
+
+
 }
 
-// Delete
+//delete
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    $sql = "DELETE FROM tb_news WHERE id=?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "i", $id);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+
+    $sqlSelect = "SELECT img FROM tb_news WHERE id=?";
+    $stmtSelect = $conn->prepare($sqlSelect);
+    $stmtSelect->bind_param("i", $id);
+    $stmtSelect->execute();
+
+    $resultSelect = $stmtSelect->get_result();
+
+    if ($resultSelect->num_rows > 0) {
+        $row = $resultSelect->fetch_assoc();
+        $imgPath = $row["img"];
+
+        // Delete the image file
+        unlink($imgPath);
+    }
+
+    $stmtSelect->close();
+
+    $sqlDelete = "DELETE FROM tb_news WHERE id=?";
+    $stmtDelete = $conn->prepare($sqlDelete);
+    $stmtDelete->bind_param("i", $id);
+    $stmtDelete->execute();
+    $stmtDelete->close();
 }
+
+
+
+
+//add
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $title = $_POST['title'];
@@ -124,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <td><?php echo $row['title']; ?></td>
                     <td><?php echo $row['date']; ?></td>
                     <td>
-                        <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-sm">Edit</a>
+                        <a href="edit_news.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-sm">Edit</a>
                         <a href="?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 // Database connection details
 $host = "localhost"; // Replace with your database host
@@ -198,10 +198,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_FILES['imagem'])) {
         $img = $_FILES['imagem'];
 
-        if ($img['error']){
-            die("falha ao salvar imagem");
-        }
-
         if ($img['size'] > 2097152){
             die("imagem mair que 2MB");
         }
@@ -239,10 +235,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $sql_alternativas = "INSERT INTO alternativas (id_questao, txt_alt1, txt_alt2, txt_alt3, txt_alt4, txt_alt5, correta) VALUES 
                        ($questao_id, '$opcao1', '$opcao2', '$opcao3', '$opcao4', '$opcao5', '$resposta_correta')";
 
-        if (mysqli_query($conexao, $sql_alternativas)) {
-            echo "Questão inserida com sucesso!";
+        if (mysqli_query($conexao, $sql_alternativas))  {
+            echo "<script>alert('questao adicionada com sucesso!');</script>";
         } else {
-            echo "Erro ao inserir as alternativas: " . mysqli_error($conexao);
+            echo "<script>alert('Erro ao adicionar questao.');</script>";
         }
     } else {
         echo "Erro ao inserir a questão: " . mysqli_error($conexao);
