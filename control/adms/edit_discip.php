@@ -1,3 +1,9 @@
+
+<?php
+include"admprotect.php";
+?>
+
+
 <?php
 // Database connection (same as in your previous code)
 $servername = "localhost";

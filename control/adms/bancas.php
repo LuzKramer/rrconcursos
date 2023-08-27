@@ -1,4 +1,7 @@
 <?php
+include"admprotect.php";
+?>
+<?php
 $user = 'root';
 $password = '';
 $db = 'db_rrconcursos';

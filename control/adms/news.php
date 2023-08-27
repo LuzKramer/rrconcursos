@@ -1,4 +1,9 @@
 
+
+<?php
+include"admprotect.php";
+?>
+
 <?php
 
 $user = 'root';

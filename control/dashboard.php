@@ -1,3 +1,8 @@
+
+<?php
+include"adms/admprotect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +30,8 @@
             <li class="nav-item"><a href="adms/bancas.php" class="nav-link"> Bancas</a></li>
             <li class="nav-item"><a href="adms/institui.php" class="nav-link"> Instituições</a></li>
             <li class="nav-item"><a href="adms/disciplinas.php" class="nav-link">Disciplinas</a></li>
+            <li class="nav-item"><a href="adms/admcadastro.php" class="nav-link">cadastrar adm</a></li>
+            <li class="nav-item"><a href="../control/logout.php" class="nav-link">sair</a></li>
       </ul>
     </header>
 

@@ -1,5 +1,10 @@
 
 
+<?php
+include"admprotect.php";
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>

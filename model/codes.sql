@@ -66,3 +66,14 @@ CREATE TABLE tb_news(
   date DATE NOT NULL,
   img varchar(255)
 );
+
+
+
+
+CREATE TABLE tb_admlogin(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    nome varchar(255) NOT NULL, 
+    email varchar(255) NOT NULL,
+    senha varchar(255)not null
+);
+
