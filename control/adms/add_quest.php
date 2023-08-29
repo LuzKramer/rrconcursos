@@ -115,7 +115,7 @@ if (mysqli_connect_error()) {
         </select>
 
         <label for="ano">Ano:</label>
-        <input type="number" name="ano" id="ano" required>
+        <input type="number" name="ano" id="ano" maxlength="4"required>
 
         <label for="instituicao">Instituição:</label>
         <select name="instituicao" id="instituicao" required>

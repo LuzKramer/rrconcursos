@@ -41,7 +41,7 @@
     <?php
     include "conection.php";
     $sql = "SELECT * FROM tb_news";
-    $result = $conn->query($sql);
+    $result = $mysqli->query($sql);
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -60,7 +60,7 @@
         echo "No news available.";
     }
 
-    $conn->close();
+    $mysqli->close();
     ?>
 </div>
 
