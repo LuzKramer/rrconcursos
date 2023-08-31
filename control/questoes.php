@@ -14,6 +14,7 @@ include ('conection')
             <div class="dv1">
                 <div class="l1e">
                    <div class="bluep"><img src="../view/img/rr.jpeg" height="35px"></div>
+}
                     <ul class="ul1">
                         <li><a href="../index.php">menu</a></li>
                     </ul>
