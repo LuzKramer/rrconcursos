@@ -59,12 +59,6 @@ li{
     height: 2300px;
 
 }
-.aside{
-    height: 1200px;
-    background: #1ebd60;
-    width: 15%;
-    box-shadow: 1px 1px 1px black;
-}
 .main1{
     height: 2250px;
     width: 100%;
@@ -110,38 +104,6 @@ form{
 
 }
 
-
-.propagand{
-    height: 1140px;
-    width: 15% ;
-    background: #E0E6F8;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    border-right: 2px #000;
-   
-   
-    
-}
-
-.prop1{
-    border: radius 90px;
-    margin: 10px;
-}
-
-
-.prop2{
-    
-    
-   
-    
-   
-  
-    margin: 10px;
-
-   
-
-}
 
 
 footer{
