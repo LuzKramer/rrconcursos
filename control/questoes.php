@@ -1,5 +1,6 @@
 <?php
 include('protect.php');
+include ('conection')
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,7 @@ include('protect.php');
             <div class="dv1">
                 <div class="l1e">
                    <div class="bluep"><img src="../view/img/rr.jpeg" height="35px"></div>
+}
                     <ul class="ul1">
                         <li><a href="../index.php">menu</a></li>
                     </ul>
@@ -44,106 +46,116 @@ include('protect.php');
         </header>
         <section class="principal">
 
-            <aside class="aside">
-                <ul>
-                    <li><a href="../control/caderno.php">CADERNOS</a></li>
-                    <li><a href="../control/configs.php">CONFIGS</a></li>
-                    <li><a href="../control/filtros.php">FILTROS</a></li>
-                </ul>
-
-            </aside>
+            
             <main class="main1">
-                <div class="qmain">
-                
-                    banca:desconheida<br>
-                    instituição:desconhecida<br>
-                    ano:2023<br>
-                    
-                    <form method="post">
-                    
-                        <p>Quanto e 12*12+3 ?</p>
-                        <input type="radio" name="respostai" value="a"> a) 147<br>
-                        <input type="radio" name="respostai" value="b"> b) 246<br>
-                        <input type="radio" name="respostai" value="c"> c) 784<br>
-                        <input type="radio" name="respostai" value="d"> d) 146<br>
-                        <input type="submit"  name="verifica" value="verificar">
-                    </form>
-                    <br>
+            
+            <?php
+    $palavra = "errado"; // palavra que deseja colorir
+    $cor = "red"; // cor que deseja aplicar à palavra
+?>
+<p> Portanto, está  <span style="color: <?php echo $cor; ?>"><?php echo $palavra; ?></span> (a) </p>
 
+
+
+                <?php
+            include ("conection.php");
+            $questao = "SELECT * FROM questoes as a1, alternativas as a2, disciplinas as a3 where a1.id_questao=a2.id_questao;";
+            $query_questao = mysqli_query($mysqli, $questao);
+            
+            
+            
+            
+            
+            
+            
+            
+            //Perguntas ------------------- --------------------- ------------------
+            
+            
+            
+            
+            //Parte 2 - Valiando a resposta correta
+            
+            
+            
+            $cont = 0;
+            while( $resultado = mysqli_fetch_assoc($query_questao) ){
+                $contar = $cont + 1;
+                $responder = $responder + $contar;
+                $resultado['id_questao'] = $resultado['id_alternativa'];
+                if($resultado['id_questao'] === $resultado['id_alternativa']){
                     
-                   <div id="resultadoi">
-                        <?php
+                }
+                ?>
+
+
+
+<form action="" method="POST">
+<?php
+echo "<img src='../view/img/rr.jpeg' alt='Imagem not found'> </img>". '<br>';
+
+$enunciado = $resultado['enunciado'];
+$ano_questao = $resultado['ano'];
+$disciplina_questao = $resultado['nome_disciplina'];
+echo "<h1> $enunciado </h1>". " - ".  $disciplina_questao ." - Ano: " . $ano_questao . '<br>';
+$imagem = $resultado['imagem'];
+if($imagem != ""){
     
-                            if(isset($_POST['verifica'])) {
-                                $respos = $_POST["respostai"];
-                      
-     
-                                if ($respos == "d") {
-                                    echo "Resposta correta!";
-                                    echo '<style>#resultadoi { background-color: green; }</style>';
+}
+echo "Opções: ";
+echo '<br>';
+echo "<input type='radio' name='escolha' id='' value='". $resultado['txt_alt1']. "'>". $resultado['txt_alt1'] . '<br>';
+echo "<input type='radio' name='escolha' id='' value='". $resultado['txt_alt2']. "'>". $resultado['txt_alt2'] . '<br>';
+echo "<input type='radio' name='escolha' id='' value='". $resultado['txt_alt3']. "'>". $resultado['txt_alt3'] . '<br>';
+echo "<input type='radio' name='escolha' id='' value='". $resultado['txt_alt4']. "'>". $resultado['txt_alt4'] . '<br>';
+echo "<input type='radio' name='escolha' id='' value='". $resultado['txt_alt5']. "'>". $resultado['txt_alt5'] . '<br>';
+echo "<input type='submit' name='envio". $responder."' value='Enviar'>";
+echo "<input type='reset' name='envio". $responder."' value='Apagar'>";
+echo '<br>';
+
+if(isset($_POST['envio'. $responder])){
+    
+    
+    $certo = $resultado['correta'];
+    $resposta_certa =  $resultado['txt_alt'. $certo];
+    $escolha = $_POST['escolha'];
+    if($resposta_certa === $escolha){
+        echo "Portanto, está certo(a)";
+    }
+    else{
+        echo "Portanto, está errado(a)";
+        
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
+            }
+?>
+                
+                
+    </form>
+</main>
+<br><br><br>
            
-                                } 
-                                else {
-                                    echo "Resposta incorreta!";
-                                    echo '<style>#resultadoi { background-color: red; }</style>';
-          
-                               }
-                            }
-                        ?>
-                      
-
-                    </div>
-                </div>
-
-                <div class="q2m">
-                    <form method="post">
-                        
-                    banca:desconheida<br>
-                    instituição:desconhecida<br>
-                    ano:2023<br>
-                        <p>Qual é a capital do Brasil?</p>
-                        <input type="radio" name="resposta" value="a"> a) Brasília<br>
-                        <input type="radio" name="resposta" value="b"> b) São Paulo<br>
-                        <input type="radio" name="resposta" value="c"> c) Rio de Janeiro<br>
-                        <input type="radio" name="resposta" value="d"> d) Belo Horizonte<br>
-                        <input type="submit"  name="verificar" value="verificar">
-                    </form>
-                    <br>
-
-                    
-                    <div id="resultado">
-                    <?php
-                        
-                        if (isset($_POST['verificar'])) {
-                           
-                            $resposta = $_POST["resposta"];
-
-                         
-                            if ($resposta == "a") {
-                                echo "Resposta correta!";
-                                echo '<style>#resultado { background-color: green; }</style>';
-                               
-                            } 
-                            else {
-                                echo "Resposta incorreta!";
-                                echo '<style>#resultado { background-color: red; }</style>';
-                              
-                            }
-                        }
-                    ?>
-                   
-                    </div>
-                </div>
-
-            </main>
-            <aside class="propagand">
-               <div class="prop1">
-               <img src="../view/img/prop.jpg" height="250px" width="175px"  >
-               </div>
-               <div class="prop2">
-               <img src="../view/img/rrcurs.jpg" height=250px width="175px" >
-               </div>
-            </aside>
         </section>
 
         <footer>

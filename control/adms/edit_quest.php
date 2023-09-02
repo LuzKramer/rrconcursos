@@ -57,7 +57,9 @@ include"admprotect.php";
             $conn->query($queryAltAtualizar);
         }
         
-        echo "Dados da questão e respostas atualizados com sucesso!";
+        echo "<script>alert'Dados da questão e respostas atualizados com sucesso!'</script>";
+        header("Location: add_quest.php");
+            exit();
     }
 
     $idQuestao = $_GET["id"];
