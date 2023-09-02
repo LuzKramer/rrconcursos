@@ -114,6 +114,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </style>
 </head>
 <body>
+
+
+<header class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="../dashboard.php" class="nav-link active" aria-current="page">Dashboard</a></li>
+           
+        </ul>
+    </header>
     <div class="container">
         <h1 class="mt-4">News CRUD</h1>
 
