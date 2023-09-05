@@ -125,19 +125,23 @@ include('conection.php');
     if ($quantity == 1) {
         $user = $sql_exec->fetch_assoc();
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
-        $_SESSION['nome'] = $user['nome'];
+        
+       
 
         if (password_verify($password, $user['senha'])) {
-            echo "usuario logado";
+            
+            if(!isset($_SESSION)){
+                session_start();
+            }
+            $_SESSION['nome'] = $user['nome'];
+
+            echo "</script>alert('Usuario logado !!! ')</script>";
           
             header("Location: ../control/filtros.php");
             exit();
             
         } else {
-            echo "Erro ao logar! Email ou senha incorretos.";
+            echo "</script>alert('Erro ao logar! Email ou senha incorretos.')</script>";
         }
     
     }
