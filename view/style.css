@@ -1,0 +1,149 @@
+body{
+    width: 100%;
+    padding: 25px;
+    min-width: 200px;
+    max-width: 1200px;
+    margin: auto;
+}
+.header{
+    background-color: #0efcad;
+    color: black;
+    padding: 8px;
+    justify-content: space-between;
+    height: 130px;
+    width: 100%;
+    border-top: 3px solid #ffffff;
+    box-shadow: 7px 7px 7px rgb(12, 150, 160) inset;
+   
+}
+.dv1{
+    display: flex;
+    justify-content: space-between;
+}
+.l1e{
+    height: 20px;
+    display: flex;
+}
+
+.bluep{
+    width: 5px;
+    align-items: flex-start;
+    height: 5px;
+}
+.ul1{
+    display: flex;
+}
+.ul2{
+    display: flex;
+}
+
+.l2{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+li{
+    color: black;
+    list-style-type: none;
+    padding-left: 2rem;
+}
+
+.principal{
+    display: flex;
+    border-top: 1px solid #000;
+    margin: auto;
+    width: 100%;
+   
+    height: 2300px;
+
+}
+.main1{
+    height: 2250px;
+    width: 100%;
+    background: #E0E6F8;
+    padding: 30px;
+    display: flex;
+    flex-direction: center;
+
+
+
+    
+   
+    
+}
+
+
+form img {
+    width: 100% ;
+    height: 300px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+form{
+   
+    width: 500px;
+    height: 75%;
+    background:#309c66; 
+    margin: 15px;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 1px 1px 1px rgb(0, 0, 0);
+    margin-bottom: 140px;
+    
+
+}
+
+
+
+footer{
+    display: flex;
+    background: #58c24e;
+    height: 150px ;
+    width: 100%;
+    border-bottom: 1px solid #E0E6F8;
+    justify-content: space-between;
+    padding: 8px;
+    
+}
+.ulf{
+    color: rgb(245, 245, 245);
+}
+.bluep2{
+    color: #60fda7;
+    background: #0a8499;
+    width: 140px;
+    align-items: flex-end;
+    height: 30px;
+    border: 8px;
+    padding: 8px;
+    
+}
+.MainIn{
+    height: 1000px;
+    width: 100%;
+    background: #E0E6F8;
+   padding: 8px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    
+   
+}
+.planos{
+    background-color: #ffffff;
+    width:400px ;
+    height:500px ;
+    padding: 5px;
+    margin: 20px;
+}
