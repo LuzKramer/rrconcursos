@@ -90,10 +90,10 @@ form img {
 
 
 
-form{
+.form{
    
     width: 500px;
-    height: 75%;
+    height: 90%;
     background:#309c66; 
     margin: 15px;
     border-radius: 10px;
