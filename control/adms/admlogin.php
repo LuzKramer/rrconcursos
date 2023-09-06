@@ -122,15 +122,23 @@ include('../conection.php');
     if ($quantity == 1) {
         $user = $sql_exec->fetch_assoc();
 
+<<<<<<< HEAD
         if (password_verify($password, $user['senha'])) {
 
 
+=======
+>>>>>>> b9dd01942d7604da6099aef27ce3a6face4efe44
         if(!isset($_SESSION)){
             session_start();
         }
         $_SESSION['nome'] = $user['nome'];
+<<<<<<< HEAD
         $_SESSION['nivel'] = 1;
 
+=======
+
+        if (password_verify($password, $user['senha'])) {
+>>>>>>> b9dd01942d7604da6099aef27ce3a6face4efe44
             echo "usuario logado";
           
             header("Location: ../dashboard.php");
