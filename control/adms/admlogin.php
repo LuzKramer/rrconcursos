@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Tela de  ADM Login</title>
+    <title>Tela de ADM Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,55 +53,57 @@
         }
     </style>
 </head>
+
 <body>
 
 
-<div class="login-box">
-    <img src="../view/img/rr.jpeg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Login</h1>
+    <div class="login-box">
+        <img src="../view/img/rr.jpeg" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Login</h1>
 
-    <form method="post" id="meuFormulario" onsubmit="return verificarFormulario()">
-        <div class="form-floating">
-            <label for="floatingInput">Email</label>
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
-        </div>
-        <div class="form-floating">
-            <label for="floatingPassword">Senha</label>
-            <input type="password" class="form-control" id="floatingPassword" placeholder="senha123qwerty" name="password">
-        </div>
+        <form method="post" id="meuFormulario" onsubmit="return verificarFormulario()">
+            <div class="form-floating">
+                <label for="floatingInput">Email</label>
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+            </div>
+            <div class="form-floating">
+                <label for="floatingPassword">Senha</label>
+                <input type="password" class="form-control" id="floatingPassword" placeholder="senha123qwerty" name="password">
+            </div>
 
-        <div class="form-check text-start">
-            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-                Lembre-me
-            </label>
-        </div>
-        <button class="btn btn-primary w-100 py-2" name="login" type="submit">entrar</button>
-    </form>
+            <div class="form-check text-start">
+                <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Lembre-me
+                </label>
+            </div>
+            <button class="btn btn-primary w-100 py-2" name="login" type="submit">entrar</button>
+        </form>
 
-    <p class="mt-5 mb-3 text-body-secondary">2023</p>
-</div>
+        <p class="mt-5 mb-3 text-body-secondary">2023</p>
+    </div>
 
-<script>
-    function verificarFormulario() {
-        var email = document.getElementById("floatingInput").value;
-        var senha = document.getElementById("floatingPassword").value;
+    <script>
+        function verificarFormulario() {
+            var email = document.getElementById("floatingInput").value;
+            var senha = document.getElementById("floatingPassword").value;
 
-        if (email === "") {
-            alert("Por favor, preencha o campo Email");
-            return false;
+            if (email === "") {
+                alert("Por favor, preencha o campo Email");
+                return false;
+            }
+
+            if (senha === "") {
+                alert("Por favor, preencha o campo Senha");
+                return false;
+            }
+
+            return true;
         }
-
-        if (senha === "") {
-            alert("Por favor, preencha o campo Senha");
-            return false;
-        }
-
-        return true;
-    }
-</script>
+    </script>
 
 </body>
+
 </html>
 
 
@@ -110,43 +112,31 @@
 include('../conection.php');
 
 
-    $email = $mysqli->real_escape_string($_POST['email']);
-    $password = $mysqli->real_escape_string($_POST['password']);
-   
-
-    $sql_code = "SELECT * FROM tb_admlogin WHERE email = '$email' LIMIT 1 ";
-    $sql_exec = $mysqli->query($sql_code) or die("SQL code error: " . $mysqli->error);
-
-    $quantity = $sql_exec->num_rows;
-
-    if ($quantity == 1) {
-        $user = $sql_exec->fetch_assoc();
-
-<<<<<<< HEAD
-        if (password_verify($password, $user['senha'])) {
+$email = $mysqli->real_escape_string($_POST['email']);
+$password = $mysqli->real_escape_string($_POST['password']);
 
 
-=======
->>>>>>> b9dd01942d7604da6099aef27ce3a6face4efe44
-        if(!isset($_SESSION)){
+$sql_code = "SELECT * FROM tb_admlogin WHERE email = '$email' LIMIT 1 ";
+$sql_exec = $mysqli->query($sql_code) or die("SQL code error: " . $mysqli->error);
+
+$quantity = $sql_exec->num_rows;
+
+if ($quantity == 1) {
+    $user = $sql_exec->fetch_assoc();
+
+    if (password_verify($password, $user['senha'])) {
+
+
+        if (!isset($_SESSION)) {
             session_start();
         }
         $_SESSION['nome'] = $user['nome'];
-<<<<<<< HEAD
         $_SESSION['nivel'] = 1;
-
-=======
-
-        if (password_verify($password, $user['senha'])) {
->>>>>>> b9dd01942d7604da6099aef27ce3a6face4efe44
-            echo "usuario logado";
-          
-            header("Location: ../dashboard.php");
-            exit();
-            
-        } else {
-            echo "Erro ao logar! Email ou senha incorretos.";
-        }
-    
+        echo "</script>alert('Usuario logado !!! ')</script>";
+        header("Location: ../dashboard.php");
+        exit();
+    } else {
+        echo "</script>alert('Erro ao logar! Email ou senha incorretos.')</script>";
     }
+}
 ?>
