@@ -23,30 +23,48 @@ if($mysqli->error){
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
 
-    $sqlSelect = "SELECT img FROM tb_news WHERE id=?";
-    $stmtSelect = $conn->prepare($sqlSelect);
-    $stmtSelect->bind_param("i", $id);
-    $stmtSelect->execute();
+    // Verifique se $id é um número inteiro válido
+    if (filter_var($id, FILTER_VALIDATE_INT)) {
+        $sqlSelect = "SELECT img FROM tb_news WHERE id=?";
+        $stmtSelect = $conn->prepare($sqlSelect);
+        $stmtSelect->bind_param("i", $id);
+        $stmtSelect->execute();
 
-    $resultSelect = $stmtSelect->get_result();
+        $resultSelect = $stmtSelect->get_result();
 
-    if ($resultSelect->num_rows > 0) {
-        $row = $resultSelect->fetch_assoc();
-        $imgPath = $row["img"];
+        if ($resultSelect->num_rows > 0) {
+            $row = $resultSelect->fetch_assoc();
+            $imgPath = "../" . $row["img"]; 
 
-        // Delete the image file
-        unlink($imgPath);
+            // Verifique se o arquivo da imagem existe antes de tentar excluí-lo
+            if (file_exists($imgPath)) {
+                // Delete the image file
+                unlink($imgPath);
+            }
+
+            $stmtSelect->close();
+
+            $sqlDelete = "DELETE FROM tb_news WHERE id=?";
+            $stmtDelete = $conn->prepare($sqlDelete);
+            $stmtDelete->bind_param("i", $id);
+            
+            // Verifique se a exclusão do registro na tabela foi bem-sucedida
+            if ($stmtDelete->execute()) {
+                // A exclusão foi bem-sucedida
+                echo "A imagem e o registro foram deletados com sucesso.";
+            } else {
+                // A exclusão do registro falhou
+                echo "Erro ao deletar o registro na tabela.";
+            }
+
+            $stmtDelete->close();
+        } else {
+            echo "Registro não encontrado.";
+        }
+    } else {
+        echo "ID inválido.";
     }
-
-    $stmtSelect->close();
-
-    $sqlDelete = "DELETE FROM tb_news WHERE id=?";
-    $stmtDelete = $conn->prepare($sqlDelete);
-    $stmtDelete->bind_param("i", $id);
-    $stmtDelete->execute();
-    $stmtDelete->close();
 }
-
 
 
 
@@ -74,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $extension = strtolower(pathinfo($nomeImg, PATHINFO_EXTENSION));
 
         if ($extension != "jpg" &&  $extension != "png" && $extension != "jpeg")
-            die("tipe de arquivo invalido ");
+            die("tipo de arquivo invalido ");
 
         $path = $pasta . $newname . "." . $extension;
 
