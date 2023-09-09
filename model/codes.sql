@@ -41,11 +41,11 @@ CREATE TABLE IF NOT EXISTS questoes (
  CREATE TABLE IF NOT EXISTS alternativas (
   id_alternativa INT AUTO_INCREMENT PRIMARY KEY,
   id_questao INT NOT NULL,
-  txt_alt1 TEXT NOT NULL,
-  txt_alt2 TEXT NOT NULL,
-  txt_alt3 TEXT NOT NULL,
-  txt_alt4 TEXT NOT NULL,
-  txt_alt5 TEXT NOT NULL,
+  txt_alt1 TEXT,
+  txt_alt2 TEXT,
+  txt_alt3 TEXT,
+  txt_alt4 TEXT,
+  txt_alt5 TEXT,
   correta INT NOT NULL,
   FOREIGN KEY (id_questao) REFERENCES questoes(id_questao) ON DELETE CASCADE
 );

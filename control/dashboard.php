@@ -1,6 +1,6 @@
 
 <?php
-include"adms/admprotect.php";
+include"adms/protectdash.php";
 ?>
 
 <!DOCTYPE html>
