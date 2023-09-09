@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="../view/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-    /* Add spacing between news items */
-    .news-section .card {
-        margin-bottom: 20px;
-        margin-top: 20px;
-    }
-
-</style>
+        /* Add spacing between news items */
+        .news-section .card {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+    </style>
 
 </head>
 
@@ -60,7 +59,11 @@
                 }
                 echo "<h2 class='card-title'>" . $row["title"] . "</h2>";
                 echo "<p class='card-text'>" . $row["news"] . "</p>";
-                echo "<p class='card-text'>Date: " . $row["date"] . "</p>";
+
+                // Format the date in Western style
+                $date = date('d/m/Y', strtotime($row["date"]));
+                echo "<p class='card-text'>Date: " . $date . "</p>";
+
                 echo "</div>";
                 echo "</div>";
             }
@@ -70,26 +73,27 @@
 
         $mysqli->close();
         ?>
+
     </div>
     <footer>
-            <ul>
-                <li class="ulf">RR CONCURSOS</li>
-                <li class="ulf">Provas</li>
-                <li class="ulf">Video aulas</li>
-                <li class="ulf">Disciplinas</li>
-                <li class="ulf">Sobre Nós</li>
-                
-            </ul>
-            <ul>
-                <li class="ulf">PAGINAS ÚTEIS</li>
-                <li class="ulf">Noticias</li>
-                <li class="ulf">Como usar o RR CONCURSOS</li>
-                <li class="ulf">Avalie-nos</li>
-            </ul>
-            <div class="bluep2">RR CONCURSOS</div>
+        <ul>
+            <li class="ulf">RR CONCURSOS</li>
+            <li class="ulf">Provas</li>
+            <li class="ulf">Video aulas</li>
+            <li class="ulf">Disciplinas</li>
+            <li class="ulf">Sobre Nós</li>
+
+        </ul>
+        <ul>
+            <li class="ulf">PAGINAS ÚTEIS</li>
+            <li class="ulf">Noticias</li>
+            <li class="ulf">Como usar o RR CONCURSOS</li>
+            <li class="ulf">Avalie-nos</li>
+        </ul>
+        <div class="bluep2">RR CONCURSOS</div>
 
 
-        </footer>
+    </footer>
 
 
     <!-- Add Bootstrap JS scripts -->

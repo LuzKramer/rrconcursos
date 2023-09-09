@@ -26,13 +26,12 @@ include"adms/protectdash.php";
 <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
             <li class="nav-item"><a href="../index.php" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="adms/viewquest.php" class="nav-link">questoes</a></li>
+            <li class="nav-item"><a href="adms/viewquest.php" class="nav-link">Questões</a></li>
             <li class="nav-item"><a href="adms/bancas.php" class="nav-link"> Bancas</a></li>
             <li class="nav-item"><a href="adms/institui.php" class="nav-link"> Instituições</a></li>
             <li class="nav-item"><a href="adms/disciplinas.php" class="nav-link">Disciplinas</a></li>
-            <li class="nav-item"><a href="adms/news.php" class="nav-link">nova noticia</a></li>
-            <li class="nav-item"><a href="adms/admcadastro.php" class="nav-link">cadastrar adm</a></li>
-            <li class="nav-item"><a href="adms/news.php" class="nav-link">nova noticia</a></li>
+            <li class="nav-item"><a href="adms/admcadastro.php" class="nav-link">Cadastrar adm</a></li>
+            <li class="nav-item"><a href="adms/news.php" class="nav-link">Noticia</a></li>
             <li class="nav-item"><a href="../control/logout.php" class="nav-link">sair</a></li>
       </ul>
     </header>
