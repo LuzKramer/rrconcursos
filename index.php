@@ -1,8 +1,9 @@
-<!DOCTYPE php>
-<php>
-    <head>
-        <meta charset="UTF-8">
-        <title>rrCONCURSOS/home</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RRCONCURSOS/home</title>
         <link rel="stylesheet" href="view/style.css">
     </head>
     <body>
@@ -14,10 +15,10 @@
                         <li><a href="../index.php">menu</a></li>
                     </ul>
                 </div>
-                <h1>rr CONCURSOS</h1>
+                <h1>RR CONCURSOS</h1>
                <ul class="ul2">
                    <li><a href="control/ajuda.php">ajuda</a></li>
-                   <li><a href="control/assinar.php">assinar</a></li>
+                  
                    <li><a href="control/inout.php">entrar</a></li>
                </ul>
             </div>
@@ -26,8 +27,7 @@
            <div class="l2">
                
                     <li><a href="../index.php">INICIO</a></li>
-                    <li><a href="control/vestibular.php">VESTIBULAR</a></li>
-                    <li><a href="control/aulas.php">AULAS</a></li>
+                   
                     <li><a href="control/questoes.php">QUESTÕES</a></li>
                
 
@@ -41,25 +41,18 @@
         </header>
         <main class="MainIn">
 
-            <div class="planos">
-                <h1> Faça login para ver questões</h1>
+            <div class="planos"> <style>= width: 400px; margin: 0 auto;</style>
+                <h1>    entrar</h1>
                 <a href="control/login.php">clique aqui </a>
                 <br>
                 <br>
-                <h1> Se não tem conta, cadastre aqui.</h1>
+                <h1> não tem conta?</h1>
                 <a href="control/cadastro.php">clique aqui </a>
+                
 
             </div>
 
-            <div class="planos">
-                <h1>Plano pago</h1>
-                <ul>
-                    <li>Sem propagandas</li>
-                    <li>acesso offline</li>
-                    <li>salvar questões</li>
-                </ul>
-
-            </div>
+          
 
 
         </main>
@@ -77,7 +70,7 @@
                 <li class="ulf">PAGINAS ÚTEIS</li>
                 <li class="ulf">Noticias</li>
                 <li class="ulf">Como usar o RR CONCURSOS</li>
-                <li class="ulf">Avalie-nos</li>
+                
             </ul>
             <div class="bluep2">RR CONCURSOS</div>
 
@@ -93,4 +86,4 @@
 
 
 
-</php>
+</html>

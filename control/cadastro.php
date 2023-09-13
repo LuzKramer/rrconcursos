@@ -113,13 +113,20 @@ if (isset($_POST['cadastrar'])) {
     $existing_user = $check_query->num_rows;
 
     if ($existing_user > 0) {
-        echo "Erro ao cadastrar! O email já está registrado.";
+        echo "</script>alert('erro ao cadastrar, email ja cadastrado ')</script>";
     } else {
        
         if ($mysqli->query("INSERT INTO tb_login (nome, email, senha) VALUES ('$name', '$email', '$senha')")) {
-            echo "Cadastro realizado com sucesso!";
-            // Redirect to login page or other appropriate location
-            header("Location: ../control/login.php");
+            if(!isset($_SESSION)){
+                session_start();
+            }
+            $_SESSION['nome'] = $user['nome'];
+            $_SESSION['nivel'] = 2;
+
+            echo "<script>alert('Usuario cadastrado !!! ')</script>";
+          
+            header("Location: questoes.php");
+            exit();
         } else {
             echo "Erro ao cadastrar: " . $mysqli->error;
         }

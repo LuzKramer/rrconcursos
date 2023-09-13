@@ -78,6 +78,7 @@
             <label class="form-check-label" for="flexCheckDefault">
                 Lembre-me
             </label>
+            <h4>esqueceu a senha ? <a href="editsenha.php">click aqui para mudar a senha </a></h4>
         </div>
         <button class="btn btn-primary w-100 py-2" name="login" type="submit">entrar</button>
     </form>
@@ -136,13 +137,13 @@ include('conection.php');
             $_SESSION['nome'] = $user['nome'];
             $_SESSION['nivel'] = 2;
 
-            echo "</script>alert('Usuario logado !!! ')</script>";
+            echo "<script>alert('Usuario logado !!! ')</script>";
           
-            header("Location: ../control/filtros.php");
+            header("Location: questoes.php");
             exit();
             
         } else {
-            echo "</script>alert('Erro ao logar! Email ou senha incorretos.')</script>";
+            echo "<script>alert('Erro ao logar! Email ou senha incorretos.')</script>";
         }
     
     }
