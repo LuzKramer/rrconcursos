@@ -113,7 +113,7 @@ if (isset($_POST['cadastrar'])) {
     $existing_user = $check_query->num_rows;
 
     if ($existing_user > 0) {
-        echo "Erro ao cadastrar! O email já está registrado.";
+        echo "</script>alert('erro ao cadastrar, email ja cadastrado ')</script>";
     } else {
        
         if ($mysqli->query("INSERT INTO tb_login (nome, email, senha) VALUES ('$name', '$email', '$senha')")) {
@@ -123,8 +123,12 @@ if (isset($_POST['cadastrar'])) {
             $_SESSION['nome'] = $user['nome'];
             $_SESSION['nivel'] = 2;
 
+<<<<<<< HEAD
             echo "</script>alert('Usuario cadastrado
              !!! ')</script>";
+=======
+            echo "<script>alert('Usuario cadastrado !!! ')</script>";
+>>>>>>> 17008ece5cc063ddd30f2966173b50f7b14a9225
           
             header("Location: questoes.php");
             exit();

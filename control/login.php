@@ -137,13 +137,13 @@ include('conection.php');
             $_SESSION['nome'] = $user['nome'];
             $_SESSION['nivel'] = 2;
 
-            echo "</script>alert('Usuario logado !!! ')</script>";
+            echo "<script>alert('Usuario logado !!! ')</script>";
           
             header("Location: questoes.php");
             exit();
             
         } else {
-            echo "</script>alert('Erro ao logar! Email ou senha incorretos.')</script>";
+            echo "<script>alert('Erro ao logar! Email ou senha incorretos.')</script>";
         }
     
     }
