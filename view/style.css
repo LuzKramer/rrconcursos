@@ -2,12 +2,14 @@ body{
     width: 100%;
     padding: 25px;
     min-width: 200px;
-    max-width: 1200px;
+  
     margin: auto;
 }
 .header{
     background-color: #0efcad;
     color: black;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 8px;
     justify-content: space-between;
     height: 130px;
@@ -60,7 +62,7 @@ li{
 
 }
 .main1{
-    height: 2250px;
+  
     width: 100%;
     background: #E0E6F8;
     padding: 30px;
