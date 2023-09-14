@@ -11,11 +11,28 @@ include('protect.php');
     <link rel="stylesheet" href="../view/style.css">
     <style>
         .info{
-            high:150 px;
+            high: 210px ;
+            font-size: 28px ;
+            align-items: center ;
         }
-        .x{ high:90% ;
-            height: 90 %;
+
+        .x{ 
+            height: 200 px;
+            width: 80%
+            align-items: center;
         }
+
+.MainIni{
+    height: 700px;
+    width: 100%;
+    background: #E0E6F8;
+   padding: 8px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    
+   
+}
     </style>
 </head>
 
@@ -53,19 +70,23 @@ include('protect.php');
         </div>
 
     </header>
-     <div class="info">
+
+    <main class="MainIni">
+        <br>
+      <div class="info">
         <p> Aqui temos alguns serviços que podem lhe ajudar se for necessário.
             <br>
             <h3>Quer fazer seu cadastro? <a href="../control/cadastro.php">Clique Aqui</a> </h3>
 
-        Em caso de mais dúvidas, acesse [link de acesso]<br>
-        ou<br>
-        EmailParaContato@gmail.com</p>
+        Em caso de mais dúvidas, acesse [link de acesso]<br> ou <br> EmailParaContato@gmail.com</p>
 
-     </div>
-     <div class="x">
-        
-    </div>
+      </div>
+
+       <div class="x">
+       
+       </div>
+
+    </main>
 
     <footer>
         

@@ -41,7 +41,7 @@
         </header>
         <main class="MainIn">
 
-            <div class="planos"> <style>= width: 400px; margin: 0 auto;</style>
+            <div class="planos">
                 <h1>    entrar</h1>
                 <a href="control/login.php">clique aqui </a>
                 <br>
