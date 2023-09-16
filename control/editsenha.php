@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,7 +87,6 @@
 include('conection.php');
 
 if (isset($_POST['mudar'])) {
-
     $email = $mysqli->real_escape_string($_POST['email']);
     $password = $mysqli->real_escape_string($_POST['password']);
     $senha = password_hash($password, PASSWORD_DEFAULT);

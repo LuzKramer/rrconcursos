@@ -191,23 +191,27 @@ if (isset($_POST['cadastrar'])) {
 
     $existing_user = $check_query->num_rows;
 
+    $user = $check_query->fetch_assoc();
+
     if ($existing_user > 0) {
-        echo "</script>alert('erro ao cadastrar, email ja cadastrado ')</script>";
-    } else {
+        echo "<script>alert('erro ao cadastrar, email ja cadastrado ')</script>";
+    } 
+    else {
        
         if ($mysqli->query("INSERT INTO tb_login (nome, email, senha) VALUES ('$name', '$email', '$senha')")) {
             $user = $check_query->fetch_assoc();
             if(!isset($_SESSION)){
                 session_start();
             }
-            $_SESSION['nome'] = $user['nome'];
-            $_SESSION['nivel'] = 2;
-
-            echo "<script>alert('Usuario cadastrado !!! ')</script>";
+                $_SESSION['nome'] = $user['nome'];
+                $_SESSION['nivel'] = 2;
+                
+                header("Location: noticias.php");
+                // echo "<script>alert('Usuario cadastrado !!! ')</script>";
           
-            header("Location: questoes.php");
             exit();
-        } else {
+        } 
+        else {
             echo "Erro ao cadastrar: " . $mysqli->error;
         }
     }
