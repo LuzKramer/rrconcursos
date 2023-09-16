@@ -14,12 +14,7 @@ body{
     height: 130px;
   
     border-top: 3px solid #ffffff;
-<<<<<<< HEAD
     
-=======
-    box-shadow: 7px 7px 7px rgb(12, 150, 160) inset;
-   
->>>>>>> 74164d03c8e12462c4a41480f2545d5bc9a8cd7b
 }
 .dv1{
     display: flex;
@@ -117,15 +112,7 @@ footer{
     height: 150px ;
     border-bottom: 1px solid #E0E6F8;
     justify-content: space-between;
-<<<<<<< HEAD
     padding: 8px;    
-=======
-    padding: 8px;
-    bottom: 0 px;
-    position:fixed;
-
-    
->>>>>>> 74164d03c8e12462c4a41480f2545d5bc9a8cd7b
 }
 .ulf{
     color: rgb(245, 245, 245);
@@ -141,16 +128,9 @@ footer{
     
 }
 .MainIn{
-<<<<<<< HEAD
     background: #E0E6F8;
     padding: 8px;
     height: 100vh;
-=======
-    height: 999px;
-    width: 99%;
-    background: #E0E6F8;
-   padding: 8px;
->>>>>>> 74164d03c8e12462c4a41480f2545d5bc9a8cd7b
     display: flex;
     align-items: center;
     align-content: center;
@@ -165,12 +145,3 @@ footer{
     padding: 5px;
     margin: 20px;
 }
-<<<<<<< HEAD
-=======
-
-.x{
-    height: 200 px;
-    width: 80%
-    align-items: center;
-}
->>>>>>> 74164d03c8e12462c4a41480f2545d5bc9a8cd7b
