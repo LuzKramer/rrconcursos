@@ -43,38 +43,40 @@
             <li><a href="../control/infos.php">+INFOS</a></li>
         </div>
     </header>
+    <main class="MainIn">
 
-    <div class="news-section container"> <!-- Add 'container' class for Bootstrap styling -->
-        <?php
-        include "conection.php";
-        $sql = "SELECT * FROM tb_news";
-        $result = $mysqli->query($sql);
+        <div class="news-section container"> <!-- Add 'container' class for Bootstrap styling -->
+            <?php
+            include "conection.php";
+            $sql = "SELECT * FROM tb_news";
+            $result = $mysqli->query($sql);
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<div class='news card mb-3'>"; // Add 'card' and 'mb-3' classes for Bootstrap card styling
-                echo "<div class='card-body'>";
-                if (!empty($row["img"])) {
-                    echo "<img src='" . $row["img"] . "' alt='News Image' class='img-fluid'>";
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<div class='news card mb-3'>"; // Add 'card' and 'mb-3' classes for Bootstrap card styling
+                    echo "<div class='card-body'>";
+                    if (!empty($row["img"])) {
+                        echo "<img src='" . $row["img"] . "' alt='News Image' class='img-fluid'>";
+                    }
+                    echo "<h2 class='card-title'>" . $row["title"] . "</h2>";
+                    echo "<p class='card-text'>" . $row["news"] . "</p>";
+
+                    // Format the date in Western style
+                    $date = date('d/m/Y', strtotime($row["date"]));
+                    echo "<p class='card-text'>Date: " . $date . "</p>";
+
+                    echo "</div>";
+                    echo "</div>";
                 }
-                echo "<h2 class='card-title'>" . $row["title"] . "</h2>";
-                echo "<p class='card-text'>" . $row["news"] . "</p>";
-
-                // Format the date in Western style
-                $date = date('d/m/Y', strtotime($row["date"]));
-                echo "<p class='card-text'>Date: " . $date . "</p>";
-
-                echo "</div>";
-                echo "</div>";
+            } else {
+                echo "No news available.";
             }
-        } else {
-            echo "No news available.";
-        }
 
-        $mysqli->close();
-        ?>
+            $mysqli->close();
+            ?>
 
-    </div>
+        </div>
+    </main>
     <footer>
         <ul>
             <li class="ulf">RR CONCURSOS</li>
@@ -88,7 +90,7 @@
             <li class="ulf">PAGINAS ÚTEIS</li>
             <li class="ulf">Noticias</li>
             <li class="ulf">Como usar o RR CONCURSOS</li>
-            <li class="ulf">Avalie-nos</li>
+
         </ul>
         <div class="bluep2">RR CONCURSOS</div>
 

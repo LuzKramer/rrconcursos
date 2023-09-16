@@ -41,9 +41,9 @@
         </header>
         <main class="MainIn">
 
-            <div class="planos"> <style>= width: 400px; margin: 0 auto;</style>
+            <div class="planos">
                 <h1>    entrar</h1>
-                <a href="control/login.php">clique aqui </a>
+                <a href="control/login.php">Clique aqui </a>
                 <br>
                 <br>
                 <h1> não tem conta?</h1>
@@ -63,7 +63,7 @@
                 <li class="ulf">Provas</li>
                 <li class="ulf">Video aulas</li>
                 <li class="ulf">Disciplinas</li>
-                <li class="ulf">Sobre Nós</li>
+                <li class="ulf"><a href="control/us.php">Sobre Nós</a></li>
                 
             </ul>
             <ul>

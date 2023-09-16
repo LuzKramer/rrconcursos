@@ -1,6 +1,4 @@
-<?php
-include('protect.php');
-?>
+
 <!DOCTYPE html>
 <html>
 
@@ -10,29 +8,6 @@ include('protect.php');
     <title>rrCONCURSOS/</title>
     <link rel="stylesheet" href="../view/style.css">
     <style>
-        .info{
-            high: 210px ;
-            font-size: 28px ;
-            align-items: center ;
-        }
-
-        .x{ 
-            height: 200 px;
-            width: 80%
-            align-items: center;
-        }
-
-.MainIni{
-    height: 700px;
-    width: 100%;
-    background: #E0E6F8;
-   padding: 8px;
-    display: flex;
-    align-items: center;
-    align-content: center;
-    
-   
-}
     </style>
 </head>
 

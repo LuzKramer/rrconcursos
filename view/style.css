@@ -2,21 +2,19 @@ body{
     width: 100%;
     padding: 25px;
     min-width: 200px;
-  
+    
     margin: auto;
 }
 .header{
     background-color: #0efcad;
     color: black;
-    margin-left: 10px;
-    margin-right: 10px;
+    
     padding: 8px;
     justify-content: space-between;
     height: 130px;
-    width: 100%;
+  
     border-top: 3px solid #ffffff;
-    box-shadow: 7px 7px 7px rgb(12, 150, 160) inset;
-   
+    
 }
 .dv1{
     display: flex;
@@ -112,14 +110,9 @@ footer{
     display: flex;
     background: #58c24e;
     height: 150px ;
-    width: 100%;
     border-bottom: 1px solid #E0E6F8;
     justify-content: space-between;
-    padding: 8px;
-    bottom: 0 px;
-    position:fixed;
-
-    
+    padding: 8px;    
 }
 .ulf{
     color: rgb(245, 245, 245);
@@ -135,13 +128,13 @@ footer{
     
 }
 .MainIn{
-    height: 999px;
-    width: 99%;
     background: #E0E6F8;
-   padding: 8px;
+    padding: 8px;
+    height: 100vh;
     display: flex;
     align-items: center;
     align-content: center;
+    margin: 0;
     
    
 }
@@ -151,10 +144,4 @@ footer{
     height:500px ;
     padding: 5px;
     margin: 20px;
-}
-
-.x{
-    height: 200 px;
-    width: 80%
-    align-items: center;
 }

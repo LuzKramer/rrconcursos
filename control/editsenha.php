@@ -7,51 +7,32 @@
     <title>mudar senha</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #0d6efd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-
-        .top-bar {
-            text-align: right;
-            padding: 10px;
-        }
-
+        
         .login-box {
-            background-color: #ffffff;
-            width: 300px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 100px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 5px;
+            padding: 30px;
+            text-align: center;
         }
-
+        
         .login-box img {
-            display: block;
-            margin: 0 auto;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-
+        
         .form-floating {
             margin-bottom: 15px;
         }
-
+        
         .form-check {
-            margin-bottom: 15px;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-
-        .text-body-secondary {
-            color: #888;
+            margin-top: 15px;
+            margin-bottom: 30px;
         }
     </style>
 
@@ -104,8 +85,6 @@
 
 </html>
 <?php
-
-
 include('conection.php');
 
 if (isset($_POST['mudar'])) {
@@ -114,16 +93,16 @@ if (isset($_POST['mudar'])) {
     $password = $mysqli->real_escape_string($_POST['password']);
     $senha = password_hash($password, PASSWORD_DEFAULT);
 
-
-
     $stmt = $mysqli->prepare("UPDATE  tb_login SET senha = ? WHERE email = ? ");
     $stmt->bind_param("ss", $senha, $email);
 
     if ($stmt->execute()) {
+        $stmt->store_result(); // Added this line
+       
         if (!isset($_SESSION)) {
             session_start();
         }
-        $_SESSION['nome'] = $user['nome'];
+       
         $_SESSION['nivel'] = 2;
 
         echo "<script>alert(' senha alterada !!! ')</script>";
