@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <header class="header">
+<header class="header">
         <div class="dv1">
             <div class="l1e">
                 <div class="bluep"><img src="../view/img/rr.jpeg" height="35px"></div>
@@ -20,10 +20,10 @@
                     <li><a href="../index.php">menu</a></li>
                 </ul>
             </div>
-            <h1>rr CONCURSOS</h1>
+            <h1>RR CONCURSOS</h1>
             <ul class="ul2">
                 <li><a href="../control/ajuda.php">ajuda</a></li>
-                <li><a href="../control/assinar.php">assinar</a></li>
+
                 <li><a href="../control/inout.php">entrar</a></li>
             </ul>
         </div>
@@ -32,8 +32,7 @@
         <div class="l2">
 
             <li><a href="../index.php">INICIO</a></li>
-            <li><a href="../control/vestibular.php">VESTIBULAR</a></li>
-            <li><a href="../control/aulas.php">AULAS</a></li>
+
             <li><a href="../control/questoes.php">QUESTÕES</a></li>
 
 
@@ -45,7 +44,7 @@
         </div>
 
     </header>
-
+    
     <main class="MainIni">
         <br>
       <div class="info">

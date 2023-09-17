@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -17,10 +16,10 @@
                     <li><a href="../index.php">menu</a></li>
                 </ul>
             </div>
-            <h1>rr CONCURSOS</h1>
+            <h1>RR CONCURSOS</h1>
             <ul class="ul2">
                 <li><a href="../control/ajuda.php">ajuda</a></li>
-                <li><a href="../control/assinar.php">assinar</a></li>
+
                 <li><a href="../control/inout.php">entrar</a></li>
             </ul>
         </div>
@@ -29,8 +28,7 @@
         <div class="l2">
 
             <li><a href="../index.php">INICIO</a></li>
-            <li><a href="../control/vestibular.php">VESTIBULAR</a></li>
-            <li><a href="../control/aulas.php">AULAS</a></li>
+
             <li><a href="../control/questoes.php">QUESTÕES</a></li>
 
 

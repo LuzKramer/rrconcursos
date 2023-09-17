@@ -12,6 +12,15 @@
             margin-bottom: 20px;
             margin-top: 20px;
         }
+
+        footer {
+            display: flex;
+            background: #58c24e;
+            height: 150px;
+            border-bottom: 1px solid #E0E6F8;
+            justify-content: space-between;
+            padding: 8px;
+        }
     </style>
 
 </head>

@@ -1,9 +1,9 @@
 body{
-    width: 100%;
+  
     padding: 25px;
     min-width: 200px;
+    margin: 0;
     
-    margin: auto;
 }
 .header{
     background-color: #0efcad;
