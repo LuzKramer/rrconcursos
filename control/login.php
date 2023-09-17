@@ -1,3 +1,44 @@
+<?php
+
+include('conection.php');
+
+
+$email = $mysqli->real_escape_string($_POST['email']);
+$password = $mysqli->real_escape_string($_POST['password']);
+
+
+$sql_code = "SELECT * FROM tb_login WHERE email = '$email' LIMIT 1 ";
+$sql_exec = $mysqli->query($sql_code) or die("SQL code error: " . $mysqli->error);
+
+$quantity = $sql_exec->num_rows;
+
+if ($quantity == 1) {
+    $user = $sql_exec->fetch_assoc();
+
+
+
+
+    if (password_verify($password, $user['senha'])) {
+
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $_SESSION['nome'] = $user['nome'];
+        $_SESSION['nivel'] = 2;
+
+        echo "<script>alert('Usuario logado !!! ')</script>";
+
+        header("Location: questoes.php");
+        exit();
+    } else {
+        echo "<script>alert('Erro ao logar! Email ou senha incorretos.')</script>";
+    }
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -5,50 +46,53 @@
     <title>Tela de Login</title>
 
     <style>
+        .header {
+            background-color: #0efcad;
+            color: black;
+            padding: 8px;
+            justify-content: space-between;
+            height: 130px;
 
-.header{
-    background-color: #0efcad;
-    color: black;
-    padding: 8px;
-    justify-content: space-between;
-    height: 130px;
-   
-    border-top: 3px solid #ffffff;
-    margin: 0;
-}
-.dv1{
-    display: flex;
-    justify-content: space-between;
-}
-.l1e{
-    height: 20px;
-    display: flex;
-}
+            border-top: 3px solid #ffffff;
+            margin: 0;
+        }
 
-.bluep{
-    width: 5px;
-    align-items: flex-start;
-    height: 5px;
-}
-.ul1{
-    display: flex;
-}
-.ul2{
-    display: flex;
-}
+        .dv1 {
+            display: flex;
+            justify-content: space-between;
+        }
 
-.l2{
-    display: flex;
-    justify-content: space-between;
-}
+        .l1e {
+            height: 20px;
+            display: flex;
+        }
+
+        .bluep {
+            width: 5px;
+            align-items: flex-start;
+            height: 5px;
+        }
+
+        .ul1 {
+            display: flex;
+        }
+
+        .ul2 {
+            display: flex;
+        }
+
+        .l2 {
+            display: flex;
+            justify-content: space-between;
+        }
 
 
 
-li{
-    color: black;
-    list-style-type: none;
-    padding-left: 2rem;
-}
+        li {
+            color: black;
+            list-style-type: none;
+            padding-left: 2rem;
+        }
 
         .princip {
             background-color: #0d6efd;
@@ -92,9 +136,9 @@ li{
             </div>
             <h1>RR CONCURSOS</h1>
             <ul class="ul2">
-                <li><a href="control/ajuda.php">ajuda</a></li>
+                <li><a href="../control/ajuda.php">ajuda</a></li>
 
-                <li><a href="control/inout.php">entrar</a></li>
+                <li><a href="../control/inout.php">entrar</a></li>
             </ul>
         </div>
 
@@ -103,13 +147,13 @@ li{
 
             <li><a href="../index.php">INICIO</a></li>
 
-            <li><a href="control/questoes.php">QUESTÕES</a></li>
+            <li><a href="../control/questoes.php">QUESTÕES</a></li>
 
 
 
-            <li><a href="control/outroscads.php">OUTROS CADERNOS</a></li>
-            <li><a href="control/noticias.php">NOTICIAS</a></li>
-            <li><a href="control/infos.php">+INFOS</a></li>
+            <li><a href="../control/outroscads.php">OUTROS CADERNOS</a></li>
+            <li><a href="../control/noticias.php">NOTICIAS</a></li>
+            <li><a href="../control/infos.php">+INFOS</a></li>
 
         </div>
 
@@ -167,42 +211,3 @@ li{
 </body>
 
 </html>
-
-
-<?php
-
-include('conection.php');
-
-
-$email = $mysqli->real_escape_string($_POST['email']);
-$password = $mysqli->real_escape_string($_POST['password']);
-
-
-$sql_code = "SELECT * FROM tb_login WHERE email = '$email' LIMIT 1 ";
-$sql_exec = $mysqli->query($sql_code) or die("SQL code error: " . $mysqli->error);
-
-$quantity = $sql_exec->num_rows;
-
-if ($quantity == 1) {
-    $user = $sql_exec->fetch_assoc();
-
-
-
-
-    if (password_verify($password, $user['senha'])) {
-
-        if (!isset($_SESSION)) {
-            session_start();
-        }
-        $_SESSION['nome'] = $user['nome'];
-        $_SESSION['nivel'] = 2;
-
-        echo "<script>alert('Usuario logado !!! ')</script>";
-
-        header("Location: questoes.php");
-        exit();
-    } else {
-        echo "<script>alert('Erro ao logar! Email ou senha incorretos.')</script>";
-    }
-}
-?>
