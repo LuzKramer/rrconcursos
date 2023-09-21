@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RRCONCURSOS/home</title>
         <link rel="stylesheet" href="view/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
     </head>
     <body>
         <header class="header">
@@ -57,25 +59,16 @@
 
         </main>
         
-        <footer>
-            <ul>
-                <li class="ulf">RR CONCURSOS</li>
-                <li class="ulf">Provas</li>
-                <li class="ulf">Video aulas</li>
-                <li class="ulf">Disciplinas</li>
-                <li class="ulf"><a href="control/us.php">Sobre Nós</a></li>
-                
-            </ul>
-            <ul>
-                <li class="ulf">PAGINAS ÚTEIS</li>
-                <li class="ulf">Noticias</li>
-                <li class="ulf">Como usar o RR CONCURSOS</li>
-                
-            </ul>
-            <div class="bluep2">RR CONCURSOS</div>
-
-
-        </footer>
+ <footer class="py-2 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">© 2023 Company, Inc</p>
+  </footer>
 
 
 

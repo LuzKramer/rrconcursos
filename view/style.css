@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
   
     padding: 25px;
@@ -107,12 +111,8 @@ form img {
 
 
 footer{
-    display: flex;
     background: #58c24e;
-    height: 150px ;
-    border-bottom: 1px solid #E0E6F8;
-    justify-content: space-between;
-    padding: 8px;    
+    margin: 1px;
 }
 .ulf{
     color: rgb(245, 245, 245);
