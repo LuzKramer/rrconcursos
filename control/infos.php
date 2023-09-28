@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../view/style.css">
     <style>
         .info {
-            background-color: lightgray;
+            background-color: lightgray   ;
             padding: 20px;
             border: 1px solid gray;
             border-radius: 5px;
@@ -34,7 +34,6 @@
 
 
 <body>
-
     <header class="header">
         <div class="dv1">
             <div class="l1e">
@@ -157,6 +156,7 @@
 
 
 
+ 
 
 
 
