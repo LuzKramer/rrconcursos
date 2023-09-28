@@ -11,6 +11,12 @@
     <style>
         /* Estilo personalizado */
 
+        .rounded-img {
+            border-radius: 50%; /* Makes the image round */
+            width: 100px; /* Adjust the width as needed */
+            height: 100px; /* Adjust the height as needed */
+            object-fit: cover; /* Ensures the image covers the entire container */
+        }
 
         .card {
             border: 2px solid #17a2b8;
@@ -70,16 +76,17 @@
 
     <div class="container mt-5">
         <h1 class="mb-4">Sobre Nós</h1>
-        <p>Projeto do Grupo 6 de Informática @ IFRR 2023</p>
+        <p>Site para o projeto Dotores da Informática 2023</p>
 
         <div class="row">
             <!-- Pessoa 1 -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="../view/img/will.jpg" class="card-img-top" alt="Foto de William Kramer">
+                    <img src="../view/img/will.jpg" class="card-img-top rounded-img" alt="Foto de William Kramer">
                     <div class="card-body">
                         <h5 class="card-title">William Kramer</h5>
                         <p class="card-text">Líder do Projeto</p>
+                        <p class="card-text">Github: <a href="https://github.com/LuzKramer">LuzKramer</a></p>
                     </div>
                 </div>
             </div>
@@ -87,9 +94,9 @@
             <!-- Pessoa 2 - Adicione as informações da Pessoa 2 aqui -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagem_pessoa2.jpg" class="card-img-top" alt="Foto da Pessoa 2">
+                    <img src="imagem_pessoa2.jpg" class="card-img-top rounded-img" alt="Foto da Pessoa 2">
                     <div class="card-body">
-                        <h5 class="card-title">Nome da Pessoa 2</h5>
+                        <h5 class="card-title">João Felipe</h5>
                         <p class="card-text">Descrição da Pessoa 2.</p>
                     </div>
                 </div>
@@ -98,9 +105,9 @@
             <!-- Pessoa 3 - Adicione as informações da Pessoa 3 aqui -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagem_pessoa3.jpg" class="card-img-top" alt="Foto da Pessoa 3">
+                    <img src="imagem_pessoa3.jpg" class="card-img-top rounded-img" alt="Foto da Pessoa 3">
                     <div class="card-body">
-                        <h5 class="card-title">Nome da Pessoa 3</h5>
+                        <h5 class="card-title">Gustavo de Jesus</h5>
                         <p class="card-text">Descrição da Pessoa 3.</p>
                     </div>
                 </div>
@@ -111,9 +118,9 @@
             <!-- Pessoa 4 - Adicione as informações da Pessoa 4 aqui -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagem_pessoa4.jpg" class="card-img-top" alt="Foto da Pessoa 4">
+                    <img src="imagem_pessoa4.jpg" class="card-img-top rounded-img" alt="Foto da Pessoa 4">
                     <div class="card-body">
-                        <h5 class="card-title">Nome da Pessoa 4</h5>
+                        <h5 class="card-title">Vinicios Barros</h5>
                         <p class="card-text">Descrição da Pessoa 4.</p>
                     </div>
                 </div>
@@ -122,10 +129,10 @@
             <!-- Pessoa 5 - Adicione as informações da Pessoa 5 aqui -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagem_pessoa5.jpg" class="card-img-top" alt="Foto da Pessoa 5">
+                    <img src="imagem_pessoa5.jpg" class="card-img-top rounded-img" alt="Foto da Pessoa 5">
                     <div class="card-body">
-                        <h5 class="card-title">Nome da Pessoa 5</h5>
-                        <p class="card-text">Descrição da Pessoa 5.</p>
+                        <h5 class="card-title">Miguel Lestayo</h5>
+                        <p class="card-text">Fez nada.</p>
                     </div>
                 </div>
             </div>

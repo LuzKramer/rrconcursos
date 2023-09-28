@@ -1,5 +1,3 @@
-
-
 <?php
 include('protect.php');
 include('conection.php');
@@ -80,7 +78,7 @@ include('conection.php');
                 }
 
                 // Close the result set      width: 500px;
-                 
+
                 $result_disciplinas->free_result();
                 ?>
             </select>
@@ -92,10 +90,10 @@ include('conection.php');
 
 
         <main class="main1">
-       
-        
 
-    
+
+
+
             <?php
 
 
@@ -109,67 +107,68 @@ include('conection.php');
                 $questao .= " AND a1.id_disciplina = $selectedMateria";
 
                 $query_questao = mysqli_query($mysqli, $questao);
-            
-
-            //Perguntas ------------------- --------------------- ------------------
 
 
-
-
-            //Parte 2 - Valiando a resposta correta
+                //Perguntas ------------------- --------------------- ------------------
 
 
 
-            $cont = 0;
-            while ($resultado = mysqli_fetch_assoc($query_questao)) {
-                $contar = $cont + 1;
-                $responder = $responder + $contar;
-                $resultado['id_questao'] = $resultado['id_alternativa'];
-                if ($resultado['id_questao'] === $resultado['id_alternativa']) {
-                }
+
+                //Parte 2 - Valiando a resposta correta
+
+
+
+                $cont = 0;
+                while ($resultado = mysqli_fetch_assoc($query_questao)) {
+                    $contar = $cont + 1;
+                    $responder = $responder + $contar;
+                    $resultado['id_questao'] = $resultado['id_alternativa'];
+                    if ($resultado['id_questao'] === $resultado['id_alternativa']) {
+                    }
             ?>
 
 
 
-                <form action="" method="POST">
+                    <form action="" method="POST">
                 <?php
-                $imagem = $resultado['imagem'];
-                if($imagem != ""){
-                    echo "<img src='$imagem' alt='Imagem not found'> </img>". '<br>';
-                }
-                $enunciado = $resultado['enunciado'];
-                $ano_questao = $resultado['ano'];
-                $disciplina_questao = $resultado['nome_disciplina'];
-                echo "<h1> $enunciado </h1>" . " - " .  $disciplina_questao . " - Ano: " . $ano_questao . '<br>';
-                echo "Opções: ";
-                echo '<br>';
-                echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt1'] . "'>" . $resultado['txt_alt1'] . '<br>';
-                echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt2'] . "'>" . $resultado['txt_alt2'] . '<br>';
-                echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt3'] . "'>" . $resultado['txt_alt3'] . '<br>';
-                echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt4'] . "'>" . $resultado['txt_alt4'] . '<br>';
-                echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt5'] . "'>" . $resultado['txt_alt5'] . '<br>';
-                echo "<input type='submit' name='envio" . $responder . "' value='Enviar'>";
-                echo "<input type='reset' name='envio" . $responder . "' value='Apagar'>";
-                echo '<br>';
+                    $imagem = $resultado['imagem'];
+                    if ($imagem != "") {
+                        echo "<img src='$imagem' alt='Imagem not found'> </img>" . '<br>';
+                    }
+                    $enunciado = $resultado['enunciado'];
+                    $ano_questao = $resultado['ano'];
+                    $disciplina_questao = $resultado['nome_disciplina'];
+                    echo "<h1> $enunciado </h1>" . " - " .  $disciplina_questao . " - Ano: " . $ano_questao . '<br>';
+                    echo "Opções: ";
+                    echo '<br>';
+                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt1'] . "'>" . $resultado['txt_alt1'] . '<br>';
+                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt2'] . "'>" . $resultado['txt_alt2'] . '<br>';
+                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt3'] . "'>" . $resultado['txt_alt3'] . '<br>';
+                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt4'] . "'>" . $resultado['txt_alt4'] . '<br>';
+                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt5'] . "'>" . $resultado['txt_alt5'] . '<br>';
+                    echo "<input type='submit' name='envio" . $responder . "' value='Enviar'>";
+                    echo "<input type='reset' name='clear" . $responder . "' value='Apagar'>";
+                    echo " <button name='next'>Proxima</button>";
+                    echo '<br>';
 
-                if (isset($_POST['envio' . $responder])) {
+                    if (isset($_POST['envio' . $responder])) {
 
 
-                    $certo = $resultado['correta'];
-                    $resposta_certa =  $resultado['txt_alt' . $certo];
-                    $escolha = $_POST['escolha'];
-                    if ($resposta_certa === $escolha) {
-                        echo "Portanto, está certo(a)";
-                    } else {
-                        echo "Portanto, está errado(a)";
+                        $certo = $resultado['correta'];
+                        $resposta_certa =  $resultado['txt_alt' . $certo];
+                        $escolha = $_POST['escolha'];
+                        if ($resposta_certa === $escolha) {
+                            echo "Portanto, está certo(a)";
+                        } else {
+                            echo "Portanto, está errado(a)";
+                        }
                     }
                 }
             }
-        }
                 ?>
 
 
-                </form>
+                    </form>
         </main>
         <br><br><br>
 
