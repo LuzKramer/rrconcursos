@@ -1,82 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+    <header>
+        <link rel="stylesheet" href="view/style22.css">
+        <script src="https://kit.fontawesome.com/d1274c8dc0.js" crossorigin="anonymous"></script>
+    </header>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RRCONCURSOS/home</title>
-        <link rel="stylesheet" href="view/style.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    
-    </head>
-    <body>
-        <header class="header">
-            <div class="dv1">
-                <div class="l1e">
-                   <div class="bluep"><img src="view/img/rr.jpeg" height="35px"></div>
-                    <ul class="ul1">
-                        <li><a href="../index.php">menu</a></li>
-                    </ul>
-                </div>
-                <h1>RR CONCURSOS</h1>
-               <ul class="ul2">
-                   <li><a href="control/ajuda.php">ajuda</a></li>
-                  
-                   <li><a href="control/inout.php">entrar</a></li>
-               </ul>
-            </div>
-            
-
-           <div class="l2">
-               
-                    <li><a href="../index.php">INICIO</a></li>
-                   
-                    <li><a href="control/questoes.php">QUESTÕES</a></li>
-               
-
-               
-                    <li><a href="control/outroscads.php">OUTROS CADERNOS</a></li>
-                    <li><a href="control/noticias.php">NOTICIAS</a></li>
-                    <li><a href="control/infos.php">+INFOS</a></li>
-               
-            </div>
-
-        </header>
-        <main class="MainIn">
-
-            <div class="planos">
-                <h1>    entrar</h1>
-                <a href="control/login.php">Clique aqui </a>
-                <br>
-                <br>
-                <h1> não tem conta?</h1>
-                <a href="control/cadastro.php">clique aqui </a>
-                
-
-            </div>
-
-          
-
-
-        </main>
-        
- <footer class="py-2 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-    </ul>
-    <p class="text-center text-body-secondary">© 2023 Company, Inc</p>
-  </footer>
-
-
-
-    </body>
-
-
-
-
-
-
+    <title>RRconcursos</title>
+</head>
+<body>
+    <div class="menu">
+    <div class="esq">
+    <img src="view/img/rr.jpeg" alt="" height="100px" width="150px"><br><br><br>
+<h1>Seu caminho para o futuro começão aqui</h1>
+<div class="social">
+    <a href="http://facebook.com"><i class="fa-brands fa-facebook"></i></a>
+    <a href="http://instagram.com"><i class="fa-brands fa-instagram"></i></a>
+    <a href="http://twitter.com"><i class="fa-brands fa-x-twitter"></i></a>
+</div>
+</div>
+<div class="dir">
+    <h1>Entre em uma nova jornada ou <br> <p>continue de onde parou</p></h1><br><br>
+    <a class="log" href="control/login.php">LOGIN</a>
+    <a class="log" href="control/cadastro.php">CADASTRE-SE</a>
+</div>
+</div>
+</body>
 </html>

@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,11 +100,11 @@
                     echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt4'] . "'>" . $resultado['txt_alt4'] . '<br>';
                     echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt5'] . "'>" . $resultado['txt_alt5'] . '<br>';
                     echo "<input type='submit' name='envio" . $responder . "' value='Enviar' id='enviarr'>";
-                    echo "<input type='reset' name='envio" . $responder . "' value='Apagar'>";
+                    echo "<input type='reset' name='reset" . $responder . "' value='Apagar'>";
                     echo '<br>';
                     echo '<br>';
                     echo '<br>';
-
+                    
 
                     //Parte 2 -Verificação da resposta
                     if (isset($_POST['envio' . $responder])) {
@@ -143,9 +148,16 @@
 
                     ?>
                     </form>
-                    <button id="next">Proxima</button>
+                    <form action="">
+                        <input type="submit" name="next" value="Proxima">
+                    </form>
                 </div>
+
             <?php
+
+            if(){
+                
+            }
         }
             ?>
 

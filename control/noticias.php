@@ -13,45 +13,34 @@
             margin-top: 20px;
         }
 
-        footer {
-            display: flex;
-            background: #58c24e;
-            height: 150px;
-            border-bottom: 1px solid #E0E6F8;
-            justify-content: space-between;
-            padding: 8px;
-        }
+       
     </style>
 
 </head>
 
 <body>
-    <header class="header">
-        <div class="dv1">
-            <div class="l1e">
-                <div class="bluep"><img src="../view/img/rr.jpeg" height="35px"></div>
-                <ul class="ul1">
-                    <li><a href="../index.php">menu</a></li>
-                </ul>
-            </div>
-            <h1>rr CONCURSOS</h1>
-            <ul class="ul2">
-                <li><a href="../control/ajuda.php">ajuda</a></li>
-                <li><a href="../control/assinar.php">assinar</a></li>
-                <li><a href="../control/inout.php">entrar</a></li>
-            </ul>
-        </div>
 
-        <div class="l2">
-            <li><a href="../index.php">INICIO</a></li>
-            <li><a href="../control/vestibular.php">VESTIBULAR</a></li>
-            <li><a href="../control/aulas.php">AULAS</a></li>
-            <li><a href="../control/questoes.php">QUESTÕES</a></li>
-            <li><a href="../control/outroscads.php">OUTROS CADERNOS</a></li>
-            <li><a href="../control/noticias.php">NOTICIAS</a></li>
-            <li><a href="../control/infos.php">+INFOS</a></li>
-        </div>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <div class="col-md-3 mb-2 mb-md-0">
+        <a href="../view/img/rr.jpeg" class="d-inline-flex link-body-emphasis text-decoration-none">
+          <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+      </div>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2">Features</a></li>
+        <li><a href="#" class="nav-link px-2">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2">About</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        <button type="button" class="btn btn-primary">Sign-up</button>
+      </div>
     </header>
+  
     <main class="MainIn">
 
         <div class="news-section container"> <!-- Add 'container' class for Bootstrap styling -->
@@ -86,26 +75,16 @@
 
         </div>
     </main>
-    <footer>
-        <ul>
-            <li class="ulf">RR CONCURSOS</li>
-            <li class="ulf">Provas</li>
-            <li class="ulf">Video aulas</li>
-            <li class="ulf">Disciplinas</li>
-            <li class="ulf">Sobre Nós</li>
-
-        </ul>
-        <ul>
-            <li class="ulf">PAGINAS ÚTEIS</li>
-            <li class="ulf">Noticias</li>
-            <li class="ulf">Como usar o RR CONCURSOS</li>
-
-        </ul>
-        <div class="bluep2">RR CONCURSOS</div>
-
-
-    </footer>
-
+    <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">© 2023 Company, Inc</p>
+  </footer>
 
     <!-- Add Bootstrap JS scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
