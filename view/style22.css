@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    overflow: hidden;
+}
+.menu{
+    width: 100vw;
+    height: 95vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.esq{
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 365px 0px;
+    background-color: #0efcad;
+}
+.log{
+    text-decoration: none;
+    color: black;
+    margin: 20px;
+    padding: 10px 30px;
+    border: 0px;
+    border-radius: 15px;
+    background-color: #0efcad;
+    font-size: large;
+    font-weight: bold;
+}
+.dir{
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    color: black;
+}
+p{
+    color: #0efcad;
+}
+i{
+    color: black;
+    padding: 15px;
+    border-radius: 50%;
+    background-color: transparent;
+    position: relative;
+    text-align: center;
+    font-size: 50px;
+}
