@@ -9,21 +9,11 @@
   <style>
     /* Add spacing between news items */
     .news-section .card {
+      height: 90%;
       margin-bottom: 20px;
       margin-top: 10px;
-    }
-
-    header {
-      background: #58c24e;
-      margin: 0px;
-      margin-bottom: 0px;
-      height: 100px;
-      /* Increase the height to your desired value, for example, 80px */
-    }
-
-    footer {
-      background: #58c24e;
-      margin-top: 0;
+      justify-content: center;
+      justify-items: center;
     }
   </style>
 
@@ -62,7 +52,7 @@
     <div class="news-section container"> <!-- Add 'container' class for Bootstrap styling -->
       <?php
       include "conection.php";
-      $sql = "SELECT * FROM tb_news";
+      $sql = "SELECT * FROM tb_news ORDER BY date DESC";
       $result = $mysqli->query($sql);
 
       if ($result->num_rows > 0) {
@@ -70,14 +60,14 @@
           echo "<div class='news card mb-3'>"; // Add 'card' and 'mb-3' classes for Bootstrap card styling
           echo "<div class='card-body'>";
           if (!empty($row["img"])) {
-            echo "<img src='" . $row["img"] . "' alt='News Image' class='img-fluid'>";
+            echo "<img src='" . $row["img"] . "' width='700' height='500'>";
           }
           echo "<h2 class='card-title'>" . $row["title"] . "</h2>";
           echo "<p class='card-text'>" . $row["news"] . "</p>";
 
           // Format the date in Western style
           $date = date('d/m/Y', strtotime($row["date"]));
-          echo "<p class='card-text'>Date: " . $date . "</p>";
+          echo "<p class='card-text'>Data: " . $date . "</p>";
 
           echo "</div>";
           echo "</div>";
