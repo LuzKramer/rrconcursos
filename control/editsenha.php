@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mudar senha</title>
     <style>
         body {
-            background-color: #0d6efd;
+            background: #58c24e;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            padding: 30px;
             margin: 0;
         }
-        
+
         .login-box {
             background-color: white;
             border-radius: 5px;
             padding: 30px;
             text-align: center;
         }
-        
+
         .login-box img {
             margin-bottom: 15px;
         }
-        
+
         .form-floating {
             margin-bottom: 15px;
         }
-        
+
         .form-check {
             margin-top: 15px;
             margin-bottom: 30px;
@@ -96,11 +98,11 @@ if (isset($_POST['mudar'])) {
 
     if ($stmt->execute()) {
         $stmt->store_result(); // Added this line
-       
+
         if (!isset($_SESSION)) {
             session_start();
         }
-       
+
         $_SESSION['nivel'] = 2;
 
         echo "<script>alert(' senha alterada !!! ')</script>";

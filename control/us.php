@@ -12,10 +12,14 @@
         /* Estilo personalizado */
 
         .rounded-img {
-            border-radius: 50%; /* Makes the image round */
-            width: 100px; /* Adjust the width as needed */
-            height: 100px; /* Adjust the height as needed */
-            object-fit: cover; /* Ensures the image covers the entire container */
+            border-radius: 50%;
+            /* Makes the image round */
+            width: 100px;
+            /* Adjust the width as needed */
+            height: 100px;
+            /* Adjust the height as needed */
+            object-fit: cover;
+            /* Ensures the image covers the entire container */
         }
 
         .card {
@@ -41,35 +45,26 @@
 
 <body>
 
-    <header class="header">
-        <div class="dv1">
-            <div class="l1e">
-                <div class="bluep"><img src="../view/img/rr.jpeg" height="35px"></div>
-                <ul class="ul1">
-                    <li><a href="../index.php">menu</a></li>
-                </ul>
-            </div>
-            <h1>RR CONCURSOS</h1>
-            <ul class="ul2">
-                <li><a href="control/ajuda.php">ajuda</a></li>
-
-                <li><a href="control/inout.php">entrar</a></li>
-            </ul>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3  border-bottom">
+        <div class="col-md-3 mb-2 mb-md-0">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
         </div>
 
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="../index.php" class="nav-link px-2 link-secondary">Inicio</a></li>
+            <li><a href="questions.php" class="nav-link px-2">Questões</a></li>
+            <li><a href="infos.php" class="nav-link px-2">Informações</a></li>
+            <li><a href="ajuda.php" class="nav-link px-2">Ajuda</a></li>
+            <li><a href="noticias.php" class="nav-link px-2">Noticias</a></li>
+        </ul>
 
-        <div class="l2">
-
-            <li><a href="../index.php">INICIO</a></li>
-
-            <li><a href="control/questoes.php">QUESTÕES</a></li>
-
-
-
-            <li><a href="control/outroscads.php">OUTROS CADERNOS</a></li>
-            <li><a href="control/noticias.php">NOTICIAS</a></li>
-            <li><a href="control/infos.php">+INFOS</a></li>
-
+        <div class="col-md-3 text-end">
+            <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href = 'login.php'">Login</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href = 'cadastro.php'">Cadastro</button>
         </div>
 
     </header>
@@ -138,24 +133,15 @@
             </div>
         </div>
     </div>
-    <footer>
-        <ul>
-            <li class="ulf">RR CONCURSOS</li>
-            <li class="ulf">Provas</li>
-            <li class="ulf">Video aulas</li>
-            <li class="ulf">Disciplinas</li>
-            <li class="ulf"><a href="control/us.php">Sobre Nós</a></li>
-
+    <footer class="py-3 ">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="../index.php" class="nav-link px-2 text-body-secondary">Inicio</a></li>
+            <li class="nav-item"><a href="infos.php" class="nav-link px-2 text-body-secondary">+Infos</a></li>
+            <li class="nav-item"><a href="noticias.php" class="nav-link px-2 text-body-secondary">Noticias</a></li>
+            <li class="nav-item"><a href="ajuda.php" class="nav-link px-2 text-body-secondary">Ajuda</a></li>
+            <li class="nav-item"><a href="us.php" class="nav-link px-2 text-body-secondary">Sobre Nós</a></li>
         </ul>
-        <ul>
-            <li class="ulf">PAGINAS ÚTEIS</li>
-            <li class="ulf">Noticias</li>
-            <li class="ulf">Como usar o RR CONCURSOS</li>
-
-        </ul>
-        <div class="bluep2">RR CONCURSOS</div>
-
-
+        <p class="text-center text-body-secondary">© 2023 RRconcursos</p>
     </footer>
     <!-- Adicione o link para o JavaScript do Bootstrap e jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
