@@ -44,7 +44,7 @@
         FROM questoes AS a1, alternativas AS a2, disciplinas AS a3 
         WHERE a1.id_questao = a2.id_questao 
         AND a1.id_disciplina = a3.id_disciplina 
-        AND a1.id_questao NOT IN (' . implode(',', $questoesRespondidas) . ') 
+        AND a1.id_questao 
         LIMIT 1;";
 
 
@@ -155,9 +155,7 @@
 
             <?php
 
-            if(){
-                
-            }
+           
         }
             ?>
 
