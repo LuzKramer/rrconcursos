@@ -1,125 +1,82 @@
-<?php
-include('protect.php');
-?>
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta name="viewport" content="high=device-high, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>rrCONCURSOS/</title>
+    <title>rrCONCURSOS/ajuda</title>
     <link rel="stylesheet" href="../view/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        .info{
-            high: 210px ;
-            font-size: 28px ;
-            align-items: center ;
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
-        .x{ 
-            height: 200 px;
-            width: 80%
+        .info {
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            height: 80vh; /* Ajuste a altura conforme necessário */
+            padding: 20px;
+            border: 1px solid cinza;
+            border-radius: 5px;
         }
-
-.MainIni{
-    height: 700px;
-    width: 100%;
-    background: #E0E6F8;
-   padding: 8px;
-    display: flex;
-    align-items: center;
-    align-content: center;
-    
-   
-}
     </style>
 </head>
-
 <body>
-    <header class="header">
-        <div class="dv1">
-            <div class="l1e">
-                <div class="bluep"><img src="../view/img/rr.jpeg" height="35px"></div>
-                <ul class="ul1">
-                    <li><a href="../index.php">menu</a></li>
-                </ul>
-            </div>
-            <h1>rr CONCURSOS</h1>
-            <ul class="ul2">
-                <li><a href="../control/ajuda.php">ajuda</a></li>
-                <li><a href="../control/assinar.php">assinar</a></li>
-                <li><a href="../control/inout.php">entrar</a></li>
-            </ul>
+    <header class="d-flex flex-wrap align-items-center justify-content-between py-3 border-bottom">
+        <div class="col-md-3 mb-2 mb-md-0">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
         </div>
 
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li class="nav-item"><a href="../index.php" class="nav-link px-2 link-secondary">Início</a></li>
+            <li class="nav-item"><a href="questions.php" class="nav-link px-2">Questões</a></li>
+            <li class="nav-item"><a href="infos.php" class="nav-link px-2">Informações</a></li>
+            <li class="nav-item"><a href="ajuda.php" class="nav-link px-2">Ajuda</a></li>
+            <li class="nav-item"><a href="noticias.php" class="nav-link px-2">Notícias</a></li>
+        </ul>
 
-        <div class="l2">
-
-            <li><a href="../index.php">INICIO</a></li>
-            <li><a href="../control/vestibular.php">VESTIBULAR</a></li>
-            <li><a href="../control/aulas.php">AULAS</a></li>
-            <li><a href="../control/questoes.php">QUESTÕES</a></li>
-
-
-
-            <li><a href="../control/outroscads.php">OUTROS CADERNOS</a></li>
-            <li><a href="../control/noticias.php">NOTICIAS</a></li>
-            <li><a href="../control/infos.php">+INFOS</a></li>
-
+        <div class="col-md-3 text-end">
+            <a href="login.php" class="btn btn-outline-primary me-2">Login</a>
+            <a href="cadastro.php" class="btn btn-primary">Cadastro</a>
         </div>
-
     </header>
 
-    <main class="MainIni">
+    <main class="MainIni container">
         <br>
-      <div class="info">
-        <p> Aqui temos alguns serviços que podem lhe ajudar se for necessário.</p>
+        <div class="info">
+            <p>Aqui temos alguns serviços que podem lhe ajudar se for necessário.</p>
             <br>
             <h3>Quer fazer seu cadastro? <a href="../control/cadastro.php">Clique Aqui</a> </h3>
             <p>Em caso de mais dúvidas, entre em contato conosco: contato@email.com </p>
             <br>
-            perguntas:<br>
-            "como faço login para acessar as questoes?"<br>
-            -Basta ir em 'entrar' e utilizar sua conta, após fazer login, vá em 'questoes' e está pronto!
-            <br><br>
-            "Onde vejo novos concursos e provas?"<br>
-            -Simples! Entre em 'noticias' e procure o que precisa, veja possíveis novas avaliações e etc.
-            <br><br>
-            
-
-      </div>
-
-       <div class="x">
-       
-       </div>
-
+            <p>Perguntas Frequentes:</p>
+            <ul>
+                <li><strong>Como faço login para acessar as questões?</strong> - Basta ir em 'Entrar' e utilizar sua conta, após fazer login, vá em 'Questões' e está pronto!</li>
+                <li><strong>Onde vejo novos concursos e provas?</strong> - Simples! Entre em 'Notícias' e procure o que precisa, veja possíveis novas avaliações e etc.</li>
+            </ul>
+        </div>
     </main>
 
-    <footer>
-        
-        <ul>
-            <li class="ulf">RR CONCURSOS</li>
-            <li class="ulf">Provas</li>
-            <li class="ulf">Video aulas</li>
-            <li class="ulf">Disciplinas</li>
-            <li class="ulf">Sobre Nós</li>
-
+    <footer class="py-3">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="../index.php" class="nav-link px-2 text-body-secondary">Início</a></li>
+            <li class="nav-item"><a href="infos.php" class="nav-link px-2 text-body-secondary">+Infos</a></li>
+            <li class="nav-item"><a href="noticias.php" class="nav-link px-2 text-body-secondary">Notícias</a></li>
+            <li class="nav-item"><a href="ajuda.php" class="nav-link px-2 text-body-secondary">Ajuda</a></li>
+            <li class="nav-item"><a href="us.php" class="nav-link px-2 text-body-secondary">Sobre Nós</a></li>
         </ul>
-        <ul>
-            <li class="ulf">PAGINAS ÚTEIS</li>
-            <li class="ulf">Noticias</li>
-            <li class="ulf">Como usar o RR CONCURSOS</li>
-            <li class="ulf">Avalie-nos</li>
-        </ul>
-        <div class="bluep2">RR CONCURSOS</div>
-
-
+        <p class="text-center text-body-secondary">© 2023 RRconcursos</p>
     </footer>
-
-
-
-
 </body>
-
 </html>

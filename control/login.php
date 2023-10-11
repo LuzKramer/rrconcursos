@@ -46,60 +46,13 @@ if ($quantity == 1) {
     <title>Tela de Login</title>
 
     <style>
-        .header {
-            background-color: #0efcad;
-            color: black;
-            padding: 8px;
-            justify-content: space-between;
-            height: 130px;
-
-            border-top: 3px solid #ffffff;
-            margin: 0;
-        }
-
-        .dv1 {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .l1e {
-            height: 20px;
-            display: flex;
-        }
-
-        .bluep {
-            width: 5px;
-            align-items: flex-start;
-            height: 5px;
-        }
-
-        .ul1 {
-            display: flex;
-        }
-
-        .ul2 {
-            display: flex;
-        }
-
-        .l2 {
-            display: flex;
-            justify-content: space-between;
-        }
-
-
-
-        li {
-            color: black;
-            list-style-type: none;
-            padding-left: 2rem;
-        }
-
         .princip {
-            background-color: #0d6efd;
+            background: #58c24e;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            padding: 30px;
             margin: 0;
         }
 
@@ -126,38 +79,7 @@ if ($quantity == 1) {
 </head>
 
 <body>
-    <header class="header">
-        <div class="dv1">
-            <div class="l1e">
-                <div class="bluep"><img src="../view/img/rr.jpeg" height="35px"></div>
-                <ul class="ul1">
-                    <li><a href="../index.php">menu</a></li>
-                </ul>
-            </div>
-            <h1>RR CONCURSOS</h1>
-            <ul class="ul2">
-                <li><a href="../control/ajuda.php">ajuda</a></li>
 
-                <li><a href="../control/inout.php">entrar</a></li>
-            </ul>
-        </div>
-
-
-        <div class="l2">
-
-            <li><a href="../index.php">INICIO</a></li>
-
-            <li><a href="../control/questoes.php">QUESTÕES</a></li>
-
-
-
-            <li><a href="../control/outroscads.php">OUTROS CADERNOS</a></li>
-            <li><a href="../control/noticias.php">NOTICIAS</a></li>
-            <li><a href="../control/infos.php">+INFOS</a></li>
-
-        </div>
-
-    </header>
     <div class="princip">
 
         <div class="login-box">
@@ -181,6 +103,7 @@ if ($quantity == 1) {
                     </label>
                     <h4>Esqueceu a senha ? <a href="editsenha.php">click aqui para mudar a senha </a></h4>
                     <h3>Não tem conta ?<a href="../control/cadastro.php">Criar conta</a></h3>
+                    <h3><a href="logout.php">Logout</a></h3>
                 </div>
                 <button class="btn btn-primary w-100 py-2" name="login" type="submit">entrar</button>
             </form>

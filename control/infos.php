@@ -3,184 +3,76 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>rrCONCURSOS/</title>
+    <title>RR CONCURSOS</title>
     <link rel="stylesheet" href="../view/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
         .info {
-            background-color: lightgray   ;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 90vh; /* Ajuste a altura conforme necessário */
             padding: 20px;
-            border: 1px solid gray;
+            border: 1px solid cinza;
             border-radius: 5px;
         }
     </style>
 </head>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <body>
-    <header class="header">
-        <div class="dv1">
-            <div class="l1e">
-                <div class="bluep"><img src="../view/img/rr.jpeg" height="35px"></div>
-                <ul class="ul1">
-                    <li><a href="../index.php">menu</a></li>
-                </ul>
-            </div>
-            <h1>RR CONCURSOS</h1>
-            <ul class="ul2">
-                <li><a href="../control/ajuda.php">ajuda</a></li>
-
-                <li><a href="../control/inout.php">entrar</a></li>
-            </ul>
+    <header class="d-flex flex-wrap align-items-center justify-content-between py-3 border-bottom">
+        <div class="col-md-3 mb-2 mb-md-0">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
         </div>
 
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="../index.php" class="nav-link px-2 link-secondary">Início</a></li>
+            <li><a href="questions.php" class="nav-link px-2">Questões</a></li>
+            <li><a href="infos.php" class="nav-link px-2">Informações</a></li>
+            <li><a href="ajuda.php" class="nav-link px-2">Ajuda</a></li>
+            <li><a href="noticias.php" class="nav-link px-2">Notícias</a></li>
+        </ul>
 
-
-
-
-
-        <div class="l2">
-
-            <li><a href="../index.php">INICIO</a></li>
-
-            <li><a href="../control/questoes.php">QUESTÕES</a></li>
-
-
-            <li><a href="../control/outroscads.php">OUTROS CADERNOS</a></li>
-            <li><a href="../control/noticias.php">NOTICIAS</a></li>
-            <li><a href="../control/infos.php">+INFOS</a></li>
-
+        <div class="col-md-3 text-end">
+            <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href = 'login.php'">Login</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href = 'cadastro.php'">Cadastro</button>
         </div>
-
-
     </header>
 
     <div class="info">
         <h2>Informações sobre o RR CONCURSOS</h2>
         <p>
-
-
-            <html>
-
-            <head>
-                <title>RR CONCURSOS - O seu caminho para a aprovação</title>
-                <style>
-                    header {
-                        box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
-                            rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-                            rgba(0, 0, 0, 0.09) 0px 32px 16px;
-
-
-
-
-                    }
-
-                    body {
-
-
-                        margin: 0;
-                        padding: 20px;
-                    }
-
-                    h1 {
-                     
-                        font-size: 32px;
-                        margin-bottom: 20px;
-                    }
-
-                    p {
-                        font-size: 18px;
-                        line-height: 1.5;
-                        margin-bottom: 10px;
-                    }
-
-                    .highlight {
-                        background-color: white;
-                        padding: 5px;
-                        border-radius: 5px;
-                    }
-
-                    .info {
-                        background-color: white;
-
-
-
-                    }
-
-                    footer {
-
-                        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-                    }
-                </style>
-
-
-
-            </head>
-
-            <body>
-                <h1>RR CONCURSOS - O seu caminho para a aprovação!</h1>
-
-                <p> É aqui no RR-concursos que o seu sonho de ser aprovado naquela provinha vai ser concluido </p>
-
-                <p> contamos com dicas e revisões para que o seu apreendizado seja excepcional </p>
-
-                <p> Aqui na RR-concursos, acreditamos que com dedicação, disciplina e acesso a conteúdo de qualidade, qualquer um pode chegar lá!</p>
-
-                <p> Então, ja esta na hora de mudar de vida e correr atrás daquela aprovação dos sonhos</p>
-
-                <p> juntos para te ajudar a alcançar o sucesso, Pode contar com a RR CONCURSOS.</p>
-
-
-
-
-            </body>
-
-
-            </html>
-
-
-
- 
-
-
-
-
+            <h1>RR CONCURSOS - Seu caminho para a aprovação!</h1>
+            <p>Aqui no RR Concursos, seu sonho de ser aprovado naquela prova será realizado.</p>
+            <p>Oferecemos dicas e revisões para que seu aprendizado seja excepcional.</p>
+            <p>Acreditamos que, com dedicação, disciplina e acesso a conteúdo de qualidade, qualquer um pode alcançar o sucesso!</p>
+            <p>Então, é hora de mudar de vida e correr atrás daquela aprovação dos sonhos.</p>
+            <p>Estamos aqui para te ajudar a alcançar o sucesso. Conte com a RR CONCURSOS.</p>
         </p>
-        <p></p>
     </div>
-    <footer>
-        <ul>
-            <li class="ulf">RR CONCURSOS</li>
-            <li class="ulf">Provas</li>
-
-            <li class="ulf"><a href="us.php">Sobre Nós</a></li>
-
+    <footer class="py-3">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="../index.php" class="nav-link px-2 text-body-secondary">Início</a></li>
+            <li class="nav-item"><a href="infos.php" class="nav-link px-2 text-body-secondary">+Informações</a></li>
+            <li class="nav-item"><a href="noticias.php" class="nav-link px-2 text-body-secondary">Notícias</a></li>
+            <li class="nav-item"><a href="ajuda.php" class="nav-link px-2 text-body-secondary">Ajuda</a></li>
+            <li class="nav-item"><a href="us.php" class="nav-link px-2 text-body-secondary">Sobre Nós</a></li>
         </ul>
-        <ul>
-
-            <li class="ulf">Noticias</li>
-            <li class="ulf">Como usar o RR CONCURSOS</li>
-
-        </ul>
-        <div class="bluep2">RR CONCURSOS</div>
-
-
+        <p class="text-center text-body-secondary">© 2023 RRconcursos</p>
     </footer>
 </body>
 
