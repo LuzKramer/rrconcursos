@@ -2,22 +2,11 @@
 
 <?php
 include"admprotect.php";
+
+include('../conection.php');
 ?>
 
 <?php
-
-$user = 'root';
-$password = '';
-$db = 'db_rrconcursos';
-$host = 'localhost';
-
-$conn= new mysqli($host, $user, $password, $db);
-
-if($mysqli->error){
-    die("error to conect".$conn->error);
-
-
-}
 
 //delete
 if (isset($_GET['delete'])) {
@@ -26,7 +15,7 @@ if (isset($_GET['delete'])) {
     // Verifique se $id é um número inteiro válido
     if (filter_var($id, FILTER_VALIDATE_INT)) {
         $sqlSelect = "SELECT img FROM tb_news WHERE id=?";
-        $stmtSelect = $conn->prepare($sqlSelect);
+        $stmtSelect = $mysqli->prepare($sqlSelect);
         $stmtSelect->bind_param("i", $id);
         $stmtSelect->execute();
 
@@ -45,7 +34,7 @@ if (isset($_GET['delete'])) {
             $stmtSelect->close();
 
             $sqlDelete = "DELETE FROM tb_news WHERE id=?";
-            $stmtDelete = $conn->prepare($sqlDelete);
+            $stmtDelete = $mysqli->prepare($sqlDelete);
             $stmtDelete->bind_param("i", $id);
             
             // Verifique se a exclusão do registro na tabela foi bem-sucedida
@@ -105,17 +94,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Use prepared statements to prevent SQL injection
     $sql = "INSERT INTO tb_news (title, news, date, img) VALUES (?, ?, ?, ?)";
-    $stmt = mysqli_prepare($conn, $sql);
+    $stmt = mysqli_prepare($mysqli, $sql);
     mysqli_stmt_bind_param($stmt, "ssss", $title, $news, $date, $save);
 
     if (mysqli_stmt_execute($stmt)) {
         echo "<script>alert('Noticia adicionada com sucesso!');</script>";
     } else {
-        echo "<script>alert('Erro ao adicionar noticia!');</script>". mysqli_error($conn);
+        echo "<script>alert('Erro ao adicionar noticia!');</script>". mysqli_error($mysqli);
     }
 
     mysqli_stmt_close($stmt);
-    mysqli_close($conn);
+    mysqli_close($mysqli);
 }
 // hey mate what u r lookin' ?
 
@@ -172,7 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <?php
                 // Move this section outside the POST request block
                 $sql = "SELECT * FROM tb_news";
-                $result = $conn->query($sql);
+                $result = $mysqli->query($sql);
 
                 while ($row = $result->fetch_assoc()):
                 ?>

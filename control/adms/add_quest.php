@@ -1,19 +1,7 @@
 <?php
 
 
-// Database connection details
-$host = "localhost"; // Replace with your database host
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$dbname = "db_rrconcursos"; // Replace with your database name
-
-// Create a connection to the database
-$conexao = mysqli_connect($host, $username, $password, $dbname);
-
-// Check if the connection was successful
-if (mysqli_connect_error()) {
-    die("Failed to connect to MySQL: " . mysqli_connect_error());
-}
+include('../conection.php');
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +90,7 @@ if (mysqli_connect_error()) {
             <?php
             // Retrieve the bancas from the database
             $query_banca = "SELECT id_banca, nome_banca FROM bancas";
-            $result_bancas = mysqli_query($conexao, $query_banca);
+            $result_bancas = mysqli_query($mysqli, $query_banca);
 
             // Display the options for bancas
             while ($row_banca = mysqli_fetch_assoc($result_bancas)) {
@@ -122,7 +110,7 @@ if (mysqli_connect_error()) {
             <?php
             // Retrieve the institutions from the database
             $query_instituicao = "SELECT id_instituicao, nome_instituicao FROM instituicao";
-            $result_instituicao = mysqli_query($conexao, $query_instituicao);
+            $result_instituicao = mysqli_query($mysqli, $query_instituicao);
 
             // Display the options for institutions
             while ($row_instituicao = mysqli_fetch_assoc($result_instituicao)) {
@@ -139,7 +127,7 @@ if (mysqli_connect_error()) {
             <?php
             // Retrieve the disciplines from the database
             $query_disciplinas = "SELECT id_disciplina, nome_disciplina FROM disciplinas";
-            $result_disciplinas = mysqli_query($conexao, $query_disciplinas);
+            $result_disciplinas = mysqli_query($mysqli, $query_disciplinas);
 
             // Display the options for disciplines
             while ($row_disciplina = mysqli_fetch_assoc($result_disciplinas)) {
@@ -222,22 +210,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $sql = "INSERT INTO questoes (id_disciplina, id_instituicao, ano, enunciado, imagem) 
             VALUES ('$materia', '$instituicao', '$ano', '$pergunta', '$save')";
 
-    if (mysqli_query($conexao, $sql)) {
-        $questao_id = mysqli_insert_id($conexao);
+    if (mysqli_query($mysqli, $sql)) {
+        $questao_id = mysqli_insert_id($mysqli);
 
         $sql_alternativas = "INSERT INTO alternativas (id_questao, txt_alt1, txt_alt2, txt_alt3, txt_alt4, txt_alt5, correta) VALUES 
                              ($questao_id, '$opcao1', '$opcao2', '$opcao3', '$opcao4', '$opcao5', '$resposta_correta')";
 
-        if (mysqli_query($conexao, $sql_alternativas))  {
+        if (mysqli_query($mysqli, $sql_alternativas))  {
             echo "<script>alert('Questão adicionada com sucesso!');</script>";
         } else {
             echo "<script>alert('Erro ao adicionar questão.');</script>";
         }
     } else {
-        echo "Erro ao inserir a questão: " . mysqli_error($conexao);
+        echo "Erro ao inserir a questão: " . mysqli_error($mysqli);
     }
 
-    mysqli_close($conexao);
+    mysqli_close($mysqli);
 }
 
 ?>

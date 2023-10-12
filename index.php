@@ -12,7 +12,7 @@
         }
 
         .menu {
-            width: 80vw;
+            width: 100vw;
             height: 95vh;
             display: flex;
             justify-content: center;
