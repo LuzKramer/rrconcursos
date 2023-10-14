@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     /* Add spacing between news items */
+    
     .news-section .card {
       height: 90%;
       margin-bottom: 20px;
@@ -73,7 +74,8 @@
           echo "</div>";
         }
       } else {
-        echo "No news available.";
+        echo'SEM NOTICIAS DISPONIVEIS';
+
       }
 
       $mysqli->close();

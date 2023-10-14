@@ -103,7 +103,8 @@ include('../conection.php');
         </select>
 
         <label for="ano">Ano:</label>
-        <input type="number" name="ano" id="ano" maxlength="4"required>
+        <input type="text" name="ano" id="ano"  maxlength="4"  pattern="\d{4}">
+
 
         <label for="instituicao">Instituição:</label>
         <select name="instituicao" id="instituicao" required>

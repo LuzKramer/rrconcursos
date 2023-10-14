@@ -1,206 +1,254 @@
-<?php
-include('protect.php');
-include('conection.php');
-?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
-    <title>rrCONCURSOS/questoes</title>
-    <link rel="stylesheet" href="../view/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código QUESTÃO</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Style for the main section */
+
+        body {
+            height: 100vh;
+            padding: 25px;
+            min-width: 200px;
+            margin: 0px;
+            padding: 0px;
+        }
+
+
+
+        header {
+
+            background: #58c24e;
+        }
+
+        main {
+            height: 100%;
+            background: white;
+            display: flex;
+            flex-direction: center;
+            justify-content: center;
+            justify-items: center;
+
+        }
+
+        .fq{
+            height: 100%;
+            width: 100%;
+            justify-content: center;
+            border: 1px black;
+
+        }
+
+        .fq h1 {
+
+            text-align: center;
+        }
+
+        .fq input[type=radio] {
+
+            width: 40px;
+
+        }
+
+
+
+        .fq input[type=submit] {
+            width: 100px;
+            background-color: green;
+            color: white;
+        }
+
+        /* Style for individual questions */
+        .question {
+            height: 100%;
+            justify-content: center;
+            justify-items: center;
+            overflow: hidden;
+            padding-top: 50px;
+        }
+
+        /* Style for images */
+        .question img {
+            max-width: 100%;
+            height: 20%;
+        }
+
+
+        footer {
+            background: #58c24e;
+
+        }
+    </style>
 </head>
 
 <body>
-    <header class="header">
-        <div class="dv1">
-            <div class="l1e">
-                <div class="bluep"><img src="../view/img/rr.jpeg" height="35px"></div>
 
-                <ul class="ul1">
-                    <li><a href="../index.php">menu</a></li>
-                </ul>
-            </div>
-            <h1>rr CONCURSOS</h1>
-            <ul class="ul2">
-                <li><a href="../control/ajuda.php">ajuda</a></li>
-                <li><a href="../control/assinar.php">assinar</a></li>
-                <li><a href="../control/inout.php">entrar</a></li>
-            </ul>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3  border-bottom">
+        <div class="col-md-3 mb-2 mb-md-0">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
         </div>
 
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="../index.php" class="nav-link px-2 link-secondary">Inicio</a></li>
+            <li><a href="questions.php" class="nav-link px-2">Questões</a></li>
+            <li><a href="infos.php" class="nav-link px-2">Informações</a></li>
+            <li><a href="ajuda.php" class="nav-link px-2">Ajuda</a></li>
+            <li><a href="noticias.php" class="nav-link px-2">Noticias</a></li>
+        </ul>
 
-        <div class="l2">
-
-            <li><a href="../index.php">INICIO</a></li>
-            <li><a href="../control/estibular.php">VESTIBULAR</a></li>
-            <li><a href="../control/aulas.php">AULAS</a></li>
-            <li><a href="../control/questoes.php">QUESTÕES</a></li>
-
-
-
-            <li><a href="../control/outroscads.php">OUTROS CADERNOS</a></li>
-            <li><a href="../control/noticias.php">NOTICIAS</a></li>
-            <li><a href="../control/infos.php">+INFOS</a></li>
-
+        <div class="col-md-3 text-end">
+            <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href = 'login.php'">Login</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href = 'cadastro.php'">Cadastro</button>
         </div>
 
     </header>
-    <div class="schwein">
-        <form action="" class="formse" method="POST">
-            <label for="instituicao">Instituição:</label>
-            <select name="instituicao" id="instituicao" required>
-                <?php
-                // Retrieve the institutions from the database
-                $query_instituicao = "SELECT id_instituicao, nome_instituicao FROM instituicao";
-                $result_instituicao = $mysqli->query($query_instituicao);
-
-                // Display the options for institutions
-                while ($row_instituicao = $result_instituicao->fetch_assoc()) {
-                    echo '<option value="' . $row_instituicao['id_instituicao'] . '">' . $row_instituicao['nome_instituicao'] . '</option>';
-                }
-
-                // Close the result set
-                $result_instituicao->free_result();
-                ?>
-            </select>
-
-            <label for="materia">Matéria:</label>
-            <select name="materia" id="materia" required>
-                <?php
-                // Retrieve the disciplines from the database
-                $query_disciplinas = "SELECT id_disciplina, nome_disciplina FROM disciplinas";
-                $result_disciplinas = $mysqli->query($query_disciplinas);
-
-                // Display the options for disciplines
-                while ($row_disciplina = $result_disciplinas->fetch_assoc()) {
-                    echo '<option value="' . $row_disciplina['id_disciplina'] . '">' . $row_disciplina['nome_disciplina'] . '</option>';
-                }
-
-                // Close the result set      width: 500px;
-
-                $result_disciplinas->free_result();
-                ?>
-            </select>
-            <input type="submit" name="submit" value="filtrar">
-        </form>
-    </div>
-
-    <section class="principal">
-
-
-        <main class="main1">
-
-
+    <main>
+        <div class="question">
 
 
             <?php
 
+            //É prreciso, aceita que dói menos
+            $idd = array();
 
-            if (isset($_POST['submit'])) {
-                $selectedInstituicao = $_POST['instituicao'];
-                $selectedMateria = $_POST['materia'];
-
-                // Modify your SQL query to include the selected options as filters
-                $questao = "SELECT * FROM questoes as a1, alternativas as a2, disciplinas as a3 WHERE a1.id_questao = a2.id_questao";
-                $questao .= " AND a1.id_instituicao = $selectedInstituicao";
-                $questao .= " AND a1.id_disciplina = $selectedMateria";
-
-                $query_questao = mysqli_query($mysqli, $questao);
+            if (isset($_COOKIE['a'])) {
+                $idd = unserialize($_COOKIE['a']);
+            }
 
 
-                //Perguntas ------------------- --------------------- ------------------
+            include("conection.php");
+            //Coloque o seu banco de dados, esse é o meu
+            //Sem banco de dados, não funciona
+
+            $questao = "SELECT * FROM questoes as a1
+            JOIN alternativas as a2 ON a1.id_questao = a2.id_questao
+            JOIN disciplinas as a3 ON a1.id_disciplina = a3.id_disciplina
+            JOIN instituicao as a4 ON a1.id_instituicao = a4.id_instituicao";
 
 
+            $query_questao = mysqli_query($mysqli, $questao);
+
+            //Preparação das questões, algumas coisas necessárias
+            //Não é preciso explicar o que cada um faz
+
+            $cont = 0; //Contadorzin
+            while ($resultado = mysqli_fetch_assoc($query_questao)) { //Enquanto tiver as questões...
 
 
-                //Parte 2 - Valiando a resposta correta
+                $contar = $cont + 1;
+                $responder = $responder + $contar;
+
+                //Ajustando o banco de dados
+                $id_questao = $resultado['id_questao'];
+                $loucura = $resultado['id_alternativa'] + 2;
+
+                //Verifica se já respondeu...
+                if ($id_questao = $loucura) {
+                    if (in_array($id_questao, $idd, true)) {
+                        // $query_questao = mysqli_query($mysql, $questao);
+                        // echo "<h1>Sem questões</h1>";
+
+                    } else {
 
 
-
-                $cont = 0;
-                while ($resultado = mysqli_fetch_assoc($query_questao)) {
-                    $contar = $cont + 1;
-                    $responder = $responder + $contar;
-                    $resultado['id_questao'] = $resultado['id_alternativa'];
-                    if ($resultado['id_questao'] === $resultado['id_alternativa']) {
-                    }
             ?>
+                        <!-- Criando um form para cada questão -->
+                        <form action="#" method="POST" class="fq">
+                    <?php
+
+                        //Parte do form, html + php = loucura
+                        $enunciado = $resultado['enunciado'];
+                        $ano_questao = $resultado['ano'];
+                        $disciplina_questao = $resultado['nome_disciplina'];
+                        $institui = $resultado['nome_instituicao'];
+
+
+                        echo '<ul style="display: flex; flex-direction: row; justify-content: space-between;"><li>Matéria: ' . $disciplina_questao . '</li><li>Ano: ' . $ano_questao . '</li><li>Instituição: ' . $institui . '</li></ul>';
 
 
 
-                    <form action="" method="POST">
-                <?php
-                    $imagem = $resultado['imagem'];
-                    if ($imagem != "") {
-                        echo "<img src='$imagem' alt='Imagem not found'> </img>" . '<br>';
-                    }
-                    $enunciado = $resultado['enunciado'];
-                    $ano_questao = $resultado['ano'];
-                    $disciplina_questao = $resultado['nome_disciplina'];
-                    echo "<h1> $enunciado </h1>" . " - " .  $disciplina_questao . " - Ano: " . $ano_questao . '<br>';
-                    echo "Opções: ";
-                    echo '<br>';
-                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt1'] . "'>" . $resultado['txt_alt1'] . '<br>';
-                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt2'] . "'>" . $resultado['txt_alt2'] . '<br>';
-                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt3'] . "'>" . $resultado['txt_alt3'] . '<br>';
-                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt4'] . "'>" . $resultado['txt_alt4'] . '<br>';
-                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt5'] . "'>" . $resultado['txt_alt5'] . '<br>';
-                    echo "<input type='submit' name='envio" . $responder . "' value='Enviar'>";
-                    echo "<input type='reset' name='clear" . $responder . "' value='Apagar'>";
-                    echo " <button name='next'>Proxima</button>";
-                    echo '<br>';
+                        $imagem = $resultado['imagem'];
+                        if ($imagem != "") {
+                            echo "<img src='$imagem' alt=''> </img>" . '<br>';
+                        }
+                        echo "<h1>" . $enunciado . '</h1><br>';
 
-                    if (isset($_POST['envio' . $responder])) {
+                        echo '<br>';
+                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt1'] . "'>" . $resultado['txt_alt1'] . '<br>';
+                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt2'] . "'>" . $resultado['txt_alt2'] . '<br>';
+                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt3'] . "'>" . $resultado['txt_alt3'] . '<br>';
+                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt4'] . "'>" . $resultado['txt_alt4'] . '<br>';
+                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt5'] . "'>" . $resultado['txt_alt5'] . '<br>';
+                        echo "<input type='submit' name='envio" . $responder . "' value='Responder' id='enviarr'>";
+                        echo "<input type='reset' name='envio" . $responder . "' value='Apagar'>";
+                        echo "<button id='vai'>Proxima</button>";
+                        echo '<br>';
+                        echo '<br>';
+                        echo '<br>';
 
+                        //Verificando a resposta
+                        if (isset($_POST['envio' . $responder])) {
 
-                        $certo = $resultado['correta'];
-                        $resposta_certa =  $resultado['txt_alt' . $certo];
-                        $escolha = $_POST['escolha'];
-                        if ($resposta_certa === $escolha) {
-                            echo "Portanto, está certo(a)";
-                        } else {
-                            echo "Portanto, está errado(a)";
+                            //Se não marcar nada...
+                            $escolha = $_POST['escolha'];
+                            if ($escolha == "") {
+                                echo "marque uma alternativa!";
+                            } else {
+
+                                $certo = $resultado['correta'];
+                                $resposta_certa =  $resultado['txt_alt' . $certo];
+
+                                if ($resposta_certa === $escolha) {
+                                    // Se acertar
+                                    $idd[] = $id_questao;
+                                    $idd_convertido = serialize($idd);
+
+                                    // Definindo o COOKIE, o tempo em que a questão ficará armazenada
+                                    setcookie('a', $idd_convertido, time() + 3600);
+                                    echo "<p style='color: green;'>Você acertou !</p>";
+                                } else {
+                                    // Se errar
+                                    echo "<p style='color: red;'>Você errou !</p><br>";
+                                    echo "A opção certa é: " . $resposta_certa;
+                                }
+                            }
                         }
                     }
                 }
-            }
-                ?>
+
+                    ?>
+                        </form>
+
+                    <?php
+                }
+
+                    ?>
+
+        </div>
+    </main>
 
 
-                    </form>
-        </main>
-        <br><br><br>
 
-    </section>
 
-    <footer>
-        <ul>
-            <li class="ulf">RR CONCURSOS</li>
-            <li class="ulf">Provas</li>
-            <li class="ulf">Video aulas</li>
-            <li class="ulf">Disciplinas</li>
-            <li class="ulf">Sobre Nós</li>
-
+    <footer class="py-3 ">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="../index.php" class="nav-link px-2 text-body-secondary">Inicio</a></li>
+            <li class="nav-item"><a href="infos.php" class="nav-link px-2 text-body-secondary">+Infos</a></li>
+            <li class="nav-item"><a href="noticias.php" class="nav-link px-2 text-body-secondary">Noticias</a></li>
+            <li class="nav-item"><a href="ajuda.php" class="nav-link px-2 text-body-secondary">Ajuda</a></li>
+            <li class="nav-item"><a href="us.php" class="nav-link px-2 text-body-secondary">Sobre Nós</a></li>
         </ul>
-        <ul>
-            <li class="ulf">PAGINAS ÚTEIS</li>
-            <li class="ulf">Noticias</li>
-            <li class="ulf">Como usar o RR CONCURSOS</li>
-            <li class="ulf">Avalie-nos</li>
-        </ul>
-        <div class="bluep2">RR CONCURSOS</div>
-
-
+        <p class="text-center text-body-secondary">© 2023 RRconcursos</p>
     </footer>
-
-
-
 </body>
-
-
-
-
-
 
 </html>
