@@ -28,7 +28,7 @@ if ($quantity == 1) {
 
         echo "<script>alert('Usuario logado !!! ')</script>";
 
-        header("Location: questoes.php");
+        header("Location: questions.php");
         exit();
     } else {
         echo "<script>alert('Erro ao logar! Email ou senha incorretos.')</script>";

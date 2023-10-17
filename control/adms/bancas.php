@@ -1,24 +1,16 @@
 <?php
 include"admprotect.php";
+include('../conection.php');
 ?>
 <?php
-$user = 'root';
-$password = '';
-$db = 'db_rrconcursos';
-$host = 'localhost';
 
-$conn = new mysqli($host, $user, $password, $db);
-
-if ($conn->connect_error) {
-    die("Error to connect: " . $conn->connect_error);
-}
 
 // Delete
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
 
     $sqlDelete = "DELETE FROM bancas WHERE id_banca=?";
-    $stmtDelete = $conn->prepare($sqlDelete);
+    $stmtDelete = $mysqli->prepare($sqlDelete);
     $stmtDelete->bind_param("i", $id);
     if ($stmtDelete->execute()) {
         $stmtDelete->close();
@@ -35,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Use prepared statements to prevent SQL injection
     $sqlInsert = "INSERT INTO bancas (nome_banca) VALUES (?)";
-    $stmtInsert = $conn->prepare($sqlInsert);
+    $stmtInsert = $mysqli->prepare($sqlInsert);
     $stmtInsert->bind_param("s", $banca);
 
     if ($stmtInsert->execute()) {
@@ -89,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <tbody>
                 <?php
                 $sqlSelect = "SELECT * FROM bancas";
-                $result = $conn->query($sqlSelect);
+                $result = $mysqli->query($sqlSelect);
 
                 while ($row = $result->fetch_assoc()):
                 ?>

@@ -1,25 +1,18 @@
 
 <?php
 include"admprotect.php";
+
+include('../conection.php');
 ?>
 
 <?php
-// Database connection (same as in your previous code)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_rrconcursos";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     $sql = "SELECT * FROM bancas WHERE id_banca=?";
-    $stmt = $conn->prepare($sql);
+    $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -33,7 +26,7 @@ if (isset($_POST['update'])) {
    
     // Update the entry
     $sqlUpdate = "UPDATE bancas SET nome_banca=? WHERE id_banca=?";
-    $stmtUpdate = $conn->prepare($sqlUpdate);
+    $stmtUpdate = $mysqli->prepare($sqlUpdate);
     $stmtUpdate->bind_param("si", $banca, $id);
     if ($stmtUpdate->execute()) {
         $stmtUpdate->close();
@@ -44,7 +37,7 @@ if (isset($_POST['update'])) {
     }
 }
 
-$conn->close();
+$mysqli->close();
 ?>
 
 <!DOCTYPE html>
