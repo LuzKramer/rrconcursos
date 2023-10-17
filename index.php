@@ -13,13 +13,16 @@
 
         .menu {
             width: 80vw;
-            height: 95vh;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .esq {
+            display: flex;
+            flex-direction: column;
+            height:100vh;
             width: 50vw;
             justify-content: center;
             align-items: center;
@@ -52,22 +55,15 @@
             color: #0efcad;
         }
 
-        i {
-            color: black;
-            padding: 15px;
-            border-radius: 50%;
-            background-color: transparent;
-            position: relative;
-            text-align: center;
-            font-size: 50px;
-        }
+       
+        
     </style>
 </head>
 
 <body>
     <div class="menu">
         <div class="esq">
-            <img src="view/img/rr.jpeg" alt="" height="100px" width="150px"><br><br><br>
+            <img src="view/img/rr.jpeg" alt="" height="100px" width="150px">
             <h1>Seu caminho para o futuro começa aqui</h1>
             <div class="social">
                 <h2><a href="control/infos.php">Mais Informações</a></h2>
