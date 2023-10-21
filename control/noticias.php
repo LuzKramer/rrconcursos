@@ -9,10 +9,8 @@
   <style>
     /* Add spacing between news items */
 
-    .news-section .card {
-      height: 90%;
-      margin-bottom: 20px;
-      margin-top: 10px;
+    .news-section {
+      
       justify-content: center;
       justify-items: center;
     }
@@ -61,7 +59,7 @@
 
   <main class="MainIn">
 
-    <div class="news-section container"> <!-- Add 'container' class for Bootstrap styling -->
+    <div class="news-section"> <!-- Add 'container' class for Bootstrap styling -->
       <?php
       include "conection.php";
       $sql = "SELECT * FROM tb_news ORDER BY date DESC";
@@ -72,7 +70,7 @@
           echo "<div class='news card mb-3'>"; // Add 'card' and 'mb-3' classes for Bootstrap card styling
           echo "<div class='card-body'>";
           if (!empty($row["img"])) {
-            echo "<img src='" . $row["img"] . "' width='700' height='500'>";
+            echo "<img src='" . $row["img"] . "' width='70%' height='40%'>";
           }
           echo "<h2 class='card-title'>" . $row["title"] . "</h2>";
           echo "<p class='card-text'>" . $row["news"] . "</p>";

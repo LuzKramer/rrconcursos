@@ -12,7 +12,7 @@ include "protect.php";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../view/questions.css">
 
-   
+
 </head>
 
 <body>
@@ -34,16 +34,26 @@ include "protect.php";
         </ul>
 
         <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href = 'login.php'">Login</button>
-            <button type="button" class="btn btn-primary" onclick="window.location.href = 'cadastro.php'">Cadastro</button>
+            <?php
+            session_start(); // Start or resume the session
+
+            if (isset($_SESSION['nivel'])) {
+                // User is logged in
+                echo "<button type='button' class='btn btn-primary' onclick='window.location.href = \"logout.php\"'>Logout</button>";
+            } else {
+                // User is not logged in
+                echo "<button type='button' class='btn btn-outline-primary me-2' onclick='window.location.href = \"login.php\"'>Login</button>";
+                echo "<button type='button' class='btn btn-primary' onclick='window.location.href = \"cadastro.php\"'>Cadastro</button>";
+            }
+            ?>
         </div>
 
     </header>
-    
+
     <main>
         <div class="question">
 
-        <!-- <h1>ID's feitos: 
+            <!-- <h1>ID's feitos: 
         
             <?php
             $idd = array();
@@ -56,133 +66,133 @@ include "protect.php";
 
     </h1> -->
 
-        <?php
+            <?php
 
 
-        include("conection.php");
-        $questao = "SELECT * FROM questoes as a1, alternativas as a2, disciplinas as a3, instituicao as a4 where a1.id_questao=a2.id_questao
+            include("conection.php");
+            $questao = "SELECT * FROM questoes as a1, alternativas as a2, disciplinas as a3, instituicao as a4 where a1.id_questao=a2.id_questao
          and a1.id_disciplina=a3.id_disciplina AND a1.id_instituicao=a4.id_instituicao;";
-        $query_questao = mysqli_query($mysqli, $questao);
+            $query_questao = mysqli_query($mysqli, $questao);
 
 
 
-        //Perguntas ------------------- --------------------- ------------------
+            //Perguntas ------------------- --------------------- ------------------
 
 
 
 
-        //Parte 2 - Valiando a resposta correta
+            //Parte 2 - Valiando a resposta correta
 
 
 
-        $cont = 0;
-        while ($resultado = mysqli_fetch_assoc($query_questao)) {
-            $contar = $cont + 1;
-            $responder = $responder + $contar;
-            $id_questao = $resultado['id_questao'];
-            $loucura = $resultado['id_alternativa'] + 2;
-            if ($id_questao = $loucura) {
-                if (in_array($id_questao, $idd, true)) {
-                    // $query_questao = mysqli_query($mysql, $questao);
-                    // echo "<h1>Sem questões</h1>";
+            $cont = 0;
+            while ($resultado = mysqli_fetch_assoc($query_questao)) {
+                $contar = $cont + 1;
+                $responder = $responder + $contar;
+                $id_questao = $resultado['id_questao'];
+                $loucura = $resultado['id_alternativa'] + 2;
+                if ($id_questao = $loucura) {
+                    if (in_array($id_questao, $idd, true)) {
+                        // $query_questao = mysqli_query($mysql, $questao);
+                        // echo "<h1>Sem questões</h1>";
 
-                } else {
-
-
-        ?>
-
-                    <form action="#" method="POST" >
-                <?php
-
-                    //Parte do form, html + php = loucura
-                    $enunciado = $resultado['enunciado'];
-                    $ano_questao = $resultado['ano'];
-                    $disciplina_questao = $resultado['nome_disciplina'];
-                    $institui = $resultado['nome_instituicao'];
+                    } else {
 
 
-                    
-                    echo '<ul style="display: flex; flex-direction: row; justify-content: space-between;"><li>Matéria: ' . $disciplina_questao . '</li><li>Ano: ' . $ano_questao . '</li><li>Instituição: ' . $institui . '</li></ul>';
+            ?>
+
+                        <form action="#" method="POST">
+                    <?php
+
+                        //Parte do form, html + php = loucura
+                        $enunciado = $resultado['enunciado'];
+                        $ano_questao = $resultado['ano'];
+                        $disciplina_questao = $resultado['nome_disciplina'];
+                        $institui = $resultado['nome_instituicao'];
 
 
-                    $imagem = $resultado['imagem'];
-                    if ($imagem != "") {
-                        echo "<img src='$imagem' alt=''> </img>" . '<br>';
-                    }
-                    echo "<h1>" . $enunciado . '</h1><br>';
 
-                    echo '<br>';
-                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt1'] . "'>" . $resultado['txt_alt1'] . '<br>';
-                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt2'] . "'>" . $resultado['txt_alt2'] . '<br>';
-                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt3'] . "'>" . $resultado['txt_alt3'] . '<br>';
-                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt4'] . "'>" . $resultado['txt_alt4'] . '<br>';
-                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt5'] . "'>" . $resultado['txt_alt5'] . '<br>';
-                    echo "<input type='submit' name='envio" . $responder . "' value='Responder' id='enviarr'>";
-                    echo "<input type='reset' name='envio" . $responder . "' value='Apagar'>";
-                    echo "<button id='vai'>Proxima</button>";
-                    echo '<br>';
-                    echo '<br>';
-                    echo '<br>';
-
-                    if (isset($_POST['envio' . $responder])) {
+                        echo '<ul style="display: flex; flex-direction: row; justify-content: space-between;"><li>Matéria: ' . $disciplina_questao . '</li><li>Ano: ' . $ano_questao . '</li><li>Instituição: ' . $institui . '</li></ul>';
 
 
-                        //Parte 2 -Verificação da resposta
-                        $escolha = $_POST['escolha'];
-                        if ($escolha == "") {
-                            echo "marque uma alternativa!";
-                        } else {
-                            if (isset($_COOKIE['contador'])) {
-                                $conte = $_COOKIE['contador'];
-                                $conte++;
+                        $imagem = $resultado['imagem'];
+                        if ($imagem != "") {
+                            echo "<img src='$imagem' alt=''> </img>" . '<br>';
+                        }
+                        echo "<h1>" . $enunciado . '</h1><br>';
+
+                        echo '<br>';
+                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt1'] . "'>" . $resultado['txt_alt1'] . '<br>';
+                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt2'] . "'>" . $resultado['txt_alt2'] . '<br>';
+                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt3'] . "'>" . $resultado['txt_alt3'] . '<br>';
+                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt4'] . "'>" . $resultado['txt_alt4'] . '<br>';
+                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt5'] . "'>" . $resultado['txt_alt5'] . '<br>';
+                        echo "<input type='submit' name='envio" . $responder . "' value='Responder' id='enviarr'>";
+                        echo "<input type='reset' name='envio" . $responder . "' value='Apagar'>";
+                        echo "<button id='vai'>Proxima</button>";
+                        echo '<br>';
+                        echo '<br>';
+                        echo '<br>';
+
+                        if (isset($_POST['envio' . $responder])) {
+
+
+                            //Parte 2 -Verificação da resposta
+                            $escolha = $_POST['escolha'];
+                            if ($escolha == "") {
+                                echo "marque uma alternativa!";
                             } else {
-                                $conte = 1;
-                            }
-
-                            setcookie('contador', $conte, time() + 3600);
-                            $certo = $resultado['correta'];
-                            $resposta_certa =  $resultado['txt_alt' . $certo];
-
-                            if ($resposta_certa === $escolha) {
-                                // if ($id_questao !== false) {
-                                //     // Obtém os números existentes do cookie, se houver
-                                //     if (isset($_COOKIE['tome'])) {
-                                //         $ids = json_decode($_COOKIE['tome'], true);
-                                //     }
-                                $idd[] = $id_questao;
-                                $idd_convertido = serialize($idd);
-                                // Adiciona o número digitado ao array
-                                setcookie('a', $idd_convertido, time() + 3600);
-                                echo "<p style='color: green;'>Você acertou !</p>";
-
-                                // // Codifica o array em formato JSON e define no cookie
-                                // setcookie('tome', json_encode($ids), time() + 3600, '/'); // O cookie expirará em 1 hora
-
-                                // ---------------------------------------CONTADOR ---------------------------------------------------
-                                if (isset($_COOKIE['contador_feito'])) {
-                                    $conte2 = $_COOKIE['contador_feito'];
-                                    $conte2++;
+                                if (isset($_COOKIE['contador'])) {
+                                    $conte = $_COOKIE['contador'];
+                                    $conte++;
                                 } else {
-                                    $conte2 = 1;
+                                    $conte = 1;
                                 }
 
-                                setcookie('contador_feito', $conte2, time() + 3600);
-                            } else {
-                                echo "<p style='color: red;'>Você errou !</p><br>";
-                                echo "A opção certa é: " . $resposta_certa;
+                                setcookie('contador', $conte, time() + 3600);
+                                $certo = $resultado['correta'];
+                                $resposta_certa =  $resultado['txt_alt' . $certo];
+
+                                if ($resposta_certa === $escolha) {
+                                    // if ($id_questao !== false) {
+                                    //     // Obtém os números existentes do cookie, se houver
+                                    //     if (isset($_COOKIE['tome'])) {
+                                    //         $ids = json_decode($_COOKIE['tome'], true);
+                                    //     }
+                                    $idd[] = $id_questao;
+                                    $idd_convertido = serialize($idd);
+                                    // Adiciona o número digitado ao array
+                                    setcookie('a', $idd_convertido, time() + 3600);
+                                    echo "<p style='color: green;'>Você acertou !</p>";
+
+                                    // // Codifica o array em formato JSON e define no cookie
+                                    // setcookie('tome', json_encode($ids), time() + 3600, '/'); // O cookie expirará em 1 hora
+
+                                    // ---------------------------------------CONTADOR ---------------------------------------------------
+                                    if (isset($_COOKIE['contador_feito'])) {
+                                        $conte2 = $_COOKIE['contador_feito'];
+                                        $conte2++;
+                                    } else {
+                                        $conte2 = 1;
+                                    }
+
+                                    setcookie('contador_feito', $conte2, time() + 3600);
+                                } else {
+                                    echo "<p style='color: red;'>Você errou !</p><br>";
+                                    echo "A opção certa é: " . $resposta_certa;
+                                }
                             }
                         }
                     }
                 }
-            }
 
-                ?>
-                    </form>
+                    ?>
+                        </form>
 
-                <?php
-            }
+                    <?php
+                }
 
-                ?>
+                    ?>
         </div>
     </main>
     <footer class="py-3 ">
