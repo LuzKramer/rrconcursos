@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     /* Add spacing between news items */
-    
+
     .news-section .card {
       height: 90%;
       margin-bottom: 20px;
@@ -41,8 +41,19 @@
     </ul>
 
     <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href = 'login.php'">Login</button>
-      <button type="button" class="btn btn-primary" onclick="window.location.href = 'cadastro.php'">Cadastro</button>
+      <?php
+      session_start(); // Start or resume the session
+
+      if (isset($_SESSION['nivel'])) {
+        // User is logged in
+        echo "<button type='button' class='btn btn-primary' onclick='window.location.href = \"logout.php\"'>Logout</button>";
+      } else {
+        // User is not logged in
+        echo "<button type='button' class='btn btn-outline-primary me-2' onclick='window.location.href = \"login.php\"'>Login</button>";
+        echo "<button type='button' class='btn btn-primary' onclick='window.location.href = \"cadastro.php\"'>Cadastro</button>";
+      }
+      ?>
+
     </div>
 
   </header>
@@ -74,8 +85,7 @@
           echo "</div>";
         }
       } else {
-        echo'SEM NOTICIAS DISPONIVEIS';
-
+        echo 'SEM NOTICIAS DISPONIVEIS';
       }
 
       $mysqli->close();

@@ -1,93 +1,21 @@
+<?php
+include "protect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Código QUESTÃO</title>
-
-
+    <title>rrconcurssos/questoes</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* Style for the main section */
+    <link rel="stylesheet" href="../view/questions.css">
 
-        body {
-            height: 100vh;
-            padding: 25px;
-            min-width: 200px;
-            margin: 0px;
-            padding: 0px;
-        }
-
-
-
-        header {
-
-            background: #58c24e;
-        }
-
-        main {
-            height: 100%;
-            background: white;
-            display: flex;
-            flex-direction: center;
-            justify-content: center;
-            justify-items: center;
-
-        }
-
-        .fq{
-            height: 100%;
-            width: 100%;
-            justify-content: center;
-            border: 1px black;
-
-        }
-
-        .fq h1 {
-
-            text-align: center;
-        }
-
-        .fq input[type=radio] {
-
-            width: 40px;
-
-        }
-
-
-
-        .fq input[type=submit] {
-            width: 100px;
-            background-color: green;
-            color: white;
-        }
-
-        /* Style for individual questions */
-        .question {
-            height: 100%;
-            justify-content: center;
-            justify-items: center;
-            overflow: hidden;
-            padding-top: 50px;
-        }
-
-        /* Style for images */
-        .question img {
-            max-width: 100%;
-            height: 20%;
-        }
-
-
-        footer {
-            background: #58c24e;
-
-        }
-    </style>
+   
 </head>
 
 <body>
-
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3  border-bottom">
         <div class="col-md-3 mb-2 mb-md-0">
             <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
@@ -114,131 +42,148 @@
     <main>
         <div class="question">
 
-
+        <!-- <h1>ID's feitos: 
+        
             <?php
-
-            //É prreciso, aceita que dói menos
             $idd = array();
 
             if (isset($_COOKIE['a'])) {
                 $idd = unserialize($_COOKIE['a']);
             }
-
-
-            include("conection.php");
-            //Coloque o seu banco de dados, esse é o meu
-            //Sem banco de dados, não funciona
-
-            $questao = "SELECT * FROM questoes as a1
-            JOIN alternativas as a2 ON a1.id_questao = a2.id_questao
-            JOIN disciplinas as a3 ON a1.id_disciplina = a3.id_disciplina
-            JOIN instituicao as a4 ON a1.id_instituicao = a4.id_instituicao";
-
-
-            $query_questao = mysqli_query($mysqli, $questao);
-
-            //Preparação das questões, algumas coisas necessárias
-            //Não é preciso explicar o que cada um faz
-
-            $cont = 0; //Contadorzin
-            while ($resultado = mysqli_fetch_assoc($query_questao)) { //Enquanto tiver as questões...
-
-
-                $contar = $cont + 1;
-                $responder = $responder + $contar;
-
-                //Ajustando o banco de dados
-                $id_questao = $resultado['id_questao'];
-                $loucura = $resultado['id_alternativa'] + 2;
-
-                //Verifica se já respondeu...
-                if ($id_questao = $loucura) {
-                    if (in_array($id_questao, $idd, true)) {
-                        // $query_questao = mysqli_query($mysql, $questao);
-                        // echo "<h1>Sem questões</h1>";
-
-                    } else {
-
-
             ?>
-                        <!-- Criando um form para cada questão -->
-                        <form action="#" method="POST" class="fq">
-                    <?php
-
-                        //Parte do form, html + php = loucura
-                        $enunciado = $resultado['enunciado'];
-                        $ano_questao = $resultado['ano'];
-                        $disciplina_questao = $resultado['nome_disciplina'];
-                        $institui = $resultado['nome_instituicao'];
 
 
-                        echo '<ul style="display: flex; flex-direction: row; justify-content: space-between;"><li>Matéria: ' . $disciplina_questao . '</li><li>Ano: ' . $ano_questao . '</li><li>Instituição: ' . $institui . '</li></ul>';
+    </h1> -->
+
+        <?php
+
+
+        include("conection.php");
+        $questao = "SELECT * FROM questoes as a1, alternativas as a2, disciplinas as a3, instituicao as a4 where a1.id_questao=a2.id_questao
+         and a1.id_disciplina=a3.id_disciplina AND a1.id_instituicao=a4.id_instituicao;";
+        $query_questao = mysqli_query($mysqli, $questao);
 
 
 
-                        $imagem = $resultado['imagem'];
-                        if ($imagem != "") {
-                            echo "<img src='$imagem' alt=''> </img>" . '<br>';
-                        }
-                        echo "<h1>" . $enunciado . '</h1><br>';
+        //Perguntas ------------------- --------------------- ------------------
 
-                        echo '<br>';
-                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt1'] . "'>" . $resultado['txt_alt1'] . '<br>';
-                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt2'] . "'>" . $resultado['txt_alt2'] . '<br>';
-                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt3'] . "'>" . $resultado['txt_alt3'] . '<br>';
-                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt4'] . "'>" . $resultado['txt_alt4'] . '<br>';
-                        echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt5'] . "'>" . $resultado['txt_alt5'] . '<br>';
-                        echo "<input type='submit' name='envio" . $responder . "' value='Responder' id='enviarr'>";
-                        echo "<input type='reset' name='envio" . $responder . "' value='Apagar'>";
-                        echo "<button id='vai'>Proxima</button>";
-                        echo '<br>';
-                        echo '<br>';
-                        echo '<br>';
 
-                        //Verificando a resposta
-                        if (isset($_POST['envio' . $responder])) {
 
-                            //Se não marcar nada...
-                            $escolha = $_POST['escolha'];
-                            if ($escolha == "") {
-                                echo "marque uma alternativa!";
+
+        //Parte 2 - Valiando a resposta correta
+
+
+
+        $cont = 0;
+        while ($resultado = mysqli_fetch_assoc($query_questao)) {
+            $contar = $cont + 1;
+            $responder = $responder + $contar;
+            $id_questao = $resultado['id_questao'];
+            $loucura = $resultado['id_alternativa'] + 2;
+            if ($id_questao = $loucura) {
+                if (in_array($id_questao, $idd, true)) {
+                    // $query_questao = mysqli_query($mysql, $questao);
+                    // echo "<h1>Sem questões</h1>";
+
+                } else {
+
+
+        ?>
+
+                    <form action="#" method="POST" >
+                <?php
+
+                    //Parte do form, html + php = loucura
+                    $enunciado = $resultado['enunciado'];
+                    $ano_questao = $resultado['ano'];
+                    $disciplina_questao = $resultado['nome_disciplina'];
+                    $institui = $resultado['nome_instituicao'];
+
+
+                    
+                    echo '<ul style="display: flex; flex-direction: row; justify-content: space-between;"><li>Matéria: ' . $disciplina_questao . '</li><li>Ano: ' . $ano_questao . '</li><li>Instituição: ' . $institui . '</li></ul>';
+
+
+                    $imagem = $resultado['imagem'];
+                    if ($imagem != "") {
+                        echo "<img src='$imagem' alt=''> </img>" . '<br>';
+                    }
+                    echo "<h1>" . $enunciado . '</h1><br>';
+
+                    echo '<br>';
+                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt1'] . "'>" . $resultado['txt_alt1'] . '<br>';
+                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt2'] . "'>" . $resultado['txt_alt2'] . '<br>';
+                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt3'] . "'>" . $resultado['txt_alt3'] . '<br>';
+                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt4'] . "'>" . $resultado['txt_alt4'] . '<br>';
+                    echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt5'] . "'>" . $resultado['txt_alt5'] . '<br>';
+                    echo "<input type='submit' name='envio" . $responder . "' value='Responder' id='enviarr'>";
+                    echo "<input type='reset' name='envio" . $responder . "' value='Apagar'>";
+                    echo "<button id='vai'>Proxima</button>";
+                    echo '<br>';
+                    echo '<br>';
+                    echo '<br>';
+
+                    if (isset($_POST['envio' . $responder])) {
+
+
+                        //Parte 2 -Verificação da resposta
+                        $escolha = $_POST['escolha'];
+                        if ($escolha == "") {
+                            echo "marque uma alternativa!";
+                        } else {
+                            if (isset($_COOKIE['contador'])) {
+                                $conte = $_COOKIE['contador'];
+                                $conte++;
                             } else {
+                                $conte = 1;
+                            }
 
-                                $certo = $resultado['correta'];
-                                $resposta_certa =  $resultado['txt_alt' . $certo];
+                            setcookie('contador', $conte, time() + 3600);
+                            $certo = $resultado['correta'];
+                            $resposta_certa =  $resultado['txt_alt' . $certo];
 
-                                if ($resposta_certa === $escolha) {
-                                    // Se acertar
-                                    $idd[] = $id_questao;
-                                    $idd_convertido = serialize($idd);
+                            if ($resposta_certa === $escolha) {
+                                // if ($id_questao !== false) {
+                                //     // Obtém os números existentes do cookie, se houver
+                                //     if (isset($_COOKIE['tome'])) {
+                                //         $ids = json_decode($_COOKIE['tome'], true);
+                                //     }
+                                $idd[] = $id_questao;
+                                $idd_convertido = serialize($idd);
+                                // Adiciona o número digitado ao array
+                                setcookie('a', $idd_convertido, time() + 3600);
+                                echo "<p style='color: green;'>Você acertou !</p>";
 
-                                    // Definindo o COOKIE, o tempo em que a questão ficará armazenada
-                                    setcookie('a', $idd_convertido, time() + 3600);
-                                    echo "<p style='color: green;'>Você acertou !</p>";
+                                // // Codifica o array em formato JSON e define no cookie
+                                // setcookie('tome', json_encode($ids), time() + 3600, '/'); // O cookie expirará em 1 hora
+
+                                // ---------------------------------------CONTADOR ---------------------------------------------------
+                                if (isset($_COOKIE['contador_feito'])) {
+                                    $conte2 = $_COOKIE['contador_feito'];
+                                    $conte2++;
                                 } else {
-                                    // Se errar
-                                    echo "<p style='color: red;'>Você errou !</p><br>";
-                                    echo "A opção certa é: " . $resposta_certa;
+                                    $conte2 = 1;
                                 }
+
+                                setcookie('contador_feito', $conte2, time() + 3600);
+                            } else {
+                                echo "<p style='color: red;'>Você errou !</p><br>";
+                                echo "A opção certa é: " . $resposta_certa;
                             }
                         }
                     }
                 }
+            }
 
-                    ?>
-                        </form>
+                ?>
+                    </form>
 
-                    <?php
-                }
+                <?php
+            }
 
-                    ?>
-
+                ?>
         </div>
     </main>
-
-
-
-
     <footer class="py-3 ">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="../index.php" class="nav-link px-2 text-body-secondary">Inicio</a></li>
@@ -249,6 +194,31 @@
         </ul>
         <p class="text-center text-body-secondary">© 2023 RRconcursos</p>
     </footer>
+    <script>
+        $(document).ready(function() {
+            $("#tome").click(function() {
+                $("body").css("background", "#fff")
+                $("form").css("background", "black")
+            })
+            $("#enviarr").click(function() {
+                $("form").css("background", "green")
+            })
+        })
+        $(document).ready(function() {
+            $("#tome2").click(function() {
+                $("body").css("background", "black")
+                $("form").css("background", "blueviolet")
+            })
+        })
+        $("#vai").click(function() {
+            $("form").load('question.php');
+        });
+
+
+        document.getElementById("meuFormulario").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o comportamento padrão do formulário (recarregar a página)
+        });
+    </script>
 </body>
 
 </html>

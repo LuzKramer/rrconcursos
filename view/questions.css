@@ -1,0 +1,74 @@
+body {
+    height: 100vh;
+    padding: 25px;
+    min-width: 200px;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+header {
+
+    background: #58c24e;
+}
+
+main {
+    height: 100%;
+    background: white;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+form {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    border: 1px black;
+
+}
+
+form h1 {
+
+    text-align: center;
+    font-size: larger;
+}
+
+form input[type=radio] {
+
+    width: 40px;
+
+}
+
+
+
+form input[type=submit] {
+    width: 100px;
+    background-color: green;
+    color: white;
+}
+
+/* Style for individual questions */
+.question {
+    height: 100%;
+    justify-content: center;
+    justify-items: center;
+    overflow: hidden;
+    padding-top: 50px;
+
+}
+
+/* Style for images */
+.question img {
+    max-width: 100%;
+    height: 20%;
+}
+
+
+footer {
+    background: #58c24e;
+
+}

@@ -8,14 +8,7 @@
     <link rel="stylesheet" href="../view/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
+       
 
         .info {
             display: flex;
@@ -24,8 +17,8 @@
             justify-content: center;
             height: 80vh;
             /* Ajuste a altura conforme necessário */
-            padding: 20px;
-            border: 1px solid cinza;
+            padding: 10px;
+            
             border-radius: 5px;
         }
     </style>
@@ -50,12 +43,22 @@
         </ul>
 
         <div class="col-md-3 text-end">
-            <a href="login.php" class="btn btn-outline-primary me-2">Login</a>
-            <a href="cadastro.php" class="btn btn-primary">Cadastro</a>
+            <?php
+            session_start(); // Start or resume the session
+
+            if (isset($_SESSION['nivel'])) {
+                // User is logged in
+                echo "<button type='button' class='btn btn-primary' onclick='window.location.href = \"logout.php\"'>Logout</button>";
+            } else {
+                // User is not logged in
+                echo "<button type='button' class='btn btn-outline-primary me-2' onclick='window.location.href = \"login.php\"'>Login</button>";
+                echo "<button type='button' class='btn btn-primary' onclick='window.location.href = \"cadastro.php\"'>Cadastro</button>";
+            }
+            ?>
         </div>
     </header>
 
-    <main class="MainIni container">
+    <main class="MainIn">
         <br>
         <div class="info">
             <p>Aqui temos alguns serviços que podem lhe ajudar se for necessário.</p>

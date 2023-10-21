@@ -45,7 +45,7 @@
 
 <body>
 
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3  border-bottom">
+    <header class="d-flex flex-wrap align-items-center justify-content-between py-3 border-bottom">
         <div class="col-md-3 mb-2 mb-md-0">
             <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
                 <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
@@ -55,18 +55,27 @@
         </div>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="../index.php" class="nav-link px-2 link-secondary">Inicio</a></li>
+            <li><a href="../index.php" class="nav-link px-2 link-secondary">Início</a></li>
             <li><a href="questions.php" class="nav-link px-2">Questões</a></li>
             <li><a href="infos.php" class="nav-link px-2">Informações</a></li>
             <li><a href="ajuda.php" class="nav-link px-2">Ajuda</a></li>
-            <li><a href="noticias.php" class="nav-link px-2">Noticias</a></li>
+            <li><a href="noticias.php" class="nav-link px-2">Notícias</a></li>
         </ul>
 
         <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href = 'login.php'">Login</button>
-            <button type="button" class="btn btn-primary" onclick="window.location.href = 'cadastro.php'">Cadastro</button>
-        </div>
+            <?php
+            session_start(); // Start or resume the session
 
+            if (isset($_SESSION['nivel'])) {
+                // User is logged in
+                echo "<button type='button' class='btn btn-primary' onclick='window.location.href = \"logout.php\"'>Logout</button>";
+            } else {
+                // User is not logged in
+                echo "<button type='button' class='btn btn-outline-primary me-2' onclick='window.location.href = \"login.php\"'>Login</button>";
+                echo "<button type='button' class='btn btn-primary' onclick='window.location.href = \"cadastro.php\"'>Cadastro</button>";
+            }
+            ?>
+        </div>
     </header>
 
     <div class="container mt-5">
