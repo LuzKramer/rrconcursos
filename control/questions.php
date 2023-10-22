@@ -1,7 +1,7 @@
+
 <?php
 include "protect.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -112,7 +112,7 @@ include "protect.php";
 
 
 
-                        echo '<ul style="display: flex; flex-direction: row; justify-content: space-between;"><li>Matéria: ' . $disciplina_questao . '</li><li>Ano: ' . $ano_questao . '</li><li>Instituição: ' . $institui . '</li></ul>';
+                        echo '<ul style="display: flex; flex-direction: row; justify-content: space-between; padding:8px;"><li>Matéria: ' . $disciplina_questao . '</li><li>Ano: ' . $ano_questao . '</li><li>Instituição: ' . $institui . '</li></ul>';
 
 
                         $imagem = $resultado['imagem'];

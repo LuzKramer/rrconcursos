@@ -1,5 +1,5 @@
 body {
-    height: 100vh;
+    height: 140vh;
     padding: 25px;
     min-width: 200px;
     margin: 0px;
@@ -63,8 +63,10 @@ form input[type=submit] {
 
 /* Style for images */
 .question img {
+
     max-width: 100%;
-    height: 20%;
+    width: 700px;
+    height: 350px;
 }
 
 
