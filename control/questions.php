@@ -112,14 +112,14 @@ include "protect.php";
 
 
 
-                        echo '<ul style="display: flex; flex-direction: row; justify-content: space-between; padding:8px;"><li>Matéria: ' . $disciplina_questao . '</li><li>Ano: ' . $ano_questao . '</li><li>Instituição: ' . $institui . '</li></ul>';
+                        echo '<ul style="display: flex; flex-direction: row; justify-content: space-between; padding:5px;"><li>Matéria: ' . $disciplina_questao . '</li><li>Ano: ' . $ano_questao . '</li><li>Instituição: ' . $institui . '</li></ul>';
 
 
                         $imagem = $resultado['imagem'];
                         if ($imagem != "") {
                             echo "<img src='$imagem' alt=''> </img>" . '<br>';
                         }
-                        echo "<h1>" . $enunciado . '</h1><br>';
+                        echo "<h1>"        . $enunciado .          '</h1><br>';
 
                         echo '<br>';
                         echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt1'] . "'>" . $resultado['txt_alt1'] . '<br>';
