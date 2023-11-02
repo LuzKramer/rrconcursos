@@ -36,7 +36,7 @@
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li class="nav-item"><a href="../index.php" class="nav-link px-2 link-secondary">Início</a></li>
-            <li class="nav-item"><a href="questions.php" class="nav-link px-2">Questões</a></li>
+            <li class="nav-item"><a href="filtro.php" class="nav-link px-2">Questões</a></li>
             <li class="nav-item"><a href="infos.php" class="nav-link px-2">Informações</a></li>
             <li class="nav-item"><a href="ajuda.php" class="nav-link px-2">Ajuda</a></li>
             <li class="nav-item"><a href="noticias.php" class="nav-link px-2">Notícias</a></li>

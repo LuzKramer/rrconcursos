@@ -1,4 +1,3 @@
-
 <?php
 include "protect.php";
 ?>
@@ -27,7 +26,7 @@ include "protect.php";
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="../index.php" class="nav-link px-2 link-secondary">Inicio</a></li>
-            <li><a href="questions.php" class="nav-link px-2">Questões</a></li>
+            <li><a href="filtro.php" class="nav-link px-2">filtros</a></li>
             <li><a href="infos.php" class="nav-link px-2">Informações</a></li>
             <li><a href="ajuda.php" class="nav-link px-2">Ajuda</a></li>
             <li><a href="noticias.php" class="nav-link px-2">Noticias</a></li>
@@ -51,6 +50,7 @@ include "protect.php";
     </header>
 
     <main>
+        
         <div class="question">
 
             <!-- <h1>ID's feitos: 
@@ -70,9 +70,32 @@ include "protect.php";
 
 
             include("conection.php");
-            $questao = "SELECT * FROM questoes as a1, alternativas as a2, disciplinas as a3, instituicao as a4 where a1.id_questao=a2.id_questao
-         and a1.id_disciplina=a3.id_disciplina AND a1.id_instituicao=a4.id_instituicao;";
+            session_start(); // Start the session to access session variables
+
+            // Check if the session variables for filters are set
+            if (isset($_SESSION['filtromateria']) && isset($_SESSION['filtroinstituicao'])) {
+                // Filters are set, use the filters in the query
+                $materia = $_SESSION['filtromateria']; // Subject filter
+                $instituicao = $_SESSION['filtroinstituicao']; // Institution filter
+                $questao = "SELECT * FROM questoes as a1, alternativas as a2, disciplinas as a3, instituicao as a4  
+                 where a1.id_questao = a2.id_questao 
+                 and a1.id_disciplina = a3.id_disciplina
+                 AND a1.id_instituicao=a4.id_instituicao
+                 and a3.id_disciplina LIKE '%$materia%' 
+                 and a1.id_instituicao LIKE '%$instituicao';";
+            } else {
+                // Filters are not set, fetch all questions
+                $questao = "SELECT * FROM questoes as a1, alternativas as a2,
+                 disciplinas as a3, instituicao as a4 where a1.id_questao=a2.id_questao
+                 and a1.id_disciplina=a3.id_disciplina AND a1.id_instituicao=a4.id_instituicao;";
+            }
+
             $query_questao = mysqli_query($mysqli, $questao);
+            // The rest of your code to display questions goes here
+
+
+
+
 
 
 
@@ -119,7 +142,7 @@ include "protect.php";
                         if ($imagem != "") {
                             echo "<img src='$imagem' alt=''> </img>" . '<br>';
                         }
-                        echo "<h1>"        . $enunciado .          '</h1><br>';
+                        echo "<p>"        . $enunciado .          '</p><br>';
 
                         echo '<br>';
                         echo "<input type='radio' name='escolha' id='' value='" . $resultado['txt_alt1'] . "'>" . $resultado['txt_alt1'] . '<br>';

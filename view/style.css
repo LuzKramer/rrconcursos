@@ -4,6 +4,9 @@ body{
     min-width: 200px;
     margin: 0px;
     padding: 0px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header{
@@ -15,11 +18,13 @@ header{
 footer{
     height: 20vh;
     background: #58c24e;
+    bottom: 0;
    
 }
 .MainIn{
    
     background: white;
+    flex:1;
     padding: 8px;
     display: flex;
     flex-direction: column;
