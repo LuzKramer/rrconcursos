@@ -26,7 +26,8 @@ include "protect.php";
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="../index.php" class="nav-link px-2 link-secondary">Inicio</a></li>
-            <li><a href="filtro.php" class="nav-link px-2">filtros</a></li>
+            <li><a href="filtro.php" class="nav-link px-2">Filtros</a></li>
+            <li><a href="ranking.php" class="nav-link px-2">Ranking</a></li>
             <li><a href="infos.php" class="nav-link px-2">Informações</a></li>
             <li><a href="ajuda.php" class="nav-link px-2">Ajuda</a></li>
             <li><a href="noticias.php" class="nav-link px-2">Noticias</a></li>
@@ -50,27 +51,30 @@ include "protect.php";
     </header>
 
     <main>
-        
+
         <div class="question">
 
             <!-- <h1>ID's feitos: 
-        
-            <?php
-            $idd = array();
+                
+                <?php
+                $idd = array();
 
-            if (isset($_COOKIE['a'])) {
-                $idd = unserialize($_COOKIE['a']);
-            }
-            ?>
+                if (isset($_COOKIE['a'])) {
+                    $idd = unserialize($_COOKIE['a']);
+                }
+                ?>
 
 
-    </h1> -->
+</h1> -->
 
             <?php
 
 
             include("conection.php");
             session_start(); // Start the session to access session variables
+            $email = $_SESSION['email'];
+
+
 
             // Check if the session variables for filters are set
             if (isset($_SESSION['filtromateria']) && isset($_SESSION['filtroinstituicao'])) {
@@ -177,19 +181,15 @@ include "protect.php";
                                 $resposta_certa =  $resultado['txt_alt' . $certo];
 
                                 if ($resposta_certa === $escolha) {
-                                    // if ($id_questao !== false) {
-                                    //     // Obtém os números existentes do cookie, se houver
-                                    //     if (isset($_COOKIE['tome'])) {
-                                    //         $ids = json_decode($_COOKIE['tome'], true);
-                                    //     }
                                     $idd[] = $id_questao;
                                     $idd_convertido = serialize($idd);
                                     // Adiciona o número digitado ao array
                                     setcookie('a', $idd_convertido, time() + 3600);
                                     echo "<p style='color: green;'>Você acertou !</p>";
+                                   
 
                                     // // Codifica o array em formato JSON e define no cookie
-                                    // setcookie('tome', json_encode($ids), time() + 3600, '/'); // O cookie expirará em 1 hora
+
 
                                     // ---------------------------------------CONTADOR ---------------------------------------------------
                                     if (isset($_COOKIE['contador_feito'])) {
@@ -198,8 +198,25 @@ include "protect.php";
                                     } else {
                                         $conte2 = 1;
                                     }
-
                                     setcookie('contador_feito', $conte2, time() + 3600);
+
+                                    $query = "SELECT pontos FROM tb_login WHERE email = '{$email}'";
+                                    $result = mysqli_query($mysqli, $query);
+                                    $row = $result->fetch_assoc();
+                                    $_SESSION['pontos'] = $row['pontos'];
+
+                                    // Increment the points by 1
+                                    $pontos = $_SESSION['pontos'];
+                                    $pontos++;
+
+                                    // Update the pontos in the database
+                                    $query = "UPDATE tb_login SET pontos = {$pontos} WHERE email = '{$email}'";
+
+                                    if ($mysqli->query($query) === TRUE) {
+                                        echo '<script>console.log("Contador de acertos atualizado com sucesso!");</script>';
+                                    } else {
+                                        echo '<script>console.error("Erro na atualização do contador de acertos: ' . $mysqli->error . '");</script>';
+                                    }
                                 } else {
                                     echo "<p style='color: red;'>Você errou !</p><br>";
                                     echo "A opção certa é: " . $resposta_certa;
@@ -209,6 +226,8 @@ include "protect.php";
                     }
                 }
 
+
+               
                     ?>
                         </form>
 

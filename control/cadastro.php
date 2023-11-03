@@ -24,9 +24,11 @@ if (isset($_POST['cadastrar'])) {
             $user = $check_query->fetch_assoc();
             if (!isset($_SESSION)) {
                 session_start();
+            
+                $_SESSION['nome'] = $user['nome'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['nivel'] = 2;
             }
-            $_SESSION['nome'] = $user['nome'];
-            $_SESSION['nivel'] = 2;
 
             header("Location: noticias.php");
             echo "<script>alert('Usuario cadastrado !!! ')</script>";

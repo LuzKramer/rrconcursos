@@ -55,8 +55,10 @@ CREATE TABLE tb_login(
     id int AUTO_INCREMENT PRIMARY KEY,
     nome varchar(255) NOT NULL, 
     email varchar(255) NOT NULL,
-    senha varchar(255)not null
+    senha varchar(255) NOT NULL,
+    pontos int DEFAULT 0
 );
+
 
 
 CREATE TABLE tb_news(
