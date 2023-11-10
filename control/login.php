@@ -24,6 +24,7 @@ if ($quantity == 1) {
             session_start();
         }
         $_SESSION['nome'] = $user['nome'];
+        $_SESSION['email'] = $user['email'];
         $_SESSION['nivel'] = 2;
 
         echo "<script>alert('Usuario logado !!! ')</script>";

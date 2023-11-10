@@ -56,7 +56,7 @@
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="../index.php" class="nav-link px-2 link-secondary">Início</a></li>
-            <li><a href="questions.php" class="nav-link px-2">Questões</a></li>
+            <li><a href="filtro.php" class="nav-link px-2">Questões</a></li>
             <li><a href="infos.php" class="nav-link px-2">Informações</a></li>
             <li><a href="ajuda.php" class="nav-link px-2">Ajuda</a></li>
             <li><a href="noticias.php" class="nav-link px-2">Notícias</a></li>
@@ -81,6 +81,8 @@
     <div class="container mt-5">
         <h1 class="mb-4">Sobre Nós</h1>
         <p>Site para o projeto Dotores da Informática 2023</p>
+        <p>Somos alunos do Instituto Federal de Roraima(IFRR) do campus Boa Vista, do curso de Informática do2° ano do ensino médio. <br>
+         fizemos esse sistema para apresentar no evento IF comunidade de 2023 pelo projeto Doutores da Informática. </p>
 
         <div class="row">
             <!-- Pessoa 1 -->
@@ -89,7 +91,7 @@
                     <img src="../view/img/will.jpg" class="card-img-top rounded-img" alt="Foto de William Kramer">
                     <div class="card-body">
                         <h5 class="card-title">William Kramer</h5>
-                        <p class="card-text">Líder do Projeto</p>
+                        <p class="card-text">Líder do grupo</p>
                         <p class="card-text">Github: <a href="https://github.com/LuzKramer">LuzKramer</a></p>
                     </div>
                 </div>
@@ -98,10 +100,10 @@
             <!-- Pessoa 2 - Adicione as informações da Pessoa 2 aqui -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagem_pessoa2.jpg" class="card-img-top rounded-img" alt="Foto da Pessoa 2">
+                    <img src="imagem_pessoa2.jpg" class="card-img-top rounded-img" alt="">
                     <div class="card-body">
                         <h5 class="card-title">João Felipe</h5>
-                        <p class="card-text">Descrição da Pessoa 2.</p>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
@@ -109,10 +111,10 @@
             <!-- Pessoa 3 - Adicione as informações da Pessoa 3 aqui -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagem_pessoa3.jpg" class="card-img-top rounded-img" alt="Foto da Pessoa 3">
+                    <img src="imagem_pessoa3.jpg" class="card-img-top rounded-img" alt="">
                     <div class="card-body">
                         <h5 class="card-title">Gustavo de Jesus</h5>
-                        <p class="card-text">Descrição da Pessoa 3.</p>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
@@ -122,10 +124,10 @@
             <!-- Pessoa 4 - Adicione as informações da Pessoa 4 aqui -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagem_pessoa4.jpg" class="card-img-top rounded-img" alt="Foto da Pessoa 4">
+                    <img src="imagem_pessoa4.jpg" class="card-img-top rounded-img" alt="">
                     <div class="card-body">
                         <h5 class="card-title">Vinicios Barros</h5>
-                        <p class="card-text">Descrição da Pessoa 4.</p>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
@@ -133,10 +135,10 @@
             <!-- Pessoa 5 - Adicione as informações da Pessoa 5 aqui -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagem_pessoa5.jpg" class="card-img-top rounded-img" alt="Foto da Pessoa 5">
+                    <img src="imagem_pessoa5.jpg" class="card-img-top rounded-img" alt="">
                     <div class="card-body">
                         <h5 class="card-title">Miguel Lestayo</h5>
-                        <p class="card-text">Fez nada.</p>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
