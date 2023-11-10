@@ -107,7 +107,7 @@ if (isset($_POST['mudar'])) {
 
         echo "<script>alert(' senha alterada !!! ')</script>";
 
-        header("Location: questoes.php");
+        header("Location: ajuda.php");
         exit();
     } else {
         echo "Erro ao mudar senha : " . $mysqli->error;

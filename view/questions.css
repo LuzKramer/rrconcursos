@@ -8,10 +8,60 @@ body {
 
 
 
+/* Header Styles */
 header {
-
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 3px 0;
     background: #58c24e;
+   
+    /* Add the appropriate border color */
 }
+
+/* Navigation List Styles */
+.x {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+/* Navigation List Item Styles */
+.x li {
+    margin-right: 10px;
+    /* Adjust the spacing between list items */
+}
+
+/* Navigation Link Styles */
+.x-l {
+    text-decoration: none;
+    color: #007bff;
+    /* Define the link color */
+}
+
+/* User Menu Styles */
+.user-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Button Styles */
+.btn {
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    /* Define the border color */
+    background-color: #007bff;
+    /* Define the background color */
+    color: #fff;
+    /* Define the text color */
+    cursor: pointer;
+    margin-right: 10px;
+    /* Adjust the spacing between buttons */
+}
+
 
 main {
     height: 100%;

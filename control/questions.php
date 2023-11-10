@@ -1,6 +1,6 @@
 
 <?php
-include "protect.php";
+//include "protect.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -68,6 +68,8 @@ include "protect.php";
 
             <?php
 
+            print_r($_COOKIE['a']);
+
 
             include("conection.php");
             $questao = "SELECT * FROM questoes as a1, alternativas as a2, disciplinas as a3, instituicao as a4 where a1.id_questao=a2.id_questao
@@ -109,6 +111,8 @@ include "protect.php";
                         $ano_questao = $resultado['ano'];
                         $disciplina_questao = $resultado['nome_disciplina'];
                         $institui = $resultado['nome_instituicao'];
+
+                        echo $id_questao;
 
 
 
