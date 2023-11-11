@@ -81,7 +81,7 @@
     <div class="container mt-5">
         <h1 class="mb-4">Sobre Nós</h1>
         <p>Site para o projeto Dotores da Informática 2023</p>
-        <p>Somos alunos do Instituto Federal de Roraima(IFRR) do campus Boa Vista, do curso de Informática do2° ano do ensino médio. <br>
+        <p>Somos alunos do Instituto Federal de Roraima(IFRR) do campus Boa Vista, do curso de Informática do 2° ano do ensino médio. <br>
          fizemos esse sistema para apresentar no evento IF comunidade de 2023 pelo projeto Doutores da Informática. </p>
 
         <div class="row">
@@ -100,10 +100,11 @@
             <!-- Pessoa 2 - Adicione as informações da Pessoa 2 aqui -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagem_pessoa2.jpg" class="card-img-top rounded-img" alt="">
+                    <img src="../view/img/joao.jpeg" class="card-img-top rounded-img" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">João Felipe</h5>
+                        <h5 class="card-title">João Felipe Khan</h5><br>
                         <p class="card-text"></p>
+                        <p class="card-text">Github: <a href=" https://github.com/jfkrs123">jfkrs123</a></p>
                     </div>
                 </div>
             </div>
@@ -113,7 +114,7 @@
                 <div class="card">
                     <img src="imagem_pessoa3.jpg" class="card-img-top rounded-img" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">Gustavo de Jesus</h5>
+                        <h5 class="card-title">Gustavo de Jesus</h5><br><br>
                         <p class="card-text"></p>
                     </div>
                 </div>
