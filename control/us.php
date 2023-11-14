@@ -45,22 +45,24 @@
 
 <body>
 
-    <header class="d-flex flex-wrap align-items-center justify-content-between py-3 border-bottom">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3  border-bottom">
         <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
+            <a href="../index.php" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <img src="../view/img/rr.jpeg" alt="Logo" style="width: 80px; height: auto; border-radius: 50%;">
             </a>
         </div>
 
+
+
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="../index.php" class="nav-link px-2 link-secondary">Início</a></li>
-            <li><a href="filtro.php" class="nav-link px-2">Questões</a></li>
-            <li><a href="infos.php" class="nav-link px-2">Informações</a></li>
-            <li><a href="ajuda.php" class="nav-link px-2">Ajuda</a></li>
-            <li><a href="noticias.php" class="nav-link px-2">Notícias</a></li>
+            <li><a href="../index.php" class="nav-link px-2 link-secondary text-white">Inicio</a></li>
+            <li><a href="filtro.php" class="nav-link px-2 text-white">Questões</a></li>
+            <li><a href="infos.php" class="nav-link px-2 text-white">Infos</a></li>
+            <li><a href="ajuda.php" class="nav-link px-2 text-white">Ajuda</a></li>
+            <li><a href="noticias.php" class="nav-link px-2 text-white">Noticias</a></li>
         </ul>
+
+
 
         <div class="col-md-3 text-end">
             <?php
@@ -71,18 +73,20 @@
                 echo "<button type='button' class='btn btn-primary' onclick='window.location.href = \"logout.php\"'>Logout</button>";
             } else {
                 // User is not logged in
-                echo "<button type='button' class='btn btn-outline-primary me-2' onclick='window.location.href = \"login.php\"'>Login</button>";
+                echo "<button type='button' class='btn btn-outline-primary me-2' onclick='window.location.href=\"login.php\"' style='background-color: white'>Login</button>";
                 echo "<button type='button' class='btn btn-primary' onclick='window.location.href = \"cadastro.php\"'>Cadastro</button>";
             }
             ?>
+
         </div>
+
     </header>
 
     <div class="container mt-5">
         <h1 class="mb-4">Sobre Nós</h1>
         <p>Site para o projeto Dotores da Informática 2023</p>
-        <p>Somos alunos do Instituto Federal de Roraima(IFRR) do campus Boa Vista, do curso de Informática do2° ano do ensino médio. <br>
-         fizemos esse sistema para apresentar no evento IF comunidade de 2023 pelo projeto Doutores da Informática. </p>
+        <p>Somos alunos do Instituto Federal de Roraima(IFRR) do campus Boa Vista, do curso de Informática do 2° ano do ensino médio. <br>
+            fizemos esse sistema para apresentar no evento IF comunidade de 2023 pelo projeto Doutores da Informática. </p>
 
         <div class="row">
             <!-- Pessoa 1 -->
@@ -100,10 +104,11 @@
             <!-- Pessoa 2 - Adicione as informações da Pessoa 2 aqui -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="imagem_pessoa2.jpg" class="card-img-top rounded-img" alt="">
+                    <img src="../view/img/joao.jpeg" class="card-img-top rounded-img" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">João Felipe</h5>
+                        <h5 class="card-title">João Felipe Khan</h5><br>
                         <p class="card-text"></p>
+                        <p class="card-text">Github: <a href=" https://github.com/jfkrs123">jfkrs123</a></p>
                     </div>
                 </div>
             </div>
@@ -113,7 +118,7 @@
                 <div class="card">
                     <img src="imagem_pessoa3.jpg" class="card-img-top rounded-img" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">Gustavo de Jesus</h5>
+                        <h5 class="card-title">Gustavo de Jesus</h5><br><br>
                         <p class="card-text"></p>
                     </div>
                 </div>
@@ -146,12 +151,13 @@
     </div>
     <footer class="py-3 ">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="../index.php" class="nav-link px-2 text-body-secondary">Inicio</a></li>
-            <li class="nav-item"><a href="infos.php" class="nav-link px-2 text-body-secondary">+Infos</a></li>
-            <li class="nav-item"><a href="noticias.php" class="nav-link px-2 text-body-secondary">Noticias</a></li>
-            <li class="nav-item"><a href="ajuda.php" class="nav-link px-2 text-body-secondary">Ajuda</a></li>
-            <li class="nav-item"><a href="us.php" class="nav-link px-2 text-body-secondary">Sobre Nós</a></li>
+            <li class="nav-item"><a href="../index.php" class="nav-link px-2 text-white">Inicio</a></li>
+            <li class="nav-item"><a href="infos.php" class="nav-link px-2 text-white">+Infos</a></li>
+            <li class="nav-item"><a href="noticias.php" class="nav-link px-2 text-white">Noticias</a></li>
+            <li class="nav-item"><a href="ajuda.php" class="nav-link px-2 text-white">Ajuda</a></li>
+            <li class="nav-item"><a href="us.php" class="nav-link px-2 text-white">Sobre Nós</a></li>
         </ul>
+
         <p class="text-center text-body-secondary">© 2023 RRconcursos</p>
     </footer>
     <!-- Adicione o link para o JavaScript do Bootstrap e jQuery -->

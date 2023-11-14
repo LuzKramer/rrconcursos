@@ -10,16 +10,20 @@ body{
 }
 
 header{
-    height: 10vh;
-    background: #58c24e;
    
+    background: green;
+    color:white;
+   
+}
+.btn btn-outline-primary me-2{
+    background-color: white;
 }
 
 footer{
-    height: 20vh;
-    background: #58c24e;
-    bottom: 0;
    
+    background: green;
+    bottom: 0;
+   color: white;
 }
 .MainIn{
    
