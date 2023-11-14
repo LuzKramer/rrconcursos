@@ -10,7 +10,7 @@ body {
 
 header {
 
-    background: #58c24e;
+    background: green;
 }
 
 main {
@@ -73,6 +73,7 @@ form input[type=submit] {
 
 
 footer {
-    background: #58c24e;
+    background: green;
+    color: white;
 
 }

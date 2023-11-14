@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="../view/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        
-
         .info {
             display: flex;
             flex-direction: column;
@@ -25,22 +23,23 @@
 </head>
 
 <body>
-    <header class="d-flex flex-wrap align-items-center justify-content-between py-3 border-bottom">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3  border-bottom">
         <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
+            <a href="../index.php" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <img src="../view/img/rr.jpeg" alt="Logo" style="width: 80px; height: auto; border-radius: 50%;">
             </a>
         </div>
 
+
+
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="../index.php" class="nav-link px-2 link-secondary">Início</a></li>
-            <li><a href="filtro.php" class="nav-link px-2">Questões</a></li>
-            <li><a href="infos.php" class="nav-link px-2">Informações</a></li>
-            <li><a href="ajuda.php" class="nav-link px-2">Ajuda</a></li>
-            <li><a href="noticias.php" class="nav-link px-2">Notícias</a></li>
+            <li><a href="../index.php" class="nav-link px-2 link-secondary text-white">Inicio</a></li>
+            <li><a href="filtro.php" class="nav-link px-2 text-white">Questões</a></li>
+            <li><a href="infos.php" class="nav-link px-2 text-white">Infos</a></li>
+            <li><a href="ajuda.php" class="nav-link px-2 text-white">Ajuda</a></li>
+            <li><a href="noticias.php" class="nav-link px-2 text-white">Noticias</a></li>
         </ul>
+
 
         <div class="col-md-3 text-end">
             <?php
@@ -55,7 +54,9 @@
                 echo "<button type='button' class='btn btn-primary' onclick='window.location.href = \"cadastro.php\"'>Cadastro</button>";
             }
             ?>
+
         </div>
+
     </header>
 
     <div class="info">
@@ -69,14 +70,15 @@
         <p>Estamos aqui para te ajudar a alcançar o sucesso. Conte com a RR CONCURSOS.</p>
         </p>
     </div>
-    <footer class="py-3">
+    <footer class="py-3 ">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="../index.php" class="nav-link px-2 text-body-secondary">Início</a></li>
-            <li class="nav-item"><a href="infos.php" class="nav-link px-2 text-body-secondary">+Informações</a></li>
-            <li class="nav-item"><a href="noticias.php" class="nav-link px-2 text-body-secondary">Notícias</a></li>
-            <li class="nav-item"><a href="ajuda.php" class="nav-link px-2 text-body-secondary">Ajuda</a></li>
-            <li class="nav-item"><a href="us.php" class="nav-link px-2 text-body-secondary">Sobre Nós</a></li>
+            <li class="nav-item"><a href="../index.php" class="nav-link px-2 text-white">Inicio</a></li>
+            <li class="nav-item"><a href="infos.php" class="nav-link px-2 text-white">+Infos</a></li>
+            <li class="nav-item"><a href="noticias.php" class="nav-link px-2 text-white">Noticias</a></li>
+            <li class="nav-item"><a href="ajuda.php" class="nav-link px-2 text-white">Ajuda</a></li>
+            <li class="nav-item"><a href="us.php" class="nav-link px-2 text-white">Sobre Nós</a></li>
         </ul>
+
         <p class="text-center text-body-secondary">© 2023 RRconcursos</p>
     </footer>
 </body>
