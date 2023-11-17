@@ -13,7 +13,7 @@
 
         .menu {
             width: 100vw;
-            height: 95vh;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -21,6 +21,7 @@
 
         .esq {
             width: 50vw;
+            
             justify-content: center;
             align-items: center;
             text-align: center;

@@ -29,7 +29,7 @@ if ($quantity == 1) {
 
         echo "<script>alert('Usuario logado !!! ')</script>";
 
-        header("Location: questions.php");
+        header("Location: filtro.php");
         exit();
     } else {
         echo "<script>alert('Erro ao logar! Email ou senha incorretos.')</script>";
