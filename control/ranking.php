@@ -54,9 +54,10 @@ include "protect.php";
     </header>
 
     <main class="MainIn">
+        <h1>Ranking de mais acertos de questões</h1>
         <?php
         include('conection.php');
-        $sql = "SELECT * FROM tb_login ORDER BY pontos DESC LIMIT 20;";
+        $sql = "SELECT * FROM tb_login WHERE pontos > 1 ORDER BY pontos DESC LIMIT 20;";
         $query = mysqli_query($mysqli, $sql);
 
         if (mysqli_num_rows($query) > 0) {
